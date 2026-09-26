@@ -4,11 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SearchLens — SEO &amp; AI-Search (GEO/AEO) Audit Tool</title>
-<meta name="description" content="Free SEO, GEO &amp; AEO audit tool. Scan any page for classic SEO, technical health, and AI-search readiness.">
+<meta name="description" content="Free SEO, GEO &amp; AEO audit tool. Scan any page for classic SEO, technical health, and AI-search readiness — get a 0–100 score, evidence, and ready-to-paste fixes.">
 <link rel="canonical" href="https://searchlens.vercel.app/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#5AB8F5" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0C0F15" media="(prefers-color-scheme: dark)">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="SearchLens">
+<meta property="og:title" content="SearchLens — SEO & AI-Search (GEO/AEO) Audit Tool">
+<meta property="og:description" content="Scan any page for classic SEO, technical health, and AI-search (GEO/AEO) readiness — with a score, evidence, and ready-to-paste fixes.">
+<meta property="og:url" content="https://searchlens.vercel.app/">
+<meta property="og:type" content="website">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -31,79 +39,187 @@
   --pass:#3ECB84; --pass-bg:#10281d; --warn:#FFC21A; --warn-bg:#2a2410; --fail:#FF7059; --fail-bg:#2c1712;
   --shadow:0 16px 44px -14px rgba(0,0,0,.6);
 }
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0C0F15; --surface:#151A23; --surface-2:#1D2531; --raise:#26303E;
+  --ink:#EAF2FB; --ink-soft:#93A4BC; --ink-faint:#61728C; --line:#26303E;
+  --blue:#6CC4FF; --blue-deep:#3EA6F2; --blue-soft:#122234;
+  --yellow:#FFD23F; --yellow-deep:#FFC21A; --yellow-soft:#2A2612;
+  --pass:#3ECB84; --pass-bg:#10281d; --warn:#FFC21A; --warn-bg:#2a2410; --fail:#FF7059; --fail-bg:#2c1712;
+  --shadow:0 16px 44px -14px rgba(0,0,0,.6);
+}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
 a{color:var(--blue-deep);text-decoration:none}
 
+/* nav */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
 .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:20px;letter-spacing:-.02em;color:var(--ink)}
 .logo{width:34px;height:34px;border-radius:11px;background:var(--ink);position:relative;flex:none;overflow:hidden}
+.logo::before{content:"";position:absolute;inset:0;border-radius:50%;margin:9px;border:2.5px solid var(--blue)}
+.logo::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2.5px;background:var(--yellow);transform-origin:left;transform:translateY(-50%);border-radius:2px;animation:sweep 3s linear infinite}
+@keyframes sweep{to{transform:translateY(-50%) rotate(360deg)}}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{color:var(--ink-soft);font-weight:600;font-size:14.5px}
+.nav-links a:hover{color:var(--ink)}
 .tgl{background:var(--surface-2);border:1px solid var(--line);color:var(--ink-soft);width:40px;height:38px;border-radius:11px;cursor:pointer;font-size:16px}
-.btn{font-family:var(--sans);font-weight:700;font-size:15px;border-radius:12px;padding:13px 22px;cursor:pointer;border:2px solid transparent;display:inline-flex;align-items:center;gap:8px}
+.btn{font-family:var(--sans);font-weight:700;font-size:15px;border-radius:12px;padding:13px 22px;cursor:pointer;border:2px solid transparent;transition:transform .12s ease,box-shadow .2s ease,filter .2s ease;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(1px) scale(.99)}
 .btn-y{background:var(--yellow);color:#141414;box-shadow:0 6px 0 var(--yellow-deep)}
-.btn-y:hover{filter:brightness(1.03);transform:translateY(-1px)}
+.btn-y:hover{filter:brightness(1.03);box-shadow:0 8px 0 var(--yellow-deep);transform:translateY(-1px)}
+.btn-y:active{box-shadow:0 2px 0 var(--yellow-deep);transform:translateY(3px)}
+.btn-b{background:var(--blue-deep);color:#fff}
+.btn-b:hover{filter:brightness(1.06);transform:translateY(-1px)}
 .btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{background:var(--surface-2)}
+.nav .btn{padding:10px 18px}
+@media(max-width:720px){.nav-links a{display:none}}
 
-.hero{padding:50px 0 30px;text-align:center}
-h1{font-size:clamp(32px,5vw,52px);font-weight:800;margin:0 0 16px}
-h1 .hl{background:var(--yellow);color:#141414;padding:0 .12em;border-radius:6px}
-.lede{color:var(--ink-soft);font-size:18px;max-width:55ch;margin:0 auto 24px}
+/* hero */
+.hero{position:relative;padding:70px 0 40px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+@media(max-width:840px){.hero-grid{grid-template-columns:1fr;gap:20px}.radar-wrap{order:-1;margin:0 auto}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--yellow-soft);color:var(--yellow-deep);font-weight:700;font-size:13px;padding:7px 14px;border-radius:99px;margin-bottom:20px}
+.eyebrow b{width:7px;height:7px;border-radius:50%;background:var(--yellow-deep);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+h1{font-size:clamp(34px,6vw,56px);font-weight:800;line-height:1.02;letter-spacing:-.035em;margin:0 0 18px}
+h1 .hl{background:var(--yellow);color:#141414;padding:0 .12em;border-radius:6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.lede{color:var(--ink-soft);font-size:18px;max-width:46ch;margin:0 0 28px}
+.hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 
-section.blk{padding:40px 0}
+/* radar */
+.radar-wrap{display:grid;place-items:center;position:relative;width:100%;max-width:320px}
+.radar{position:relative;width:280px;height:280px;max-width:78vw;max-height:78vw}
+.ring{position:absolute;inset:0;border:2px solid var(--line);border-radius:50%}
+.ring.r2{inset:34px}.ring.r3{inset:68px}.ring.r4{inset:102px}
+.radar .core{position:absolute;inset:0;margin:auto;width:14px;height:14px;background:var(--blue-deep);border-radius:50%;box-shadow:0 0 0 6px var(--blue-soft)}
+.beam{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0deg,color-mix(in srgb,var(--yellow) 55%,transparent) 40deg,transparent 60deg);animation:spin 3.4s linear infinite;-webkit-mask:radial-gradient(circle,transparent 6px,#000 7px);mask:radial-gradient(circle,transparent 6px,#000 7px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.blip{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 4px var(--yellow-soft);animation:blip 3.4s ease-in-out infinite}
+.blip.b1{top:22%;left:64%}.blip.b2{top:60%;left:30%;animation-delay:1.1s}.blip.b3{top:70%;left:70%;animation-delay:2.2s}
+@keyframes blip{0%,70%,100%{transform:scale(.5);opacity:.3}80%{transform:scale(1.15);opacity:1}}
+.float{animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* generic section */
+section.blk{padding:56px 0}
+.kh{font-size:clamp(24px,3.4vw,34px);font-weight:800;letter-spacing:-.03em;margin:0 0 10px;text-align:center}
+.ksub{color:var(--ink-soft);text-align:center;max-width:52ch;margin:0 auto 36px}
+
+/* TOOL */
+#tool{scroll-margin-top:80px}
 .tool-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
-.tool-head{background:var(--ink);color:#fff;padding:18px 22px;display:flex;align-items:center;gap:12px}
+.tool-head{background:var(--ink);color:#fff;padding:18px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .tool-head .dot3{display:flex;gap:6px}.tool-head .dot3 i{width:11px;height:11px;border-radius:50%}
 .tool-head .dot3 i:nth-child(1){background:var(--fail)}.tool-head .dot3 i:nth-child(2){background:var(--yellow)}.tool-head .dot3 i:nth-child(3){background:var(--pass)}
+.tool-head span{font-weight:700;font-size:14px}
+.tool-head .u{margin-left:auto;font-family:var(--mono);font-size:12.5px;color:#9fb4cc;background:#0000004d;padding:5px 12px;border-radius:8px}
 .pad{padding:22px}
 .tabs{display:flex;gap:4px;background:var(--surface-2);padding:5px;border-radius:12px;margin-bottom:14px;width:fit-content}
-.tab{padding:9px 18px;border:none;background:transparent;color:var(--ink-soft);font-weight:700;font-size:14px;border-radius:9px;cursor:pointer}
+.tab{padding:9px 18px;border:none;background:transparent;color:var(--ink-soft);font-weight:700;font-size:14px;border-radius:99px;cursor:pointer}
 .tab[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.1)}
-textarea,input[type=url]{width:100%;background:var(--bg);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:14px;font-family:var(--mono);font-size:14px}
-textarea{min-height:140px;resize:vertical}
+textarea,input[type=url]{width:100%;background:var(--bg);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:14px;font-family:var(--mono);font-size:13.5px;line-height:1.5}
+textarea{min-height:150px;resize:vertical}
+textarea:focus,input:focus{outline:none;border-color:var(--blue-deep)}
+.adv summary{cursor:pointer;color:var(--blue-deep);font-weight:700;font-size:14px;margin-top:14px}
+.adv textarea{min-height:76px;margin-top:10px}
 .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.row .btn-y{flex:1;min-width:180px;justify-content:center}
+.hint{color:var(--ink-faint);font-size:13px;margin:12px 2px 0;display:flex;align-items:center;gap:7px}
 
-#results{margin-top:26px}
+/* results */
+#results{display:none;margin-top:26px}
 .score-wrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px}
-.gauge-score{font-size:48px;font-weight:800;color:var(--blue-deep)}
-.card{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:12px;padding:15px 16px;margin-bottom:12px}
+.gauge{position:relative;width:130px;height:130px;flex:none}
+.gauge .num{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.gauge .num b{font-size:38px;font-weight:800;line-height:1}
+.cats{flex:1;min-width:240px;display:flex;flex-direction:column;gap:12px}
+.cat .cl{display:flex;justify-content:space-between;font-size:13.5px;font-weight:700;margin-bottom:4px}
+.bar{height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;width:0;transition:width .8s ease}
+
+.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:15px 16px;margin-bottom:12px}
 .card.s-pass{border-left-color:var(--pass)}.card.s-warn{border-left-color:var(--warn)}.card.s-fail{border-left-color:var(--fail)}
-.cname{font-weight:700;font-size:16px}
-.ev{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:5px 9px;margin-top:6px;display:inline-block}
-.why{color:var(--ink-soft);font-size:14px;margin-top:6px}
-footer{padding:30px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;border-top:1px solid var(--line);margin-top:40px}
+.cname{font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ev{font-family:var(--mono);font-size:12px;color:var(--ink-soft);background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:5px 9px;margin-top:8px;display:inline-block;max-width:100%;overflow-wrap:anywhere}
+.why{color:var(--ink-soft);font-size:13.5px;margin-top:8px}
+
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:780px){.feats{grid-template-columns:1fr}}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.feat .ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:24px;margin-bottom:16px}
+.feat.f1 .ic{background:var(--blue-soft);color:var(--blue-deep)}.feat.f2 .ic{background:var(--yellow-soft);color:var(--yellow-deep)}.feat.f3 .ic{background:var(--ink);color:var(--yellow)}
+.feat h4{font-size:18px;font-weight:800;margin:0 0 7px}.feat p{color:var(--ink-soft);font-size:14.5px;margin:0}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:780px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding:26px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.step h4{margin:10px 0 7px;font-size:17px;font-weight:800}.step p{color:var(--ink-soft);font-size:14.5px;margin:0}
+
+.ctaband{background:var(--ink);color:#fff;border-radius:var(--r);padding:44px;text-align:center;position:relative;overflow:hidden}
+.ctaband h3{font-size:clamp(24px,4vw,34px);font-weight:800;margin:0 0 10px}
+.ctaband h3 .hl{color:var(--yellow)}
+.ctaband p{color:#aebfd4;margin:0 0 22px}
+
+footer{padding:36px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;border-top:1px solid var(--line);margin-top:20px}
 </style>
 </head>
 <body>
 <nav><div class="wrap nav">
   <div class="brand"><span class="logo"></span>SearchLens</div>
-  <button class="tgl" id="theme" title="Theme">◐</button>
+  <div class="nav-links">
+    <a href="#tool">The tool</a><a href="#checks">What it checks</a><a href="#how">How it works</a>
+    <button class="tgl" id="theme" title="Theme">◐</button>
+    <a href="#tool" class="btn btn-y">Scan my page</a>
+  </div>
 </div></nav>
 
-<header class="hero"><div class="wrap">
-  <h1>Is your page ready for <span class="hl">Google &amp; AI</span> search?</h1>
-  <p class="lede">Scan any URL or HTML to get an instant, dynamic SEO &amp; GEO audit score.</p>
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <div class="eyebrow"><b></b>SEO · GEO · AEO in one scan</div>
+    <h1>Is your page ready for <span class="hl">Google &amp; AI</span> search?</h1>
+    <p class="lede">Paste your page or URL. In one scan, SearchLens shows what's right, what's wrong, and the exact fix — for classic SEO, technical health, and how AI engines like ChatGPT read you.</p>
+    <div class="cta-row">
+      <a href="#tool" class="btn btn-y">Scan my page — free</a>
+      <a href="#how" class="btn btn-ghost">See how it works</a>
+    </div>
+  </div>
+  <div class="radar-wrap"><div class="radar float">
+    <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div><div class="ring r4"></div>
+    <div class="beam"></div><div class="core"></div>
+    <div class="blip b1"></div><div class="blip b2"></div><div class="blip b3"></div>
+  </div></div>
 </div></header>
 
 <section class="blk" id="tool"><div class="wrap">
+  <h2 class="kh">Scan your page now</h2>
+  <p class="ksub">No sign-up. Scan HTML code or enter a live domain URL directly.</p>
   <div class="tool-card">
     <div class="tool-head"><div class="dot3"><i></i><i></i><i></i></div><span>SearchLens Scanner</span></div>
     <div class="pad">
       <div class="tabs" role="tablist">
-        <button class="tab" role="tab" aria-selected="false" id="tab-url">Enter URL</button>
         <button class="tab" role="tab" aria-selected="true" id="tab-html">Paste HTML</button>
+        <button class="tab" role="tab" aria-selected="false" id="tab-url">Enter URL</button>
       </div>
       
-      <div id="pane-url" hidden>
-        <input id="url" type="url" placeholder="https://example.com">
-        <div class="row"><button class="btn btn-y" id="run-url" style="flex:1;justify-content:center">Scan URL</button></div>
+      <div id="pane-html">
+        <textarea id="html" placeholder="Paste your page source — right-click your page → View Source → copy all → paste here."></textarea>
+        <details class="adv"><summary>Advanced — add robots.txt &amp; llms.txt (optional)</summary>
+          <textarea id="robots" placeholder="Paste /robots.txt (optional)"></textarea>
+          <textarea id="llms" placeholder="Paste /llms.txt (optional)"></textarea>
+        </details>
+        <div class="row">
+          <button class="btn btn-y" id="run">Run audit</button>
+          <button class="btn btn-ghost" id="sample">Try a sample page</button>
+        </div>
       </div>
 
-      <div id="pane-html">
-        <textarea id="html" placeholder="Paste HTML code here..."></textarea>
-        <div class="row"><button class="btn btn-y" id="run" style="flex:1;justify-content:center">Run Audit</button></div>
+      <div id="pane-url" hidden>
+        <input id="url" type="url" placeholder="https://yoursite.com">
+        <div class="row"><button class="btn btn-y" id="run-url" style="flex:1;min-width:180px;justify-content:center">Scan URL</button></div>
+        <div class="hint">🔒 We fetch the page via Vercel serverless backend, bypassing CORS, and run a complete live scan.</div>
       </div>
 
       <div id="results"></div>
@@ -111,85 +227,117 @@ footer{padding:30px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;
   </div>
 </div></section>
 
-<footer class="wrap">SearchLens — Live Website Scanner</footer>
+<section class="blk" id="checks"><div class="wrap">
+  <h2 class="kh">What it checks</h2>
+  <p class="ksub">Three layers, one score — from the basics Google still cares about to the AI-search signals most tools miss.</p>
+  <div class="feats">
+    <div class="feat f1"><div class="ic">🔎</div><h4>Classic SEO</h4><p>Title, meta, headings, alt text, canonical, Open Graph, mobile viewport — the on-page foundation.</p></div>
+    <div class="feat f2"><div class="ic">⚙️</div><h4>Technical &amp; schema</h4><p>Structured data (JSON-LD), Organization/entity markup, and raw HTML content readability.</p></div>
+    <div class="feat f3"><div class="ic">🤖</div><h4>GEO / AEO — AI search</h4><p>AI-crawler access, llms.txt, answer-first content, question headings — so ChatGPT &amp; Perplexity can cite you.</p></div>
+  </div>
+</div></section>
+
+<section class="blk" id="how"><div class="wrap">
+  <h2 class="kh">How it works</h2>
+  <p class="ksub">Three steps. About thirty seconds.</p>
+  <div class="steps">
+    <div class="step"><h4>1. Paste or enter URL</h4><p>Copy your page source or type your website URL into the scanner.</p></div>
+    <div class="step"><h4>2. Get your score</h4><p>See a 0–100 score with every check marked pass, warn, or fail — plus the evidence behind each.</p></div>
+    <div class="step"><h4>3. Apply the fix</h4><p>Each issue comes with actionable insights and clear suggestions.</p></div>
+  </div>
+</div></section>
+
+<section class="blk"><div class="wrap">
+  <div class="ctaband">
+    <h3>Fix what's holding your page back — <span class="hl">free.</span></h3>
+    <p>One scan shows you exactly where you stand with Google and AI search.</p>
+    <a href="#tool" class="btn btn-y">Scan my page</a>
+  </div>
+</div></section>
+
+<footer class="wrap">SearchLens — SEO · GEO · AEO audit. Live-URL scanning via Vercel serverless backend.</footer>
 
 <script>
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const root=document.documentElement;
-$('#theme').onclick=()=>{const d=(root.getAttribute('data-theme')||'light')==='light';root.setAttribute('data-theme',d?'dark':'light')};
 
-function selTab(isUrl){
-  $('#tab-url').setAttribute('aria-selected',isUrl);
-  $('#tab-html').setAttribute('aria-selected',!isUrl);
-  $('#pane-url').hidden=!isUrl;
-  $('#pane-html').hidden=isUrl;
+$('#theme').onclick=()=>{
+  const d=(root.getAttribute('data-theme')||'light')==='light';
+  root.setAttribute('data-theme',d?'dark':'light');
+};
+
+function selTab(isHtml){
+  $('#tab-html').setAttribute('aria-selected',isHtml);
+  $('#tab-url').setAttribute('aria-selected',!isHtml);
+  $('#pane-html').hidden=!isHtml;
+  $('#pane-url').hidden=isHtml;
 }
-$('#tab-url').onclick=()=>selTab(true);
-$('#tab-html').onclick=()=>selTab(false);
+$('#tab-html').onclick=()=>selTab(true);
+$('#tab-url').onclick=()=>selTab(false);
 
-function auditHTML(html){
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, 'text/html');
+const R=(id,cat,name,status,evidence,why)=>({id,cat,name,status,evidence,why});
+
+function auditEngine(html, robots, llms){
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  const txt = (doc.body?.innerText||'').trim();
   const checks = [];
 
-  // 1. Title Check
-  const title = doc.querySelector('title')?.textContent.trim() || '';
-  checks.push({
-    name: 'Title Tag',
-    status: title && title.length >= 30 && title.length <= 60 ? 'pass' : (title ? 'warn' : 'fail'),
-    evidence: title ? `"${title}" (${title.length} chars)` : 'Missing <title> tag',
-    why: 'Title tag is crucial for Google and AI engines to understand page context.'
-  });
+  // Title
+  const title = doc.querySelector('title')?.textContent.trim()||'';
+  checks.push(R('title','onpage','Title tag', !title?'fail':(title.length>=30&&title.length<=60?'pass':'warn'), title?`"${title.slice(0,60)}" (${title.length} chars)`:'Missing <title> tag','Primary on-page signal for search engines.'));
 
-  // 2. Meta Description
-  const metaDesc = doc.querySelector('meta[name="description"]')?.getAttribute('content')?.trim() || '';
-  checks.push({
-    name: 'Meta Description',
-    status: metaDesc && metaDesc.length >= 100 ? 'pass' : (metaDesc ? 'warn' : 'fail'),
-    evidence: metaDesc ? `"${metaDesc.slice(0, 80)}..." (${metaDesc.length} chars)` : 'Missing meta description',
-    why: 'Drives click-through rate from search engines.'
-  });
+  // Meta Description
+  const md = doc.querySelector('meta[name="description"]')?.getAttribute('content')?.trim()||'';
+  checks.push(R('meta','onpage','Meta description', !md?'warn':(md.length>=120&&md.length<=160?'pass':'warn'), md?`"${md.slice(0,60)}..." (${md.length} chars)`:'Missing meta description','Drives click-through rate in search results.'));
 
-  // 3. H1 Heading
-  const h1s = $$('h1', doc);
-  checks.push({
-    name: 'H1 Heading',
-    status: h1s.length === 1 ? 'pass' : (h1s.length > 1 ? 'warn' : 'fail'),
-    evidence: h1s.length ? `${h1s.length} H1 found: "${h1s[0].textContent.trim().slice(0, 50)}"` : 'No H1 heading found',
-    why: 'Pages should have exactly one main H1 heading.'
-  });
+  // H1
+  const h1 = $$('h1',doc);
+  checks.push(R('h1','onpage','H1 heading', h1.length===1?'pass':(h1.length===0?'fail':'warn'), h1.length===0?'No H1 found':(h1.length===1?`"${h1[0].textContent.trim().slice(0,50)}"`:`${h1.length} H1 tags found`),'Pages should have exactly 1 main H1 heading.'));
 
-  // 4. Canonical Tag
-  const canonical = doc.querySelector('link[rel="canonical"]')?.getAttribute('href');
-  checks.push({
-    name: 'Canonical URL',
-    status: canonical ? 'pass' : 'warn',
-    evidence: canonical ? canonical : 'Missing canonical link',
-    why: 'Prevents duplicate content issues.'
-  });
+  // Images Alt
+  const im = $$('img',doc), na = im.filter(i=>!i.getAttribute('alt')?.trim());
+  checks.push(R('alt','onpage','Image alt text', im.length===0?'pass':(na.length===0?'pass':'warn'), im.length?`${im.length-na.length}/${im.length} images have alt text`:'No images found','Alt tags assist accessibility & AI context.'));
 
-  // 5. Open Graph Image
+  // Canonical
+  const cn = doc.querySelector('link[rel="canonical"]')?.getAttribute('href');
+  checks.push(R('canon','onpage','Canonical URL', cn?'pass':'warn', cn||'Missing canonical tag','Prevents duplicate content issues.'));
+
+  // Open Graph
   const ogImg = doc.querySelector('meta[property="og:image"]')?.getAttribute('content');
-  checks.push({
-    name: 'Open Graph Image',
-    status: ogImg ? 'pass' : 'warn',
-    evidence: ogImg ? ogImg : 'Missing og:image tag',
-    why: 'Important for social media sharing cards.'
-  });
+  checks.push(R('og','onpage','Open Graph image', ogImg?'pass':'warn', ogImg?`og:image set`:'Missing og:image','Generates preview cards on social & AI engines.'));
 
-  // Calculate Real Dynamic Score
-  const passCount = checks.filter(c => c.status === 'pass').length;
-  const warnCount = checks.filter(c => c.status === 'warn').length;
-  const score = Math.round(((passCount * 100) + (warnCount * 50)) / checks.length);
+  // Viewport
+  const vp = doc.querySelector('meta[name="viewport"]');
+  checks.push(R('vp','onpage','Mobile Viewport', vp?'pass':'fail', vp?'meta viewport present':'Missing meta viewport','Essential for mobile responsiveness.'));
 
-  return { score, checks };
+  // JSON-LD Schema
+  const ld = $$('script[type="application/ld+json"]',doc);
+  checks.push(R('schema','tech','Structured Data (JSON-LD)', ld.length>0?'pass':'warn', ld.length?`${ld.length} JSON-LD block(s) detected`:'No JSON-LD schema found','Helps AI and search engines understand entity facts.'));
+
+  // Raw Content
+  checks.push(R('nojs','tech','Raw HTML Content', txt.length>300?'pass':'warn', `${txt.length} chars of text found`, 'AI crawlers require core text rendered in direct HTML.'));
+
+  // LLMS.txt Check
+  checks.push(R('llms','geo','llms.txt File', llms&&llms.trim()?'pass':'warn', llms&&llms.trim()?'llms.txt content present':'No llms.txt detected','llms.txt guides AI models directly to key content.'));
+
+  // Calculate Score
+  const passC = checks.filter(c=>c.status==='pass').length;
+  const warnC = checks.filter(c=>c.status==='warn').length;
+  const score = Math.round(((passC * 100) + (warnC * 50)) / checks.length);
+
+  return { score, checks, passC, warnC, failC: checks.length - passC - warnC };
 }
 
-function renderResults(res){
+function render(data){
   const resDiv = $('#results');
-  let cardsHTML = res.checks.map(c => `
+  resDiv.style.display = 'block';
+
+  let cards = data.checks.map(c=>`
     <div class="card s-${c.status}">
-      <div class="cname">${c.status === 'pass' ? '✅' : (c.status === 'warn' ? '⚠️' : '❌')} ${c.name}</div>
+      <div class="cname">
+        <span>${c.status==='pass'?'✅':(c.status==='warn'?'⚠️':'❌')}</span>
+        <span>${c.name}</span>
+      </div>
       <div class="ev">${c.evidence}</div>
       <div class="why">${c.why}</div>
     </div>
@@ -197,43 +345,85 @@ function renderResults(res){
 
   resDiv.innerHTML = `
     <div class="score-wrap">
-      <div>
-        <div style="font-weight:700;color:var(--ink-soft)">Overall Score</div>
-        <div class="gauge-score">${res.score}/100</div>
+      <div class="gauge">
+        <div class="num">
+          <b>${data.score}</b>
+          <span style="font-size:12px;color:var(--ink-soft)">/ 100</span>
+        </div>
+      </div>
+      <div class="cats">
+        <div style="font-weight:800;font-size:18px">Audit Summary</div>
+        <div class="cat">
+          <div class="cl"><span>Passed Checks</span><em>${data.passC}</em></div>
+          <div class="bar"><i style="width:${(data.passC/data.checks.length)*100}%;background:var(--pass)"></i></div>
+        </div>
+        <div class="cat">
+          <div class="cl"><span>Warnings</span><em>${data.warnC}</em></div>
+          <div class="bar"><i style="width:${(data.warnC/data.checks.length)*100}%;background:var(--warn)"></i></div>
+        </div>
+        <div class="cat">
+          <div class="cl"><span>Failed Checks</span><em>${data.failC}</em></div>
+          <div class="bar"><i style="width:${(data.failC/data.checks.length)*100}%;background:var(--fail)"></i></div>
+        </div>
       </div>
     </div>
-    <div style="margin-top:20px">${cardsHTML}</div>
+    <div style="margin-top:24px">${cards}</div>
   `;
 }
 
-// URL Scan handler
+// Button Events
+$('#run').onclick = () => {
+  const html = $('#html').value.trim();
+  const robots = $('#robots').value.trim();
+  const llms = $('#llms').value.trim();
+  if(!html) return alert('Please paste HTML source code.');
+  const data = auditEngine(html, robots, llms);
+  render(data);
+};
+
 $('#run-url').onclick = async () => {
   const urlVal = $('#url').value.trim();
-  if(!urlVal) return alert('Please enter a valid URL');
-  
-  $('#results').innerHTML = '<p style="text-align:center;font-weight:700;">Scanning website via backend API...</p>';
+  if(!urlVal) return alert('Please enter a valid website URL');
+
+  $('#run-url').textContent = 'Scanning live URL...';
+  $('#run-url').disabled = true;
 
   try {
     const res = await fetch(`/api/scan?url=${encodeURIComponent(urlVal)}`);
     const data = await res.json();
 
     if(data.success && data.html) {
-      const auditData = auditHTML(data.html);
-      renderResults(auditData);
+      const auditRes = auditEngine(data.html, data.robots||'', data.llms||'');
+      render(auditRes);
     } else {
-      $('#results').innerHTML = `<p style="color:var(--fail);font-weight:700;">Scan Failed: ${data.message || 'Error fetching page'}</p>`;
+      alert('Scanning failed: ' + (data.message || 'Unable to fetch website.'));
     }
   } catch(e) {
-    $('#results').innerHTML = `<p style="color:var(--fail);font-weight:700;">Error: ${e.message}</p>`;
+    alert('Error connecting to backend: ' + e.message);
+  } finally {
+    $('#run-url').textContent = 'Scan URL';
+    $('#run-url').disabled = false;
   }
 };
 
-// HTML Paste Scan handler
-$('#run').onclick = () => {
-  const htmlVal = $('#html').value.trim();
-  if(!htmlVal) return alert('Please paste HTML content');
-  const auditData = auditHTML(htmlVal);
-  renderResults(auditData);
+$('#sample').onclick = () => {
+  $('#html').value = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sample Store — Affordable Quality Everyday Goods</title>
+  <meta name="description" content="Discover affordable everyday goods with fast delivery, friendly support, and great reviews across all popular items.">
+  <link rel="canonical" href="https://example.com/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="https://example.com/og.jpg">
+</head>
+<body>
+  <h1>Welcome to Sample Store</h1>
+  <p>Find top deals on trending quality goods for your everyday needs.</p>
+  <img src="banner.jpg" alt="Store collection banner">
+</body>
+</html>`;
+  const data = auditEngine($('#html').value, '', '');
+  render(data);
 };
 </script>
 </body>
