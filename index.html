@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SearchLens — SEO &amp; AI-Search (GEO/AEO) Audit Tool</title>
-<meta name="description" content="Free SEO, GEO &amp; AEO audit tool. Scan any page for classic SEO, technical health, and AI-search readiness — get a 0–100 score, evidence, and ready-to-paste fixes.">
+<meta name="description" content="Free SEO, GEO &amp; AEO audit tool. Scan any page for classic SEO, technical health, and AI-search readiness.">
 <link rel="canonical" href="https://searchlens.vercel.app/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#5AB8F5" media="(prefers-color-scheme: light)">
@@ -13,7 +13,7 @@
 <!-- Open Graph -->
 <meta property="og:site_name" content="SearchLens">
 <meta property="og:title" content="SearchLens — SEO & AI-Search (GEO/AEO) Audit Tool">
-<meta property="og:description" content="Scan any page for classic SEO, technical health, and AI-search (GEO/AEO) readiness — with a score, evidence, and ready-to-paste fixes.">
+<meta property="og:description" content="Scan any page for classic SEO, technical health, and AI-search readiness.">
 <meta property="og:url" content="https://searchlens.vercel.app/">
 <meta property="og:type" content="website">
 
@@ -68,7 +68,7 @@ nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color
 @media(max-width:720px){.nav-links a{display:none}}
 
 /* hero */
-.hero{position:relative;padding:70px 0 40px;overflow:hidden}
+.hero{position:relative;padding:60px 0 40px;overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
 @media(max-width:840px){.hero-grid{grid-template-columns:1fr;gap:20px}.radar-wrap{order:-1;margin:0 auto}}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--yellow-soft);color:var(--yellow-deep);font-weight:700;font-size:13px;padding:7px 14px;border-radius:99px;margin-bottom:20px}
@@ -79,12 +79,7 @@ h1 .hl{background:var(--yellow);color:#141414;padding:0 .12em;border-radius:6px;
 .lede{color:var(--ink-soft);font-size:18px;max-width:46ch;margin:0 0 28px}
 .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 
-/* scroll animations */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
-.rv.show{opacity:1;transform:none}
-.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
-
-/* radar */
+/* radar animation */
 .radar-wrap{display:grid;place-items:center;position:relative;width:100%;max-width:320px}
 .radar{position:relative;width:280px;height:280px;max-width:78vw;max-height:78vw}
 .ring{position:absolute;inset:0;border:2px solid var(--line);border-radius:50%}
@@ -99,9 +94,9 @@ h1 .hl{background:var(--yellow);color:#141414;padding:0 .12em;border-radius:6px;
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
 /* generic section */
-section.blk{padding:56px 0}
+section.blk{padding:48px 0}
 .kh{font-size:clamp(24px,3.4vw,34px);font-weight:800;letter-spacing:-.03em;margin:0 0 10px;text-align:center}
-.ksub{color:var(--ink-soft);text-align:center;max-width:52ch;margin:0 auto 36px}
+.ksub{color:var(--ink-soft);text-align:center;max-width:52ch;margin:0 auto 32px}
 
 /* TOOL */
 #tool{scroll-margin-top:80px}
@@ -110,13 +105,12 @@ section.blk{padding:56px 0}
 .tool-head .dot3{display:flex;gap:6px}.tool-head .dot3 i{width:11px;height:11px;border-radius:50%}
 .tool-head .dot3 i:nth-child(1){background:var(--fail)}.tool-head .dot3 i:nth-child(2){background:var(--yellow)}.tool-head .dot3 i:nth-child(3){background:var(--pass)}
 .tool-head span{font-weight:700;font-size:14px}
-.tool-head .u{margin-left:auto;font-family:var(--mono);font-size:12.5px;color:#9fb4cc;background:#0000004d;padding:5px 12px;border-radius:8px}
 .pad{padding:22px}
 .tabs{display:flex;gap:4px;background:var(--surface-2);padding:5px;border-radius:12px;margin-bottom:14px;width:fit-content}
 .tab{padding:9px 18px;border:none;background:transparent;color:var(--ink-soft);font-weight:700;font-size:14px;border-radius:99px;cursor:pointer}
 .tab[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.1)}
 textarea,input[type=url]{width:100%;background:var(--bg);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:14px;font-family:var(--mono);font-size:13.5px;line-height:1.5}
-textarea{min-height:150px;resize:vertical}
+textarea{min-height:140px;resize:vertical}
 textarea:focus,input:focus{outline:none;border-color:var(--blue-deep)}
 .adv summary{cursor:pointer;color:var(--blue-deep);font-weight:700;font-size:14px;margin-top:14px}
 .adv textarea{min-height:76px;margin-top:10px}
@@ -140,7 +134,7 @@ textarea:focus,input:focus{outline:none;border-color:var(--blue-deep)}
 .filt[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 
 .grp{margin-top:24px}
-.grp h3{font-size:18px;font-weight:800;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.grp h3{font-size:18px;font-weight:800;margin:0 0 14px}
 
 .card{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px}
 .card.s-pass{border-left-color:var(--pass)}.card.s-warn{border-left-color:var(--warn)}.card.s-fail{border-left-color:var(--fail)}
@@ -185,10 +179,10 @@ footer{padding:36px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;
 </div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
-  <div class="rv">
+  <div>
     <div class="eyebrow"><b></b>SEO · GEO · AEO in one scan</div>
     <h1>Is your page ready for <span class="hl">Google &amp; AI</span> search?</h1>
-    <p class="lede">Paste your page or URL. In one scan, SearchLens shows classic SEO, technical health, and how AI engines like ChatGPT read you.</p>
+    <p class="lede">Paste your page or enter URL. In one scan, SearchLens shows classic SEO, technical health, and how AI engines like ChatGPT read you.</p>
     <div class="cta-row">
       <a href="#tool" class="btn btn-y">Scan my page — free</a>
       <a href="#how" class="btn btn-ghost">See how it works</a>
@@ -202,19 +196,25 @@ footer{padding:36px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;
 </div></header>
 
 <section class="blk" id="tool"><div class="wrap">
-  <h2 class="kh rv">Scan your page now</h2>
-  <p class="ksub rv d1">No sign-up. Scan HTML source code or enter a live domain URL directly.</p>
-  <div class="tool-card rv d2">
+  <h2 class="kh">Scan your page now</h2>
+  <p class="ksub">No sign-up required. Enter a live website URL or paste HTML code directly.</p>
+  <div class="tool-card">
     <div class="tool-head"><div class="dot3"><i></i><i></i><i></i></div><span>SearchLens Scanner</span></div>
     <div class="pad">
       <div class="tabs" role="tablist">
-        <button class="tab" role="tab" aria-selected="true" id="tab-html">Paste HTML</button>
-        <button class="tab" role="tab" aria-selected="false" id="tab-url">Enter URL</button>
+        <button class="tab" role="tab" aria-selected="true" id="tab-url">Enter URL</button>
+        <button class="tab" role="tab" aria-selected="false" id="tab-html">Paste HTML</button>
       </div>
       
-      <div id="pane-html">
-        <textarea id="html" placeholder="Paste your page source — right-click your page → View Source → copy all → paste here."></textarea>
-        <details class="adv"><summary>Advanced — add robots.txt &amp; llms.txt (for AI checks)</summary>
+      <div id="pane-url">
+        <input id="url" type="url" placeholder="https://example.com">
+        <div class="row"><button class="btn btn-y" id="run-url" style="flex:1;min-width:180px;justify-content:center">Scan URL</button></div>
+        <div class="hint">🔒 Live scanning via serverless backend engine.</div>
+      </div>
+
+      <div id="pane-html" hidden>
+        <textarea id="html" placeholder="Paste your page source code here..."></textarea>
+        <details class="adv"><summary>Advanced — add robots.txt &amp; llms.txt (optional)</summary>
           <textarea id="robots" placeholder="Paste /robots.txt (optional)"></textarea>
           <textarea id="llms" placeholder="Paste /llms.txt (optional)"></textarea>
         </details>
@@ -224,63 +224,60 @@ footer{padding:36px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;
         </div>
       </div>
 
-      <div id="pane-url" hidden>
-        <input id="url" type="url" placeholder="https://yoursite.com">
-        <div class="row"><button class="btn btn-y" id="run-url" style="flex:1;min-width:180px;justify-content:center">Scan URL</button></div>
-        <div class="hint">🔒 We fetch the page via Vercel serverless backend, bypassing CORS, and run a complete live scan.</div>
-      </div>
-
       <div id="results"></div>
     </div>
   </div>
 </div></section>
 
 <section class="blk" id="checks"><div class="wrap">
-  <h2 class="kh rv">What it checks</h2>
-  <p class="ksub rv d1">Three layers, one score — from the basics Google still cares about to the AI-search signals most tools miss.</p>
+  <h2 class="kh">What it checks</h2>
+  <p class="ksub">Three layers, one score — classic SEO, technical schema, and AI-search readiness.</p>
   <div class="feats">
-    <div class="feat f1 rv"><div class="ic">🔎</div><h4>Classic SEO</h4><p>Title, meta, headings, alt text, canonical, Open Graph, mobile viewport — the on-page foundation.</p></div>
-    <div class="feat f2 rv d1"><div class="ic">⚙️</div><h4>Technical &amp; schema</h4><p>Structured data (JSON-LD), Organization/entity markup, and raw HTML content readability.</p></div>
-    <div class="feat f3 rv d2"><div class="ic">🤖</div><h4>GEO / AEO — AI search</h4><p>AI-crawler access, llms.txt, answer-first content, question headings — so ChatGPT &amp; Perplexity can cite you.</p></div>
+    <div class="feat f1"><div class="ic">🔎</div><h4>Classic SEO</h4><p>Title, meta description, H1 headings, image alt text, canonical links, Open Graph tags.</p></div>
+    <div class="feat f2"><div class="ic">⚙️</div><h4>Technical &amp; schema</h4><p>Structured JSON-LD schema markup, Organization entities, and raw HTML content readability.</p></div>
+    <div class="feat f3"><div class="ic">🤖</div><h4>GEO / AEO — AI search</h4><p>AI bot access (GPTBot/Perplexity), llms.txt validation, and question-heading structures.</p></div>
   </div>
 </div></section>
 
 <section class="blk" id="how"><div class="wrap">
-  <h2 class="kh rv">How it works</h2>
-  <p class="ksub rv d1">Three steps. About thirty seconds.</p>
+  <h2 class="kh">How it works</h2>
+  <p class="ksub">Three simple steps to audit your web page.</p>
   <div class="steps">
-    <div class="step rv"><h4>1. Paste or enter URL</h4><p>Copy your page source or type your website URL into the scanner.</p></div>
-    <div class="step rv d1"><h4>2. Get your score</h4><p>See a 0–100 score with every check marked pass, warn, or fail — plus the evidence behind each.</p></div>
-    <div class="step rv d2"><h4>3. Apply the fix</h4><p>Each issue comes with actionable insights and ready-to-paste code fixes.</p></div>
+    <div class="step"><h4>1. Paste or enter URL</h4><p>Copy your page source or type your website URL into the scanner box.</p></div>
+    <div class="step"><h4>2. Get your score</h4><p>View a 0–100 score broken down by On-Page SEO, Technical Schema, and AI readiness.</p></div>
+    <div class="step"><h4>3. Apply ready fixes</h4><p>Copy ready-to-paste fixes for every warning or error found.</p></div>
   </div>
 </div></section>
 
 <section class="blk"><div class="wrap">
-  <div class="ctaband rv">
-    <h3>Fix what's holding your page back — <span class="hl">free.</span></h3>
-    <p>One scan shows you exactly where you stand with Google and AI search.</p>
+  <div class="ctaband">
+    <h3>Check your page readiness for <span class="hl">AI search</span> free</h3>
+    <p>Get instant insights and evidence for classic SEO and AI crawlers.</p>
     <a href="#tool" class="btn btn-y">Scan my page</a>
   </div>
 </div></section>
 
-<footer class="wrap">SearchLens — SEO · GEO · AEO audit. Live-URL scanning via Vercel serverless backend.</footer>
+<footer class="wrap">SearchLens — Free SEO, GEO & AEO Audit Tool.</footer>
 
 <script>
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const root=document.documentElement;
 
-// Theme toggle
-$('#theme').onclick=()=>{   const d=(root.getAttribute('data-theme')\vert{}\vert{}'light')==='light';   root.setAttribute('data-theme',d?'dark':'light'); };  // Scroll Reveal Observer const io = new IntersectionObserver(es => es.forEach(e => {   if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } }), { threshold: 0.15 }); $$('.rv').forEach(el => io.observe(el));
+// Theme Toggle
+$('#theme').onclick=()=>{
+  const d=(root.getAttribute('data-theme')||'light')==='light';
+  root.setAttribute('data-theme',d?'dark':'light');
+};
 
-// Tab switching
-function selTab(isHtml){
-  $('#tab-html').setAttribute('aria-selected',isHtml);
-  $('#tab-url').setAttribute('aria-selected',!isHtml);
-  $('#pane-html').hidden=!isHtml;
-  $('#pane-url').hidden=isHtml;
+// Tab Switching
+function selTab(isUrl){
+  $('#tab-url').setAttribute('aria-selected',isUrl);
+  $('#tab-html').setAttribute('aria-selected',!isUrl);
+  $('#pane-url').hidden=!isUrl;
+  $('#pane-html').hidden=isUrl;
 }
-$('#tab-html').onclick=()=>selTab(true);
-$('#tab-url').onclick=()=>selTab(false);
+$('#tab-url').onclick=()=>selTab(true);
+$('#tab-html').onclick=()=>selTab(false);
 
 const CATS = {
   onpage: 'On-Page SEO',
@@ -292,56 +289,56 @@ const R = (id, cat, name, status, evidence, why, prio='Low', fix='') => ({
   id, cat, name, status, evidence, why, prio, fix
 });
 
-// FULL AUDIT ENGINE (Classic SEO + Technical + GEO/AEO)
+// FULL AUDIT ENGINE
 function auditEngine(html, robots='', llms=''){
   const doc = new DOMParser().parseFromString(html, 'text/html');
   const txt = (doc.body?.innerText||'').trim();
   const checks = [];
 
-  // --- 1. CLASSIC ON-PAGE SEO ---
+  // --- 1. ON-PAGE SEO ---
   const title = doc.querySelector('title')?.textContent.trim()||'';
   checks.push(R('title','onpage','Title Tag', 
     !title?'fail':(title.length>=30&&title.length<=60?'pass':'warn'), 
     title?`"${title.slice(0,60)}" (${title.length} chars)`:'Missing <title> tag', 
-    'Your primary ranking factor & clickable line in search results.', 'High',
+    'Primary ranking factor in Google & search engines.', 'High',
     !title?'<title>Primary Keyword - Brand Name</title>':''));
 
   const md = doc.querySelector('meta[name="description"]')?.getAttribute('content')?.trim()||'';
   checks.push(R('meta','onpage','Meta Description', 
     !md?'warn':(md.length>=120&&md.length<=160?'pass':'warn'), 
     md?`"${md.slice(0,60)}..." (${md.length} chars)`:'Missing meta description', 
-    'Drives click-through rate from Google search results.', 'Medium',
+    'Improves search result click-through rates.', 'Medium',
     !md?'<meta name="description" content="Add a clear 120-160 character summary of this page.">':''));
 
   const h1 = $$('h1',doc);
   checks.push(R('h1','onpage','H1 Heading', 
     h1.length===1?'pass':(h1.length===0?'fail':'warn'), 
     h1.length===0?'No H1 tag found':(h1.length===1?`"${h1[0].textContent.trim().slice(0,50)}"`:`${h1.length} H1 tags detected`), 
-    'Pages should have exactly one primary H1 header.', 'High',
-    h1.length===0?'<h1>Main Page Topic</h1>':''));
+    'Pages must have exactly 1 main H1 heading.', 'High',
+    h1.length===0?'<h1>Main Page Heading</h1>':''));
 
   const im = $$('img',doc), na = im.filter(i=>!i.getAttribute('alt')?.trim());
   checks.push(R('alt','onpage','Image Alt Text', 
     im.length===0?'pass':(na.length===0?'pass':'warn'), 
     im.length?`${im.length-na.length}/${im.length} images have alt tags`:'No images found', 
-    'Helps accessibility, image search, and AI vision crawlers.', 'Medium'));
+    'Aids accessibility and image search crawlers.', 'Medium'));
 
   const cn = doc.querySelector('link[rel="canonical"]')?.getAttribute('href');
-  checks.push(R('canon','onpage','Canonical Link', 
-    cn?'pass':'warn', cn||'Missing canonical URL', 
-    'Prevents duplicate content dilution across multiple URLs.', 'Medium',
+  checks.push(R('canon','onpage','Canonical URL', 
+    cn?'pass':'warn', cn||'Missing canonical tag', 
+    'Prevents duplicate content issues.', 'Medium',
     !cn?'<link rel="canonical" href="https://yourdomain.com/page">':''));
 
   const ogImg = doc.querySelector('meta[property="og:image"]')?.getAttribute('content');
   checks.push(R('og','onpage','Open Graph Image', 
     ogImg?'pass':'warn', ogImg?`og:image set`:'Missing og:image tag', 
-    'Essential for social media previews and AI summary cards.', 'Low',
+    'Generates preview cards on social & AI engines.', 'Low',
     !ogImg?'<meta property="og:image" content="https://yourdomain.com/og-image.jpg">':''));
 
   const vp = doc.querySelector('meta[name="viewport"]');
   checks.push(R('vp','onpage','Mobile Viewport', 
     vp?'pass':'fail', vp?'meta viewport present':'Missing viewport meta', 
-    'Critical for mobile-first indexing.', 'High',
+    'Required for mobile-friendly indexing.', 'High',
     !vp?'<meta name="viewport" content="width=device-width, initial-scale=1">':''));
 
   // --- 2. TECHNICAL SEO & SCHEMA ---
@@ -358,22 +355,21 @@ function auditEngine(html, robots='', llms=''){
   checks.push(R('schema','tech','Structured Data (JSON-LD)', 
     ld.length>0?'pass':'warn', 
     ld.length?`${ld.length} JSON-LD block(s) detected (${schemaTypes.join(', ')})`:'No JSON-LD schema found', 
-    'Provides explicit facts to search engines & AI answer engines.', 'Medium',
+    'Provides structured facts directly to AI search models.', 'Medium',
     ld.length===0?'<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "WebPage",\n  "name": "Page Title"\n}\n<\/script>':''));
 
   checks.push(R('nojs','tech','Raw HTML Content', 
-    txt.length>300?'pass':'warn', `${txt.length} chars of visible text in HTML`, 
-    'AI web crawlers prefer direct HTML text without JavaScript rendering.', 'Medium'));
+    txt.length>300?'pass':'warn', `${txt.length} chars of text in HTML`, 
+    'AI web crawlers prefer direct HTML text.', 'Medium'));
 
-  // --- 3. GEO / AEO / AI-SEARCH READINESS ---
+  // --- 3. GEO / AEO / AI-SEARCH ---
   const hasllms = llms && llms.trim().length > 10;
   checks.push(R('llms','geo','llms.txt File', 
     hasllms?'pass':'warn', 
     hasllms?'/llms.txt file detected':'No /llms.txt file detected', 
-    'A curated markdown map specifically for AI bots (ChatGPT, Perplexity, Claude).', 'High',
-    !hasllms?'# Your Site Name\n> Short site summary\n\n## Pages\n- [Docs](https://yourdomain.com/docs): API documentation':''));
+    'Markdown map for AI engines (ChatGPT, Perplexity, Claude).', 'High',
+    !hasllms?'# Your Site Name\n> Short site summary\n\n## Pages\n- [Docs](https://yourdomain.com/docs): API docs':''));
 
-  // AI Crawlers check in robots.txt
   let aiBotBlocked = false;
   if(robots){
     if(robots.includes('GPTBot') || robots.includes('PerplexityBot') || robots.includes('ClaudeBot')){
@@ -382,15 +378,14 @@ function auditEngine(html, robots='', llms=''){
   }
   checks.push(R('aibots','geo','AI Crawler Access', 
     aiBotBlocked?'fail':'pass', 
-    aiBotBlocked?'AI Bots (GPTBot/Perplexity) blocked in robots.txt':'AI search bots are allowed', 
-    'Blocking AI crawlers removes your brand from AI search results.', 'High'));
+    aiBotBlocked?'AI Bots blocked in robots.txt':'AI search bots are allowed', 
+    'Blocking AI crawlers removes your site from AI answers.', 'High'));
 
-  // Question Headings (AEO)
   const questionHeadings = $$('h2,h3',doc).filter(h => /\?|How|What|Why|Where|Who/i.test(h.textContent));
   checks.push(R('aeo_questions','geo','Question-Based Headings', 
     questionHeadings.length>0?'pass':'warn', 
-    questionHeadings.length?`${questionHeadings.length} question-based heading(s) found`:'No question-format headings found', 
-    'AI answer engines look for direct Question & Answer structures.', 'Medium'));
+    questionHeadings.length?`${questionHeadings.length} question heading(s) found`:'No question headings found', 
+    'Helps AI answer engines extract concise direct answers.', 'Medium'));
 
   // Calculate Scores
   const catScores = {};
@@ -503,7 +498,7 @@ window.copyFix = function(btn){
   setTimeout(()=> btn.textContent = 'Copy Fix', 1500);
 };
 
-// Event Handlers
+// Actions
 $('#run').onclick = () => {
   const html = $('#html').value.trim();
   const robots = $('#robots').value.trim();
