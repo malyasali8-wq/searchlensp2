@@ -39,14 +39,6 @@
   --pass:#3ECB84; --pass-bg:#10281d; --warn:#FFC21A; --warn-bg:#2a2410; --fail:#FF7059; --fail-bg:#2c1712;
   --shadow:0 16px 44px -14px rgba(0,0,0,.6);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0C0F15; --surface:#151A23; --surface-2:#1D2531; --raise:#26303E;
-  --ink:#EAF2FB; --ink-soft:#93A4BC; --ink-faint:#61728C; --line:#26303E;
-  --blue:#6CC4FF; --blue-deep:#3EA6F2; --blue-soft:#122234;
-  --yellow:#FFD23F; --yellow-deep:#FFC21A; --yellow-soft:#2A2612;
-  --pass:#3ECB84; --pass-bg:#10281d; --warn:#FFC21A; --warn-bg:#2a2410; --fail:#FF7059; --fail-bg:#2c1712;
-  --shadow:0 16px 44px -14px rgba(0,0,0,.6);
-}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -70,8 +62,6 @@ nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color
 .btn-y{background:var(--yellow);color:#141414;box-shadow:0 6px 0 var(--yellow-deep)}
 .btn-y:hover{filter:brightness(1.03);box-shadow:0 8px 0 var(--yellow-deep);transform:translateY(-1px)}
 .btn-y:active{box-shadow:0 2px 0 var(--yellow-deep);transform:translateY(3px)}
-.btn-b{background:var(--blue-deep);color:#fff}
-.btn-b:hover{filter:brightness(1.06);transform:translateY(-1px)}
 .btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}
 .btn-ghost:hover{background:var(--surface-2)}
 .nav .btn{padding:10px 18px}
@@ -88,6 +78,11 @@ h1{font-size:clamp(34px,6vw,56px);font-weight:800;line-height:1.02;letter-spacin
 h1 .hl{background:var(--yellow);color:#141414;padding:0 .12em;border-radius:6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .lede{color:var(--ink-soft);font-size:18px;max-width:46ch;margin:0 0 28px}
 .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+
+/* scroll animations */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.rv.show{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
 
 /* radar */
 .radar-wrap{display:grid;place-items:center;position:relative;width:100%;max-width:320px}
@@ -132,19 +127,32 @@ textarea:focus,input:focus{outline:none;border-color:var(--blue-deep)}
 /* results */
 #results{display:none;margin-top:26px}
 .score-wrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px}
-.gauge{position:relative;width:130px;height:130px;flex:none}
+.gauge{position:relative;width:140px;height:140px;flex:none}
 .gauge .num{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
-.gauge .num b{font-size:38px;font-weight:800;line-height:1}
+.gauge .num b{font-size:42px;font-weight:800;line-height:1}
 .cats{flex:1;min-width:240px;display:flex;flex-direction:column;gap:12px}
 .cat .cl{display:flex;justify-content:space-between;font-size:13.5px;font-weight:700;margin-bottom:4px}
-.bar{height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.bar{height:9px;background:var(--surface-2);border-radius:99px;overflow:hidden}
 .bar i{display:block;height:100%;border-radius:99px;width:0;transition:width .8s ease}
 
-.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:15px 16px;margin-bottom:12px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 12px}
+.filt{background:var(--surface);border:1.5px solid var(--line);color:var(--ink-soft);border-radius:99px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer}
+.filt[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+.grp{margin-top:24px}
+.grp h3{font-size:18px;font-weight:800;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px}
 .card.s-pass{border-left-color:var(--pass)}.card.s-warn{border-left-color:var(--warn)}.card.s-fail{border-left-color:var(--fail)}
-.cname{font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cname{font-weight:700;font-size:15.5px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.prio{font-size:10.5px;font-weight:800;font-family:var(--mono);padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--ink-faint)}
+.prio.high{background:var(--fail-bg);color:var(--fail)}
 .ev{font-family:var(--mono);font-size:12px;color:var(--ink-soft);background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:5px 9px;margin-top:8px;display:inline-block;max-width:100%;overflow-wrap:anywhere}
 .why{color:var(--ink-soft);font-size:13.5px;margin-top:8px}
+
+.snip{position:relative;margin-top:10px}
+.snip pre{background:var(--ink);color:#e6edf3;border-radius:10px;padding:12px;overflow-x:auto;font-family:var(--mono);font-size:12px;line-height:1.5;margin:0}
+.copy{position:absolute;top:8px;right:8px;background:#ffffff22;border:1px solid #ffffff33;color:#fff;border-radius:6px;font-size:11px;font-weight:700;padding:4px 8px;cursor:pointer}
 
 .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:780px){.feats{grid-template-columns:1fr}}
@@ -177,10 +185,10 @@ footer{padding:36px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;
 </div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
-  <div>
+  <div class="rv">
     <div class="eyebrow"><b></b>SEO · GEO · AEO in one scan</div>
     <h1>Is your page ready for <span class="hl">Google &amp; AI</span> search?</h1>
-    <p class="lede">Paste your page or URL. In one scan, SearchLens shows what's right, what's wrong, and the exact fix — for classic SEO, technical health, and how AI engines like ChatGPT read you.</p>
+    <p class="lede">Paste your page or URL. In one scan, SearchLens shows classic SEO, technical health, and how AI engines like ChatGPT read you.</p>
     <div class="cta-row">
       <a href="#tool" class="btn btn-y">Scan my page — free</a>
       <a href="#how" class="btn btn-ghost">See how it works</a>
@@ -194,9 +202,9 @@ footer{padding:36px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;
 </div></header>
 
 <section class="blk" id="tool"><div class="wrap">
-  <h2 class="kh">Scan your page now</h2>
-  <p class="ksub">No sign-up. Scan HTML code or enter a live domain URL directly.</p>
-  <div class="tool-card">
+  <h2 class="kh rv">Scan your page now</h2>
+  <p class="ksub rv d1">No sign-up. Scan HTML source code or enter a live domain URL directly.</p>
+  <div class="tool-card rv d2">
     <div class="tool-head"><div class="dot3"><i></i><i></i><i></i></div><span>SearchLens Scanner</span></div>
     <div class="pad">
       <div class="tabs" role="tablist">
@@ -206,7 +214,7 @@ footer{padding:36px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;
       
       <div id="pane-html">
         <textarea id="html" placeholder="Paste your page source — right-click your page → View Source → copy all → paste here."></textarea>
-        <details class="adv"><summary>Advanced — add robots.txt &amp; llms.txt (optional)</summary>
+        <details class="adv"><summary>Advanced — add robots.txt &amp; llms.txt (for AI checks)</summary>
           <textarea id="robots" placeholder="Paste /robots.txt (optional)"></textarea>
           <textarea id="llms" placeholder="Paste /llms.txt (optional)"></textarea>
         </details>
@@ -228,27 +236,27 @@ footer{padding:36px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;
 </div></section>
 
 <section class="blk" id="checks"><div class="wrap">
-  <h2 class="kh">What it checks</h2>
-  <p class="ksub">Three layers, one score — from the basics Google still cares about to the AI-search signals most tools miss.</p>
+  <h2 class="kh rv">What it checks</h2>
+  <p class="ksub rv d1">Three layers, one score — from the basics Google still cares about to the AI-search signals most tools miss.</p>
   <div class="feats">
-    <div class="feat f1"><div class="ic">🔎</div><h4>Classic SEO</h4><p>Title, meta, headings, alt text, canonical, Open Graph, mobile viewport — the on-page foundation.</p></div>
-    <div class="feat f2"><div class="ic">⚙️</div><h4>Technical &amp; schema</h4><p>Structured data (JSON-LD), Organization/entity markup, and raw HTML content readability.</p></div>
-    <div class="feat f3"><div class="ic">🤖</div><h4>GEO / AEO — AI search</h4><p>AI-crawler access, llms.txt, answer-first content, question headings — so ChatGPT &amp; Perplexity can cite you.</p></div>
+    <div class="feat f1 rv"><div class="ic">🔎</div><h4>Classic SEO</h4><p>Title, meta, headings, alt text, canonical, Open Graph, mobile viewport — the on-page foundation.</p></div>
+    <div class="feat f2 rv d1"><div class="ic">⚙️</div><h4>Technical &amp; schema</h4><p>Structured data (JSON-LD), Organization/entity markup, and raw HTML content readability.</p></div>
+    <div class="feat f3 rv d2"><div class="ic">🤖</div><h4>GEO / AEO — AI search</h4><p>AI-crawler access, llms.txt, answer-first content, question headings — so ChatGPT &amp; Perplexity can cite you.</p></div>
   </div>
 </div></section>
 
 <section class="blk" id="how"><div class="wrap">
-  <h2 class="kh">How it works</h2>
-  <p class="ksub">Three steps. About thirty seconds.</p>
+  <h2 class="kh rv">How it works</h2>
+  <p class="ksub rv d1">Three steps. About thirty seconds.</p>
   <div class="steps">
-    <div class="step"><h4>1. Paste or enter URL</h4><p>Copy your page source or type your website URL into the scanner.</p></div>
-    <div class="step"><h4>2. Get your score</h4><p>See a 0–100 score with every check marked pass, warn, or fail — plus the evidence behind each.</p></div>
-    <div class="step"><h4>3. Apply the fix</h4><p>Each issue comes with actionable insights and clear suggestions.</p></div>
+    <div class="step rv"><h4>1. Paste or enter URL</h4><p>Copy your page source or type your website URL into the scanner.</p></div>
+    <div class="step rv d1"><h4>2. Get your score</h4><p>See a 0–100 score with every check marked pass, warn, or fail — plus the evidence behind each.</p></div>
+    <div class="step rv d2"><h4>3. Apply the fix</h4><p>Each issue comes with actionable insights and ready-to-paste code fixes.</p></div>
   </div>
 </div></section>
 
 <section class="blk"><div class="wrap">
-  <div class="ctaband">
+  <div class="ctaband rv">
     <h3>Fix what's holding your page back — <span class="hl">free.</span></h3>
     <p>One scan shows you exactly where you stand with Google and AI search.</p>
     <a href="#tool" class="btn btn-y">Scan my page</a>
@@ -261,11 +269,10 @@ footer{padding:36px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const root=document.documentElement;
 
-$('#theme').onclick=()=>{
-  const d=(root.getAttribute('data-theme')||'light')==='light';
-  root.setAttribute('data-theme',d?'dark':'light');
-};
+// Theme toggle
+$('#theme').onclick=()=>{   const d=(root.getAttribute('data-theme')\vert{}\vert{}'light')==='light';   root.setAttribute('data-theme',d?'dark':'light'); };  // Scroll Reveal Observer const io = new IntersectionObserver(es => es.forEach(e => {   if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } }), { threshold: 0.15 }); $$('.rv').forEach(el => io.observe(el));
 
+// Tab switching
 function selTab(isHtml){
   $('#tab-html').setAttribute('aria-selected',isHtml);
   $('#tab-url').setAttribute('aria-selected',!isHtml);
@@ -275,117 +282,242 @@ function selTab(isHtml){
 $('#tab-html').onclick=()=>selTab(true);
 $('#tab-url').onclick=()=>selTab(false);
 
-const R=(id,cat,name,status,evidence,why)=>({id,cat,name,status,evidence,why});
+const CATS = {
+  onpage: 'On-Page SEO',
+  tech: 'Technical & Schema',
+  geo: 'GEO / AEO / AI-Search'
+};
 
-function auditEngine(html, robots, llms){
+const R = (id, cat, name, status, evidence, why, prio='Low', fix='') => ({
+  id, cat, name, status, evidence, why, prio, fix
+});
+
+// FULL AUDIT ENGINE (Classic SEO + Technical + GEO/AEO)
+function auditEngine(html, robots='', llms=''){
   const doc = new DOMParser().parseFromString(html, 'text/html');
   const txt = (doc.body?.innerText||'').trim();
   const checks = [];
 
-  // Title
+  // --- 1. CLASSIC ON-PAGE SEO ---
   const title = doc.querySelector('title')?.textContent.trim()||'';
-  checks.push(R('title','onpage','Title tag', !title?'fail':(title.length>=30&&title.length<=60?'pass':'warn'), title?`"${title.slice(0,60)}" (${title.length} chars)`:'Missing <title> tag','Primary on-page signal for search engines.'));
+  checks.push(R('title','onpage','Title Tag', 
+    !title?'fail':(title.length>=30&&title.length<=60?'pass':'warn'), 
+    title?`"${title.slice(0,60)}" (${title.length} chars)`:'Missing <title> tag', 
+    'Your primary ranking factor & clickable line in search results.', 'High',
+    !title?'<title>Primary Keyword - Brand Name</title>':''));
 
-  // Meta Description
   const md = doc.querySelector('meta[name="description"]')?.getAttribute('content')?.trim()||'';
-  checks.push(R('meta','onpage','Meta description', !md?'warn':(md.length>=120&&md.length<=160?'pass':'warn'), md?`"${md.slice(0,60)}..." (${md.length} chars)`:'Missing meta description','Drives click-through rate in search results.'));
+  checks.push(R('meta','onpage','Meta Description', 
+    !md?'warn':(md.length>=120&&md.length<=160?'pass':'warn'), 
+    md?`"${md.slice(0,60)}..." (${md.length} chars)`:'Missing meta description', 
+    'Drives click-through rate from Google search results.', 'Medium',
+    !md?'<meta name="description" content="Add a clear 120-160 character summary of this page.">':''));
 
-  // H1
   const h1 = $$('h1',doc);
-  checks.push(R('h1','onpage','H1 heading', h1.length===1?'pass':(h1.length===0?'fail':'warn'), h1.length===0?'No H1 found':(h1.length===1?`"${h1[0].textContent.trim().slice(0,50)}"`:`${h1.length} H1 tags found`),'Pages should have exactly 1 main H1 heading.'));
+  checks.push(R('h1','onpage','H1 Heading', 
+    h1.length===1?'pass':(h1.length===0?'fail':'warn'), 
+    h1.length===0?'No H1 tag found':(h1.length===1?`"${h1[0].textContent.trim().slice(0,50)}"`:`${h1.length} H1 tags detected`), 
+    'Pages should have exactly one primary H1 header.', 'High',
+    h1.length===0?'<h1>Main Page Topic</h1>':''));
 
-  // Images Alt
   const im = $$('img',doc), na = im.filter(i=>!i.getAttribute('alt')?.trim());
-  checks.push(R('alt','onpage','Image alt text', im.length===0?'pass':(na.length===0?'pass':'warn'), im.length?`${im.length-na.length}/${im.length} images have alt text`:'No images found','Alt tags assist accessibility & AI context.'));
+  checks.push(R('alt','onpage','Image Alt Text', 
+    im.length===0?'pass':(na.length===0?'pass':'warn'), 
+    im.length?`${im.length-na.length}/${im.length} images have alt tags`:'No images found', 
+    'Helps accessibility, image search, and AI vision crawlers.', 'Medium'));
 
-  // Canonical
   const cn = doc.querySelector('link[rel="canonical"]')?.getAttribute('href');
-  checks.push(R('canon','onpage','Canonical URL', cn?'pass':'warn', cn||'Missing canonical tag','Prevents duplicate content issues.'));
+  checks.push(R('canon','onpage','Canonical Link', 
+    cn?'pass':'warn', cn||'Missing canonical URL', 
+    'Prevents duplicate content dilution across multiple URLs.', 'Medium',
+    !cn?'<link rel="canonical" href="https://yourdomain.com/page">':''));
 
-  // Open Graph
   const ogImg = doc.querySelector('meta[property="og:image"]')?.getAttribute('content');
-  checks.push(R('og','onpage','Open Graph image', ogImg?'pass':'warn', ogImg?`og:image set`:'Missing og:image','Generates preview cards on social & AI engines.'));
+  checks.push(R('og','onpage','Open Graph Image', 
+    ogImg?'pass':'warn', ogImg?`og:image set`:'Missing og:image tag', 
+    'Essential for social media previews and AI summary cards.', 'Low',
+    !ogImg?'<meta property="og:image" content="https://yourdomain.com/og-image.jpg">':''));
 
-  // Viewport
   const vp = doc.querySelector('meta[name="viewport"]');
-  checks.push(R('vp','onpage','Mobile Viewport', vp?'pass':'fail', vp?'meta viewport present':'Missing meta viewport','Essential for mobile responsiveness.'));
+  checks.push(R('vp','onpage','Mobile Viewport', 
+    vp?'pass':'fail', vp?'meta viewport present':'Missing viewport meta', 
+    'Critical for mobile-first indexing.', 'High',
+    !vp?'<meta name="viewport" content="width=device-width, initial-scale=1">':''));
 
-  // JSON-LD Schema
+  // --- 2. TECHNICAL SEO & SCHEMA ---
   const ld = $$('script[type="application/ld+json"]',doc);
-  checks.push(R('schema','tech','Structured Data (JSON-LD)', ld.length>0?'pass':'warn', ld.length?`${ld.length} JSON-LD block(s) detected`:'No JSON-LD schema found','Helps AI and search engines understand entity facts.'));
+  let schemaTypes = [];
+  ld.forEach(s => {
+    try {
+      const parsed = JSON.parse(s.textContent);
+      const arr = Array.isArray(parsed) ? parsed : [parsed];
+      arr.forEach(x => { if(x['@type']) schemaTypes.push(x['@type']); });
+    } catch(e){}
+  });
 
-  // Raw Content
-  checks.push(R('nojs','tech','Raw HTML Content', txt.length>300?'pass':'warn', `${txt.length} chars of text found`, 'AI crawlers require core text rendered in direct HTML.'));
+  checks.push(R('schema','tech','Structured Data (JSON-LD)', 
+    ld.length>0?'pass':'warn', 
+    ld.length?`${ld.length} JSON-LD block(s) detected (${schemaTypes.join(', ')})`:'No JSON-LD schema found', 
+    'Provides explicit facts to search engines & AI answer engines.', 'Medium',
+    ld.length===0?'<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "WebPage",\n  "name": "Page Title"\n}\n<\/script>':''));
 
-  // LLMS.txt Check
-  checks.push(R('llms','geo','llms.txt File', llms&&llms.trim()?'pass':'warn', llms&&llms.trim()?'llms.txt content present':'No llms.txt detected','llms.txt guides AI models directly to key content.'));
+  checks.push(R('nojs','tech','Raw HTML Content', 
+    txt.length>300?'pass':'warn', `${txt.length} chars of visible text in HTML`, 
+    'AI web crawlers prefer direct HTML text without JavaScript rendering.', 'Medium'));
 
-  // Calculate Score
+  // --- 3. GEO / AEO / AI-SEARCH READINESS ---
+  const hasllms = llms && llms.trim().length > 10;
+  checks.push(R('llms','geo','llms.txt File', 
+    hasllms?'pass':'warn', 
+    hasllms?'/llms.txt file detected':'No /llms.txt file detected', 
+    'A curated markdown map specifically for AI bots (ChatGPT, Perplexity, Claude).', 'High',
+    !hasllms?'# Your Site Name\n> Short site summary\n\n## Pages\n- [Docs](https://yourdomain.com/docs): API documentation':''));
+
+  // AI Crawlers check in robots.txt
+  let aiBotBlocked = false;
+  if(robots){
+    if(robots.includes('GPTBot') || robots.includes('PerplexityBot') || robots.includes('ClaudeBot')){
+      if(robots.includes('Disallow: /')) aiBotBlocked = true;
+    }
+  }
+  checks.push(R('aibots','geo','AI Crawler Access', 
+    aiBotBlocked?'fail':'pass', 
+    aiBotBlocked?'AI Bots (GPTBot/Perplexity) blocked in robots.txt':'AI search bots are allowed', 
+    'Blocking AI crawlers removes your brand from AI search results.', 'High'));
+
+  // Question Headings (AEO)
+  const questionHeadings = $$('h2,h3',doc).filter(h => /\?|How|What|Why|Where|Who/i.test(h.textContent));
+  checks.push(R('aeo_questions','geo','Question-Based Headings', 
+    questionHeadings.length>0?'pass':'warn', 
+    questionHeadings.length?`${questionHeadings.length} question-based heading(s) found`:'No question-format headings found', 
+    'AI answer engines look for direct Question & Answer structures.', 'Medium'));
+
+  // Calculate Scores
+  const catScores = {};
+  Object.keys(CATS).forEach(c => {
+    const sub = checks.filter(x => x.cat === c);
+    const p = sub.filter(x => x.status === 'pass').length;
+    const w = sub.filter(x => x.status === 'warn').length;
+    catScores[c] = Math.round(((p * 100) + (w * 50)) / sub.length);
+  });
+
   const passC = checks.filter(c=>c.status==='pass').length;
   const warnC = checks.filter(c=>c.status==='warn').length;
-  const score = Math.round(((passC * 100) + (warnC * 50)) / checks.length);
+  const totalScore = Math.round(((passC * 100) + (warnC * 50)) / checks.length);
 
-  return { score, checks, passC, warnC, failC: checks.length - passC - warnC };
+  return { totalScore, catScores, checks, passC, warnC, failC: checks.length - passC - warnC };
 }
 
-function render(data){
+let CURRENT_CHECKS = [];
+
+function renderResults(data){
+  CURRENT_CHECKS = data.checks;
   const resDiv = $('#results');
   resDiv.style.display = 'block';
-
-  let cards = data.checks.map(c=>`
-    <div class="card s-${c.status}">
-      <div class="cname">
-        <span>${c.status==='pass'?'✅':(c.status==='warn'?'⚠️':'❌')}</span>
-        <span>${c.name}</span>
-      </div>
-      <div class="ev">${c.evidence}</div>
-      <div class="why">${c.why}</div>
-    </div>
-  `).join('');
 
   resDiv.innerHTML = `
     <div class="score-wrap">
       <div class="gauge">
         <div class="num">
-          <b>${data.score}</b>
+          <b>${data.totalScore}</b>
           <span style="font-size:12px;color:var(--ink-soft)">/ 100</span>
         </div>
       </div>
       <div class="cats">
-        <div style="font-weight:800;font-size:18px">Audit Summary</div>
         <div class="cat">
-          <div class="cl"><span>Passed Checks</span><em>${data.passC}</em></div>
-          <div class="bar"><i style="width:${(data.passC/data.checks.length)*100}%;background:var(--pass)"></i></div>
+          <div class="cl"><span>On-Page SEO</span><em>${data.catScores.onpage}%</em></div>
+          <div class="bar"><i style="width:${data.catScores.onpage}%;background:var(--blue-deep)"></i></div>
         </div>
         <div class="cat">
-          <div class="cl"><span>Warnings</span><em>${data.warnC}</em></div>
-          <div class="bar"><i style="width:${(data.warnC/data.checks.length)*100}%;background:var(--warn)"></i></div>
+          <div class="cl"><span>Technical &amp; Schema</span><em>${data.catScores.tech}%</em></div>
+          <div class="bar"><i style="width:${data.catScores.tech}%;background:var(--yellow-deep)"></i></div>
         </div>
         <div class="cat">
-          <div class="cl"><span>Failed Checks</span><em>${data.failC}</em></div>
-          <div class="bar"><i style="width:${(data.failC/data.checks.length)*100}%;background:var(--fail)"></i></div>
+          <div class="cl"><span>GEO / AEO / AI-Search</span><em>${data.catScores.geo}%</em></div>
+          <div class="bar"><i style="width:${data.catScores.geo}%;background:var(--pass)"></i></div>
         </div>
       </div>
     </div>
-    <div style="margin-top:24px">${cards}</div>
+
+    <div class="toolbar">
+      <button class="filt" aria-pressed="true" onclick="filterChecks('all', this)">All (${data.checks.length})</button>
+      <button class="filt" aria-pressed="false" onclick="filterChecks('pass', this)">Passed (${data.passC})</button>
+      <button class="filt" aria-pressed="false" onclick="filterChecks('warn', this)">Warnings (${data.warnC})</button>
+      <button class="filt" aria-pressed="false" onclick="filterChecks('fail', this)">Failed (${data.failC})</button>
+    </div>
+
+    <div id="cards-container"></div>
   `;
+
+  renderCards(data.checks);
+  resDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Button Events
+function renderCards(list){
+  const container = $('#cards-container');
+  let html = '';
+
+  Object.keys(CATS).forEach(catKey => {
+    const sub = list.filter(c => c.cat === catKey);
+    if(!sub.length) return;
+
+    html += `<div class="grp"><h3>${CATS[catKey]}</h3>`;
+    sub.forEach(c => {
+      html += `
+        <div class="card s-${c.status}">
+          <div class="cname">
+            <span>${c.status==='pass'?'✅':(c.status==='warn'?'⚠️':'❌')}</span>
+            <span>${c.name}</span>
+            <span class="prio ${c.prio==='High'?'high':''}">${c.prio} Priority</span>
+          </div>
+          <div class="ev">${c.evidence}</div>
+          <div class="why">${c.why}</div>
+          ${c.fix ? `
+            <div class="snip">
+              <button class="copy" onclick="copyFix(this)">Copy Fix</button>
+              <pre><code>${esc(c.fix)}</code></pre>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    });
+    html += `</div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function esc(s){ return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+window.filterChecks = function(status, btn){
+  $$('.filt').forEach(b=>b.setAttribute('aria-pressed','false'));
+  btn.setAttribute('aria-pressed','true');
+  if(status === 'all') renderCards(CURRENT_CHECKS);
+  else renderCards(CURRENT_CHECKS.filter(c => c.status === status));
+};
+
+window.copyFix = function(btn){
+  const code = btn.nextElementSibling.textContent;
+  navigator.clipboard.writeText(code);
+  btn.textContent = 'Copied!';
+  setTimeout(()=> btn.textContent = 'Copy Fix', 1500);
+};
+
+// Event Handlers
 $('#run').onclick = () => {
   const html = $('#html').value.trim();
   const robots = $('#robots').value.trim();
   const llms = $('#llms').value.trim();
   if(!html) return alert('Please paste HTML source code.');
   const data = auditEngine(html, robots, llms);
-  render(data);
+  renderResults(data);
 };
 
 $('#run-url').onclick = async () => {
   const urlVal = $('#url').value.trim();
   if(!urlVal) return alert('Please enter a valid website URL');
 
-  $('#run-url').textContent = 'Scanning live URL...';
+  $('#run-url').textContent = 'Scanning Live Website...';
   $('#run-url').disabled = true;
 
   try {
@@ -394,12 +526,12 @@ $('#run-url').onclick = async () => {
 
     if(data.success && data.html) {
       const auditRes = auditEngine(data.html, data.robots||'', data.llms||'');
-      render(auditRes);
+      renderResults(auditRes);
     } else {
-      alert('Scanning failed: ' + (data.message || 'Unable to fetch website.'));
+      alert('Scanning failed: ' + (data.message || 'Unable to fetch URL.'));
     }
   } catch(e) {
-    alert('Error connecting to backend: ' + e.message);
+    alert('Backend connection error: ' + e.message);
   } finally {
     $('#run-url').textContent = 'Scan URL';
     $('#run-url').disabled = false;
@@ -410,20 +542,28 @@ $('#sample').onclick = () => {
   $('#html').value = `<!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sample Store — Affordable Quality Everyday Goods</title>
-  <meta name="description" content="Discover affordable everyday goods with fast delivery, friendly support, and great reviews across all popular items.">
-  <link rel="canonical" href="https://example.com/">
+  <title>Acme Analytics — Privacy-First Web Analytics</title>
+  <meta name="description" content="Simple, cookie-free web analytics for privacy-focused teams. Get clear insights without tracking users across the web.">
+  <link rel="canonical" href="https://acme.com/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:image" content="https://example.com/og.jpg">
+  <meta property="og:image" content="https://acme.com/og.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Acme Analytics"
+  }
+  <\/script>
 </head>
 <body>
-  <h1>Welcome to Sample Store</h1>
-  <p>Find top deals on trending quality goods for your everyday needs.</p>
-  <img src="banner.jpg" alt="Store collection banner">
+  <h1>Privacy-First Web Analytics</h1>
+  <h2>Why choose Acme Analytics for your site?</h2>
+  <p>Acme Analytics delivers real-time traffic statistics without using tracking cookies or collecting personal data.</p>
+  <img src="dashboard.jpg" alt="Analytics Dashboard View">
 </body>
 </html>`;
   const data = auditEngine($('#html').value, '', '');
-  render(data);
+  renderResults(data);
 };
 </script>
 </body>
