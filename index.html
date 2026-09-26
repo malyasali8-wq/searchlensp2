@@ -48,20 +48,12 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font
 .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
 a{color:var(--blue-deep);text-decoration:none}
 
-/* Hardware-Accelerated Smooth Scroll Reveal */
+/* Smooth Hardware-Accelerated Animations */
 .rv {
-  opacity: 0;
-  transform: translate3d(0, 26px, 0);
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-.rv.show {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
-.d1 { transition-delay: 0.1s; }
-.d2 { transition-delay: 0.2s; }
-.d3 { transition-delay: 0.3s; }
 
 /* AdSense Container Styles */
 .ad-slot {
@@ -255,7 +247,7 @@ footer a:hover { color: var(--ink); }
       <a href="#how" class="btn btn-ghost">See how it works</a>
     </div>
   </div>
-  <div class="radar-wrap rv d1"><div class="radar float">
+  <div class="radar-wrap rv"><div class="radar float">
     <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div><div class="ring r4"></div>
     <div class="beam"></div><div class="core"></div>
     <div class="blip b1"></div><div class="blip b2"></div><div class="blip b3"></div>
@@ -264,8 +256,8 @@ footer a:hover { color: var(--ink); }
 
 <section class="blk" id="tool"><div class="wrap">
   <h2 class="kh rv">Scan your page now</h2>
-  <p class="ksub rv d1">No sign-up required. Enter a live website URL or paste HTML code directly.</p>
-  <div class="tool-card rv d2">
+  <p class="ksub rv">No sign-up required. Enter a live website URL or paste HTML code directly.</p>
+  <div class="tool-card rv">
     <div class="tool-head"><div class="dot3"><i></i><i></i><i></i></div><span>SearchLens Scanner</span></div>
     <div class="pad">
       <div class="tabs" role="tablist">
@@ -306,21 +298,21 @@ footer a:hover { color: var(--ink); }
 
 <section class="blk" id="checks"><div class="wrap">
   <h2 class="kh rv">What it checks</h2>
-  <p class="ksub rv d1">Three layers, one score — classic SEO, technical schema, and AI-search readiness.</p>
+  <p class="ksub rv">Three layers, one score — classic SEO, technical schema, and AI-search readiness.</p>
   <div class="feats">
-    <div class="feat f1 rv d1"><div class="ic">🔎</div><h4>Classic SEO</h4><p>Title, meta description, H1 headings, image alt text, canonical links, Open Graph tags.</p></div>
-    <div class="feat f2 rv d2"><div class="ic">⚙️</div><h4>Technical &amp; schema</h4><p>Structured JSON-LD schema markup, Organization entities, and raw HTML content readability.</p></div>
-    <div class="feat f3 rv d3"><div class="ic">🤖</div><h4>GEO / AEO — AI search</h4><p>AI bot access (GPTBot/Perplexity), llms.txt validation, and question-heading structures.</p></div>
+    <div class="feat f1 rv"><div class="ic">🔎</div><h4>Classic SEO</h4><p>Title, meta description, H1 headings, image alt text, canonical links, Open Graph tags.</p></div>
+    <div class="feat f2 rv"><div class="ic">⚙️</div><h4>Technical &amp; schema</h4><p>Structured JSON-LD schema markup, Organization entities, and raw HTML content readability.</p></div>
+    <div class="feat f3 rv"><div class="ic">🤖</div><h4>GEO / AEO — AI search</h4><p>AI bot access (GPTBot/Perplexity), llms.txt validation, and question-heading structures.</p></div>
   </div>
 </div></section>
 
 <section class="blk" id="how"><div class="wrap">
   <h2 class="kh rv">How it works</h2>
-  <p class="ksub rv d1">Three simple steps to audit your web page.</p>
+  <p class="ksub rv">Three simple steps to audit your web page.</p>
   <div class="steps">
-    <div class="step rv d1"><h4>1. Paste or enter URL</h4><p>Copy your page source or type your website URL into the scanner box.</p></div>
-    <div class="step rv d2"><h4>2. Get your score</h4><p>View a 0–100 score broken down by On-Page SEO, Technical Schema, and AI readiness.</p></div>
-    <div class="step rv d3"><h4>3. Apply ready fixes</h4><p>Copy ready-to-paste fixes for every warning or error found.</p></div>
+    <div class="step rv"><h4>1. Paste or enter URL</h4><p>Copy your page source or type your website URL into the scanner box.</p></div>
+    <div class="step rv"><h4>2. Get your score</h4><p>View a 0–100 score broken down by On-Page SEO, Technical Schema, and AI readiness.</p></div>
+    <div class="step rv"><h4>3. Apply ready fixes</h4><p>Copy ready-to-paste fixes for every warning or error found.</p></div>
   </div>
 </div></section>
 
@@ -368,14 +360,15 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
 const root=document.documentElement;
 
 // Theme Toggle with LocalStorage
-$('#theme').onclick=()=>{   const d=(root.getAttribute('data-theme')\vert{}\vert{}'light')==='light';   root.setAttribute('data-theme',d?'dark':'light');   try{ localStorage.setItem('sl_theme', d?'dark':'light'); }catch(e){} }; try{   const saved = localStorage.getItem('sl_theme');   if(saved) root.setAttribute('data-theme', saved); }catch(e){}  // Hardware-Accelerated Smooth Scroll Reveal function initScrollReveal() {   const observer = new IntersectionObserver((entries) => {     entries.forEach(entry => {       if (entry.isIntersecting) {         entry.target.classList.add('show');       }     });   }, {     threshold: 0.1,     rootMargin: '0px 0px -20px 0px'   });    $$('.rv').forEach(el => observer.observe(el));
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initScrollReveal);
-} else {
-  initScrollReveal();
-}
+$('#theme').onclick=()=>{
+  const d=(root.getAttribute('data-theme')||'light')==='light';
+  root.setAttribute('data-theme',d?'dark':'light');
+  try{ localStorage.setItem('sl_theme', d?'dark':'light'); }catch(e){}
+};
+try{
+  const saved = localStorage.getItem('sl_theme');
+  if(saved) root.setAttribute('data-theme', saved);
+}catch(e){}
 
 // Tab Switching
 function selTab(isUrl){
