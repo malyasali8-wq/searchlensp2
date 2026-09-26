@@ -2,10 +2,9 @@
   "name": "searchlens",
   "version": "1.0.0",
   "private": true,
-  "description": "SearchLens — SEO / GEO / AEO audit tool (static frontend + serverless scan API)",
+  "description": "SearchLens – SEO / GEO / AEO audit tool (static frontend + serverless scan API)",
+  "type": "module",
   "engines": {
     "node": ">=18"
   }
-{
-  "type": "module"
 }
