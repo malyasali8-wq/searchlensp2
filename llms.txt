@@ -3,7 +3,7 @@
 > SearchLens is a free SEO, GEO and AEO audit tool. Paste a page's HTML or enter a URL, and it scans for classic SEO, technical health, and AI-search readiness — returning a 0–100 score, per-check evidence, and ready-to-paste fixes.
 
 ## Core
-- [SearchLens home](https://YOURDOMAIN.com/): the audit tool — scan any page for SEO, technical, and GEO/AEO readiness.
+- [SearchLens home](https://searchlens-five.vercel.app/): the audit tool — scan any page for SEO, technical, and GEO/AEO readiness.
 
 ## What it checks
 - On-Page SEO: title, meta description, headings, image alt text, canonical, Open Graph, mobile viewport, language.
