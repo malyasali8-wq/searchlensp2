@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- SearchLens — robots.txt generator + tester -->
+<title>Free Robots.txt Generator &amp; Tester — Control Crawlers &amp; AI Bots | SearchLens</title>
+<meta name="description" content="Free robots.txt generator and tester. Build a valid robots.txt, allow or block AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended), add your sitemap, and test any path. No sign-up.">
+<link rel="canonical" href="https://searchlens-five.vercel.app/robots-txt-generator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#5AB8F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0F15" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230D1117'/%3E%3Ccircle cx='16' cy='16' r='7.5' fill='none' stroke='%235AB8F5' stroke-width='2.5'/%3E%3Cline x1='16' y1='16' x2='24' y2='11.5' stroke='%23FFCB2D' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='1.7' fill='%23FFCB2D'/%3E%3C/svg%3E">
+<meta property="og:title" content="Free Robots.txt Generator & Tester — SearchLens">
+<meta property="og:description" content="Build a valid robots.txt, control AI crawlers, and test any path. Free, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://searchlens-five.vercel.app/robots-txt-generator.html">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Google AdSense — paste your publisher ID and uncomment to activate:
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Robots.txt Generator & Tester","url":"https://searchlens-five.vercel.app/robots-txt-generator.html","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free tool to generate and test a robots.txt file, including control over AI crawlers."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a robots.txt file?","acceptedAnswer":{"@type":"Answer","text":"robots.txt is a plain-text file at the root of your site (/robots.txt) that tells crawlers which parts of your site they may or may not request. It is a directive respected by well-behaved bots, not a security measure."}},
+{"@type":"Question","name":"How do I block AI crawlers like GPTBot?","acceptedAnswer":{"@type":"Answer","text":"Add a block for the specific user-agent, for example 'User-agent: GPTBot' followed by 'Disallow: /'. This generator lets you toggle common AI crawlers such as GPTBot, ClaudeBot, PerplexityBot and Google-Extended on or off."}},
+{"@type":"Question","name":"Where do I put robots.txt?","acceptedAnswer":{"@type":"Answer","text":"At the root of your domain so it is reachable at https://yourdomain.com/robots.txt. It must be at the root; a robots.txt in a subfolder is ignored."}},
+{"@type":"Question","name":"Does robots.txt remove a page from Google?","acceptedAnswer":{"@type":"Answer","text":"No. Disallow stops crawling, but a blocked URL can still appear in results if it is linked elsewhere. To remove a page from the index, allow crawling and use a noindex meta tag instead."}}
+]}
+]}
+</script>
+<style>
+:root{
+  --bg:#E9F4FF;--surface:#fff;--surface-2:#D9ECFF;--ink:#0D1117;--ink-soft:#465A73;--ink-faint:#7C8DA6;--line:#CBE3FB;
+  --blue:#5AB8F5;--blue-deep:#1287DE;--blue-soft:#E4F3FF;--yellow:#FFCB2D;--yellow-deep:#F2B705;--yellow-soft:#FFF3C9;
+  --pass:#1E9E63;--pass-bg:#E3F6EC;--warn:#E6A50A;--fail:#E64A34;--fail-bg:#FCE6E1;
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--r:18px;--r-sm:11px;
+  --shadow:0 12px 40px -12px rgba(18,135,222,.28);box-sizing:border-box;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);
+}
+:root[data-theme="dark"]{--bg:#0C0F15;--surface:#151A23;--surface-2:#1D2531;--ink:#EAF2FB;--ink-soft:#93A4BC;--ink-faint:#61728C;--line:#26303E;--blue:#6CC4FF;--blue-deep:#3EA6F2;--blue-soft:#122234;--yellow:#FFD23F;--yellow-deep:#FFC21A;--yellow-soft:#2A2612;--pass:#3ECB84;--pass-bg:#10281d;--fail:#FF7059;--fail-bg:#2c1712;--shadow:0 16px 44px -14px rgba(0,0,0,.6)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0F15;--surface:#151A23;--surface-2:#1D2531;--ink:#EAF2FB;--ink-soft:#93A4BC;--ink-faint:#61728C;--line:#26303E;--blue:#6CC4FF;--blue-deep:#3EA6F2;--blue-soft:#122234;--yellow:#FFD23F;--yellow-deep:#FFC21A;--yellow-soft:#2A2612;--pass:#3ECB84;--pass-bg:#10281d;--fail:#FF7059;--fail-bg:#2c1712;--shadow:0 16px 44px -14px rgba(0,0,0,.6)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+a{color:var(--blue-deep);text-decoration:none}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--ink)}
+.logo{width:32px;height:32px;border-radius:10px;background:var(--ink);position:relative;flex:none}
+.logo::before{content:"";position:absolute;inset:0;border-radius:50%;margin:8px;border:2.3px solid var(--blue)}
+.logo::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2.3px;background:var(--yellow);transform-origin:left;transform:translateY(-50%) rotate(-35deg);border-radius:2px}
+.btn{font-family:var(--sans);font-weight:700;font-size:14.5px;border-radius:12px;padding:11px 18px;cursor:pointer;border:2px solid transparent;transition:transform .12s,box-shadow .2s,filter .2s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(1px)}
+.btn-y{background:var(--yellow);color:#141414;box-shadow:0 5px 0 var(--yellow-deep)}
+.btn-y:hover{filter:brightness(1.03);transform:translateY(-1px);box-shadow:0 7px 0 var(--yellow-deep)}
+.btn-y:active{box-shadow:0 2px 0 var(--yellow-deep);transform:translateY(3px)}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}.btn-ghost:hover{background:var(--surface-2)}
+.tgl{background:var(--surface-2);border:1px solid var(--line);color:var(--ink-soft);width:38px;height:36px;border-radius:10px;cursor:pointer;font-size:15px}
+.hero{padding:52px 0 20px;text-align:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;background:var(--yellow-soft);color:var(--yellow-deep);font-weight:700;font-size:13px;padding:6px 13px;border-radius:99px;margin-bottom:16px}
+h1{font-size:clamp(30px,5.5vw,46px);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin:0 0 14px}
+h1 .hl{background:var(--yellow);color:#141414;padding:0 .1em;border-radius:6px}
+.lede{color:var(--ink-soft);font-size:18px;max-width:62ch;margin:0 auto}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:24px;margin:28px 0}
+label{display:block;font-weight:700;font-size:14px;margin:0 0 6px}
+input,textarea,select{width:100%;background:var(--bg);color:var(--ink);border:2px solid var(--line);border-radius:11px;padding:12px;font-family:var(--sans);font-size:15px;margin-bottom:14px}
+textarea{min-height:90px;resize:vertical;font-family:var(--mono);font-size:13px}
+select{cursor:pointer}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue-deep)}
+.sub{font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--blue-deep);margin:14px 0 12px;padding-top:10px;border-top:1px dashed var(--line)}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.bots{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:560px){.bots{grid-template-columns:1fr}}
+.bot{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:10px 13px}
+.bot b{font-size:14px}.bot small{display:block;color:var(--ink-faint);font-size:11.5px;font-weight:500}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;flex:none}
+.seg button{border:none;background:var(--surface);color:var(--ink-soft);font-weight:700;font-size:12px;padding:6px 11px;cursor:pointer}
+.seg button.on-allow{background:var(--pass);color:#fff}
+.seg button.on-block{background:var(--fail);color:#fff}
+.rowitem{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px;margin-bottom:12px;position:relative}
+.rowitem .rm{position:absolute;top:8px;right:8px;background:none;border:none;color:var(--ink-faint);font-size:18px;cursor:pointer;line-height:1}
+.rowitem .rm:hover{color:var(--fail)}
+.out{margin-top:26px}.out h3{font-size:17px;font-weight:800;margin:0 0 10px}
+pre{background:var(--ink);color:#e6edf3;border-radius:12px;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.55;margin:0;white-space:pre-wrap;word-break:break-word}
+.snip{position:relative}
+.copy{position:absolute;top:10px;right:10px;background:#ffffff22;border:1px solid #ffffff33;color:#fff;border-radius:8px;font-size:12px;font-weight:700;padding:5px 11px;cursor:pointer}
+.copy:hover{background:#ffffff33}
+.verdict{border-radius:11px;padding:13px 15px;font-weight:700;margin-top:6px}
+.verdict.allow{background:var(--pass-bg);color:var(--pass)}
+.verdict.block{background:var(--fail-bg);color:var(--fail)}
+article{margin:44px 0}
+article h2{font-size:clamp(22px,3.5vw,30px);font-weight:800;letter-spacing:-.02em;margin:34px 0 12px}
+article p{color:var(--ink-soft);margin:0 0 14px}
+article ul{color:var(--ink-soft);padding-left:20px}article li{margin:6px 0}
+article code{background:var(--surface-2);padding:2px 6px;border-radius:5px;font-family:var(--mono);font-size:13px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:15.5px}
+.faq p{padding:0 0 12px}
+.ctaband{background:var(--ink);color:#fff;border-radius:var(--r);padding:36px;text-align:center;margin:40px 0}
+.ctaband h3{font-size:clamp(22px,3.5vw,30px);font-weight:800;margin:0 0 8px}.ctaband h3 .hl{color:var(--yellow)}
+.ctaband p{color:#aebfd4;margin:0 0 20px}
+footer{padding:32px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;border-top:1px solid var(--line)}
+footer a{color:var(--ink-soft)}
+.adbox{max-width:880px;margin:26px auto;padding:10px;background:var(--surface);border:1px dashed var(--line);border-radius:12px;text-align:center;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.adbox span{color:var(--ink-faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav">
+  <a class="brand" href="/"><span class="logo"></span>SearchLens</a>
+  <div style="display:flex;gap:10px;align-items:center">
+    <button class="tgl" id="theme" title="Theme">◐</button>
+    <a href="/" class="btn btn-ghost">Audit a page</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">🤖 Crawlers &amp; AI bots</div>
+  <h1>Free <span class="hl">Robots.txt</span> Generator &amp; Tester</h1>
+  <p class="lede">Build a valid <code>robots.txt</code> in clicks — set crawl rules, allow or block AI crawlers like GPTBot and ClaudeBot, add your sitemap, then test any URL path. Free, no sign-up.</p>
+</div></header>
+
+<main class="wrap">
+  <div class="card">
+    <label for="preset">Start from a preset</label>
+    <select id="preset">
+      <option value="allow">Allow all crawlers (recommended for most sites)</option>
+      <option value="block">Block all crawlers (staging / private)</option>
+      <option value="wp">WordPress (block /wp-admin/)</option>
+      <option value="custom">Custom only</option>
+    </select>
+
+    <div class="sub">AI crawlers — allow or block each</div>
+    <div class="bots" id="bots"></div>
+
+    <div class="sub">Custom rules (optional)</div>
+    <div id="rules"></div>
+    <button class="btn btn-ghost" id="addrule" type="button">+ Add rule</button>
+
+    <div style="margin-top:16px"><label for="sitemap">Sitemap URL</label>
+    <input id="sitemap" type="url" placeholder="https://yourdomain.com/sitemap.xml" value="https://searchlens-five.vercel.app/sitemap.xml"></div>
+
+    <div class="row">
+      <button class="btn btn-y" id="gen" type="button" style="flex:1;min-width:180px;justify-content:center">Generate robots.txt</button>
+    </div>
+
+    <div class="out" id="out" hidden>
+      <h3>Your robots.txt</h3>
+      <div class="snip"><button class="copy" id="copy">Copy</button><pre id="output"></pre></div>
+      <div class="row" style="margin-top:12px">
+        <button class="btn btn-ghost" id="download">Download robots.txt</button>
+      </div>
+      <p style="color:var(--ink-faint);font-size:13.5px;margin-top:10px">Save as <code>robots.txt</code> at the <b>root</b> of your site (<code>yourdomain.com/robots.txt</code>).</p>
+    </div>
+  </div>
+
+  <div class="adbox">
+    <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <span>Advertisement</span>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 14px;font-size:18px">🧪 Test a URL against rules</h3>
+    <label for="testrobots">robots.txt rules</label>
+    <textarea id="testrobots" placeholder="Paste or generate rules above…"></textarea>
+    <div class="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px">
+      <div><label for="testua">User-agent</label><input id="testua" type="text" value="Googlebot"></div>
+      <div><label for="testpath">Path to test</label><input id="testpath" type="text" value="/blog/post"></div>
+    </div>
+    <button class="btn btn-ghost" id="test" type="button">Test path</button>
+    <div id="verdict"></div>
+  </div>
+
+  <article>
+    <h2>What is a robots.txt file?</h2>
+    <p><code>robots.txt</code> is a plain-text file at the root of your website — reachable at <code>yourdomain.com/robots.txt</code> — that tells crawlers which parts of your site they may or may not request. It's the first file most bots look at. Well-behaved crawlers (Googlebot, Bingbot, and the major AI crawlers) respect it; it is a set of directives, not a security wall, so it won't stop a determined bad actor.</p>
+
+    <h2>Controlling AI crawlers (the new part)</h2>
+    <p>AI companies now run their own crawlers to gather training data and to power AI search answers. You can decide, per bot, whether they're allowed. The main ones:</p>
+    <ul>
+      <li><strong>GPTBot</strong> — OpenAI's training crawler.</li>
+      <li><strong>OAI-SearchBot / ChatGPT-User</strong> — OpenAI's search and on-demand fetchers.</li>
+      <li><strong>ClaudeBot / Claude-SearchBot</strong> — Anthropic's crawlers.</li>
+      <li><strong>PerplexityBot / Perplexity-User</strong> — Perplexity's crawlers.</li>
+      <li><strong>Google-Extended</strong> — controls use of your content for Google's AI (Gemini / AI Overviews) without affecting normal Search.</li>
+      <li><strong>CCBot</strong> — Common Crawl, used by many AI datasets.</li>
+    </ul>
+    <p>If you <em>want</em> AI visibility (as most publishers now do), allow them — being citable in ChatGPT, Perplexity and AI Overviews is a growing traffic source. If you'd rather keep your content out of AI, block them. This tool lets you choose each one.</p>
+
+    <h2>How Disallow and Allow work</h2>
+    <p>Each block starts with a <code>User-agent:</code> line, then one or more <code>Disallow:</code> or <code>Allow:</code> paths. <code>Disallow: /</code> blocks everything; <code>Disallow:</code> (empty) blocks nothing. When rules conflict, most modern crawlers follow the <strong>longest (most specific) matching path</strong>. Our tester uses the same longest-match logic so you can check a path before you ship.</p>
+
+    <h2>Important: robots.txt does not deindex</h2>
+    <p>Blocking a URL with <code>Disallow</code> stops crawling, but if other sites link to that URL it can still show up in Google without a description. To actually remove a page from the index, <em>allow</em> crawling and add a <code>&lt;meta name="robots" content="noindex"&gt;</code> tag to the page instead.</p>
+
+    <h2 class="faqh">Frequently asked questions</h2>
+    <div class="faq">
+      <details open><summary>Where does robots.txt go?</summary><p>At the root of your domain, reachable at <code>yourdomain.com/robots.txt</code>. A robots.txt inside a subfolder is ignored.</p></details>
+      <details><summary>Should I block AI crawlers?</summary><p>Only if you don't want your content used by or cited in AI. Most sites now allow them for the AI-search visibility.</p></details>
+      <details><summary>Does Disallow remove a page from Google?</summary><p>No — it stops crawling but the URL can still be indexed if linked. Use a noindex meta tag to deindex.</p></details>
+      <details><summary>Is this tool free?</summary><p>Yes — generating, testing, copying and downloading is completely free and runs entirely in your browser.</p></details>
+    </div>
+  </article>
+
+  <div class="ctaband">
+    <h3>Not sure if your <span class="hl">robots.txt</span> helps or hurts AI visibility?</h3>
+    <p>SearchLens audits any page for SEO, technical health and GEO/AEO — including AI-crawler access and robots rules.</p>
+    <a href="/" class="btn btn-y">Run a free audit</a>
+  </div>
+</main>
+
+<footer class="wrap">SearchLens — free SEO · GEO · AEO tools. · <a href="/">Home</a> · <a href="/meta-tag-generator.html">Meta Tags</a> · <a href="/schema-generator.html">Schema</a> · <a href="/llms-txt-generator.html">llms.txt</a></footer>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const root=document.documentElement;
+$('#theme').onclick=()=>{const d=(root.getAttribute('data-theme')||'light')==='light';root.setAttribute('data-theme',d?'dark':'light');try{localStorage.setItem('sl',d?'dark':'light')}catch(e){}};
+try{const t=localStorage.getItem('sl');if(t)root.setAttribute('data-theme',t)}catch(e){}
+
+const AIBOTS=[
+  ['GPTBot','OpenAI training'],['OAI-SearchBot','OpenAI search'],['ChatGPT-User','ChatGPT browsing'],
+  ['ClaudeBot','Anthropic'],['PerplexityBot','Perplexity'],['Google-Extended','Google AI / Gemini'],
+  ['CCBot','Common Crawl'],['Bytespider','TikTok / ByteDance']
+];
+const botState={};
+const botsEl=$('#bots');
+AIBOTS.forEach(([name,desc])=>{
+  botState[name]='allow';
+  const el=document.createElement('div');el.className='bot';
+  el.innerHTML='<div><b>'+name+'</b><small>'+desc+'</small></div>'+
+    '<div class="seg"><button data-v="allow" class="on-allow">Allow</button><button data-v="block">Block</button></div>';
+  el.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{
+    botState[name]=b.dataset.v;
+    el.querySelector('[data-v=allow]').className=b.dataset.v==='allow'?'on-allow':'';
+    el.querySelector('[data-v=block]').className=b.dataset.v==='block'?'on-block':'';
+  });
+  botsEl.appendChild(el);
+});
+
+const rulesEl=$('#rules');
+function ruleItem(ua='*',path='/private/',mode='Disallow'){
+  const el=document.createElement('div');el.className='rowitem';
+  el.innerHTML='<button class="rm" type="button" title="Remove">×</button>'+
+    '<label style="font-size:12.5px">User-agent</label><input class="rua" type="text" value="'+ua+'">'+
+    '<div style="display:grid;grid-template-columns:120px 1fr;gap:0 12px">'+
+    '<div><label style="font-size:12.5px">Rule</label><select class="rmode"><option'+(mode==='Disallow'?' selected':'')+'>Disallow</option><option'+(mode==='Allow'?' selected':'')+'>Allow</option></select></div>'+
+    '<div><label style="font-size:12.5px">Path</label><input class="rpath" type="text" value="'+path+'"></div></div>';
+  el.querySelector('.rm').onclick=()=>el.remove();
+  return el;
+}
+$('#addrule').onclick=()=>rulesEl.appendChild(ruleItem());
+
+function generate(){
+  const preset=$('#preset').value;
+  let out='# robots.txt — generated by SearchLens\n';
+  // base rule for all crawlers
+  out+='\nUser-agent: *\n';
+  if(preset==='block') out+='Disallow: /\n';
+  else if(preset==='wp') out+='Disallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n';
+  else out+='Allow: /\n';
+  // custom rules
+  const customByUa={};
+  $$('#rules .rowitem').forEach(el=>{
+    const ua=el.querySelector('.rua').value.trim()||'*';
+    const mode=el.querySelector('.rmode').value;
+    const path=el.querySelector('.rpath').value.trim()||'/';
+    (customByUa[ua]=customByUa[ua]||[]).push(mode+': '+path);
+  });
+  Object.keys(customByUa).forEach(ua=>{
+    out+='\nUser-agent: '+ua+'\n'+customByUa[ua].join('\n')+'\n';
+  });
+  // AI bots
+  const blocked=AIBOTS.filter(b=>botState[b[0]]==='block').map(b=>b[0]);
+  const allowed=AIBOTS.filter(b=>botState[b[0]]==='allow').map(b=>b[0]);
+  if(allowed.length){out+='\n# AI crawlers — allowed\n';allowed.forEach(n=>{out+='User-agent: '+n+'\nAllow: /\n\n'})}
+  if(blocked.length){out+='# AI crawlers — blocked\n';blocked.forEach(n=>{out+='User-agent: '+n+'\nDisallow: /\n\n'})}
+  // sitemap
+  const sm=$('#sitemap').value.trim();
+  if(sm)out+='Sitemap: '+sm+'\n';
+  return out.replace(/\n{3,}/g,'\n\n').trim()+'\n';
+}
+let LAST='';
+$('#gen').onclick=()=>{
+  LAST=generate();
+  $('#output').textContent=LAST;
+  $('#out').hidden=false;
+  $('#testrobots').value=LAST;
+  $('#out').scrollIntoView({behavior:'smooth',block:'nearest'});
+};
+$('#copy').onclick=()=>{navigator.clipboard?.writeText(LAST||generate());const b=$('#copy');b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};
+$('#download').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([LAST||generate()],{type:'text/plain'}));a.download='robots.txt';a.click()};
+
+// ---- Tester (longest-match) ----
+function parse(txt){
+  const groups=[];let cur=null;
+  txt.split('\n').forEach(line=>{
+    line=line.replace(/#.*$/,'').trim();if(!line)return;
+    const i=line.indexOf(':');if(i<0)return;
+    const k=line.slice(0,i).trim().toLowerCase(),val=line.slice(i+1).trim();
+    if(k==='user-agent'){if(!cur||cur.rules.length){cur={agents:[],rules:[]};groups.push(cur)}cur.agents.push(val.toLowerCase())}
+    else if((k==='allow'||k==='disallow')&&cur){cur.rules.push({allow:k==='allow',path:val})}
+  });
+  return groups;
+}
+function pick(groups,ua){
+  ua=ua.toLowerCase();let g=groups.find(x=>x.agents.some(a=>a!=='*'&&ua.includes(a)));
+  if(!g)g=groups.find(x=>x.agents.includes('*'));
+  return g;
+}
+function allowed(group,path){
+  if(!group)return true;
+  let best=null;
+  group.rules.forEach(r=>{
+    if(r.path===''){return}
+    const p=r.path.replace(/\*/g,'.*').replace(/[.+?^${}()|[\]\\]/g,m=>m==='.*'?m:'\\'+m);
+    let rx;try{rx=new RegExp('^'+r.path.split('*').map(s=>s.replace(/[.+?^${}()|[\]\\]/g,'\\$&')).join('.*'))}catch(e){return}
+    if(rx.test(path)){if(!best||r.path.length>best.path.length)best=r}
+  });
+  if(!best)return true;
+  return best.allow;
+}
+$('#test').onclick=()=>{
+  const g=pick(parse($('#testrobots').value),$('#testua').value.trim()||'*');
+  const ok=allowed(g,$('#testpath').value.trim()||'/');
+  const v=$('#verdict');
+  v.className='verdict '+(ok?'allow':'block');
+  v.textContent=ok?'✓ ALLOWED — '+($('#testua').value.trim()||'*')+' may crawl '+($('#testpath').value.trim()||'/'):'✕ BLOCKED — '+($('#testua').value.trim()||'*')+' is disallowed from '+($('#testpath').value.trim()||'/');
+};
+
+rulesEl.appendChild(ruleItem('*','/private/','Disallow'));
+</script>
+</body>
+</html>

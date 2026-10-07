@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- SearchLens — schema / JSON-LD generator -->
+<title>Free Schema Markup Generator — JSON-LD for SEO (Organization, Article, FAQ, Product) | SearchLens</title>
+<meta name="description" content="Free JSON-LD schema markup generator. Create valid structured data for Organization, LocalBusiness, Article, Product, FAQ and WebSite — copy the code for Google rich results. No sign-up.">
+<link rel="canonical" href="https://searchlens-five.vercel.app/schema-generator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#5AB8F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0F15" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230D1117'/%3E%3Ccircle cx='16' cy='16' r='7.5' fill='none' stroke='%235AB8F5' stroke-width='2.5'/%3E%3Cline x1='16' y1='16' x2='24' y2='11.5' stroke='%23FFCB2D' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='1.7' fill='%23FFCB2D'/%3E%3C/svg%3E">
+<meta property="og:title" content="Free Schema Markup Generator (JSON-LD) — SearchLens">
+<meta property="og:description" content="Create valid JSON-LD structured data for rich results. Free, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://searchlens-five.vercel.app/schema-generator.html">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Google AdSense — paste your publisher ID and uncomment to activate:
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Schema Markup Generator","url":"https://searchlens-five.vercel.app/schema-generator.html","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free tool to generate valid JSON-LD structured data for SEO rich results."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is schema markup?","acceptedAnswer":{"@type":"Answer","text":"Schema markup is structured data added to a page using the schema.org vocabulary. It describes your content to search engines in a machine-readable way, which can unlock rich results such as star ratings, FAQs, breadcrumbs and more."}},
+{"@type":"Question","name":"What is JSON-LD?","acceptedAnswer":{"@type":"Answer","text":"JSON-LD is the format Google recommends for schema markup. It is a block of JSON placed in a script tag in the head or body of your page, kept separate from your visible HTML, which makes it easy to add and maintain."}},
+{"@type":"Question","name":"Does schema markup improve SEO?","acceptedAnswer":{"@type":"Answer","text":"Schema is not a direct ranking factor, but it can earn rich results that increase click-through rate and help search engines and AI answer engines understand your content, which supports visibility."}},
+{"@type":"Question","name":"Where do I put the JSON-LD code?","acceptedAnswer":{"@type":"Answer","text":"Paste the generated script tag inside the head of your page, or anywhere in the body. Then validate it with Google's Rich Results Test before publishing."}}
+]}
+]}
+</script>
+<style>
+:root{
+  --bg:#E9F4FF;--surface:#fff;--surface-2:#D9ECFF;--ink:#0D1117;--ink-soft:#465A73;--ink-faint:#7C8DA6;--line:#CBE3FB;
+  --blue:#5AB8F5;--blue-deep:#1287DE;--blue-soft:#E4F3FF;--yellow:#FFCB2D;--yellow-deep:#F2B705;--yellow-soft:#FFF3C9;
+  --pass:#1E9E63;--warn:#E6A50A;--fail:#E64A34;
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--r:18px;--r-sm:11px;
+  --shadow:0 12px 40px -12px rgba(18,135,222,.28);box-sizing:border-box;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);
+}
+:root[data-theme="dark"]{--bg:#0C0F15;--surface:#151A23;--surface-2:#1D2531;--ink:#EAF2FB;--ink-soft:#93A4BC;--ink-faint:#61728C;--line:#26303E;--blue:#6CC4FF;--blue-deep:#3EA6F2;--blue-soft:#122234;--yellow:#FFD23F;--yellow-deep:#FFC21A;--yellow-soft:#2A2612;--shadow:0 16px 44px -14px rgba(0,0,0,.6)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0F15;--surface:#151A23;--surface-2:#1D2531;--ink:#EAF2FB;--ink-soft:#93A4BC;--ink-faint:#61728C;--line:#26303E;--blue:#6CC4FF;--blue-deep:#3EA6F2;--blue-soft:#122234;--yellow:#FFD23F;--yellow-deep:#FFC21A;--yellow-soft:#2A2612;--shadow:0 16px 44px -14px rgba(0,0,0,.6)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+a{color:var(--blue-deep);text-decoration:none}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--ink)}
+.logo{width:32px;height:32px;border-radius:10px;background:var(--ink);position:relative;flex:none}
+.logo::before{content:"";position:absolute;inset:0;border-radius:50%;margin:8px;border:2.3px solid var(--blue)}
+.logo::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2.3px;background:var(--yellow);transform-origin:left;transform:translateY(-50%) rotate(-35deg);border-radius:2px}
+.btn{font-family:var(--sans);font-weight:700;font-size:14.5px;border-radius:12px;padding:11px 18px;cursor:pointer;border:2px solid transparent;transition:transform .12s,box-shadow .2s,filter .2s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(1px)}
+.btn-y{background:var(--yellow);color:#141414;box-shadow:0 5px 0 var(--yellow-deep)}
+.btn-y:hover{filter:brightness(1.03);transform:translateY(-1px);box-shadow:0 7px 0 var(--yellow-deep)}
+.btn-y:active{box-shadow:0 2px 0 var(--yellow-deep);transform:translateY(3px)}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}.btn-ghost:hover{background:var(--surface-2)}
+.tgl{background:var(--surface-2);border:1px solid var(--line);color:var(--ink-soft);width:38px;height:36px;border-radius:10px;cursor:pointer;font-size:15px}
+.hero{padding:52px 0 20px;text-align:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;background:var(--yellow-soft);color:var(--yellow-deep);font-weight:700;font-size:13px;padding:6px 13px;border-radius:99px;margin-bottom:16px}
+h1{font-size:clamp(30px,5.5vw,46px);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin:0 0 14px}
+h1 .hl{background:var(--yellow);color:#141414;padding:0 .1em;border-radius:6px}
+.lede{color:var(--ink-soft);font-size:18px;max-width:62ch;margin:0 auto}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:24px;margin:28px 0}
+label{display:block;font-weight:700;font-size:14px;margin:0 0 6px}
+input,textarea,select{width:100%;background:var(--bg);color:var(--ink);border:2px solid var(--line);border-radius:11px;padding:12px;font-family:var(--sans);font-size:15px;margin-bottom:14px}
+textarea{min-height:70px;resize:vertical}
+select{cursor:pointer}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue-deep)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.rowitem{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px;margin-bottom:12px;position:relative}
+.rowitem .rm{position:absolute;top:8px;right:8px;background:none;border:none;color:var(--ink-faint);font-size:18px;cursor:pointer;line-height:1}
+.rowitem .rm:hover{color:var(--fail)}
+.out{margin-top:26px}
+.out h3{font-size:17px;font-weight:800;margin:0 0 10px}
+pre{background:var(--ink);color:#e6edf3;border-radius:12px;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.55;margin:0;white-space:pre-wrap;word-break:break-word}
+.snip{position:relative}
+.copy{position:absolute;top:10px;right:10px;background:#ffffff22;border:1px solid #ffffff33;color:#fff;border-radius:8px;font-size:12px;font-weight:700;padding:5px 11px;cursor:pointer}
+.copy:hover{background:#ffffff33}
+article{margin:44px 0}
+article h2{font-size:clamp(22px,3.5vw,30px);font-weight:800;letter-spacing:-.02em;margin:34px 0 12px}
+article h3{font-size:19px;font-weight:800;margin:26px 0 8px}
+article p{color:var(--ink-soft);margin:0 0 14px}
+article ul{color:var(--ink-soft);padding-left:20px}article li{margin:6px 0}
+article code{background:var(--surface-2);padding:2px 6px;border-radius:5px;font-family:var(--mono);font-size:13px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:15.5px}
+.faq p{padding:0 0 12px}
+.ctaband{background:var(--ink);color:#fff;border-radius:var(--r);padding:36px;text-align:center;margin:40px 0}
+.ctaband h3{font-size:clamp(22px,3.5vw,30px);font-weight:800;margin:0 0 8px}.ctaband h3 .hl{color:var(--yellow)}
+.ctaband p{color:#aebfd4;margin:0 0 20px}
+footer{padding:32px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;border-top:1px solid var(--line)}
+footer a{color:var(--ink-soft)}
+.adbox{max-width:880px;margin:26px auto;padding:10px;background:var(--surface);border:1px dashed var(--line);border-radius:12px;text-align:center;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.adbox span{color:var(--ink-faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav">
+  <a class="brand" href="/"><span class="logo"></span>SearchLens</a>
+  <div style="display:flex;gap:10px;align-items:center">
+    <button class="tgl" id="theme" title="Theme">◐</button>
+    <a href="/" class="btn btn-ghost">Audit a page</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">⚙️ Structured data · Rich results</div>
+  <h1>Free <span class="hl">Schema</span> Markup Generator</h1>
+  <p class="lede">Pick a type, fill in the fields, and get valid <code>JSON-LD</code> structured data for Google rich results — Organization, LocalBusiness, Article, Product, FAQ and WebSite. Copy or download. Free, no sign-up.</p>
+</div></header>
+
+<main class="wrap">
+  <div class="card">
+    <label for="type">Schema type</label>
+    <select id="type">
+      <option value="Organization">Organization</option>
+      <option value="LocalBusiness">LocalBusiness</option>
+      <option value="Article">Article / BlogPosting</option>
+      <option value="Product">Product</option>
+      <option value="FAQPage">FAQ Page</option>
+      <option value="WebSite">WebSite (+ search box)</option>
+    </select>
+
+    <div id="fields"></div>
+
+    <div class="row" style="margin-top:8px">
+      <button class="btn btn-y" id="gen" type="button" style="flex:1;min-width:180px;justify-content:center">Generate JSON-LD</button>
+    </div>
+
+    <div class="out" id="out" hidden>
+      <h3>Your JSON-LD</h3>
+      <div class="snip"><button class="copy" id="copy">Copy</button><pre id="output"></pre></div>
+      <div class="row" style="margin-top:12px">
+        <button class="btn btn-ghost" id="download">Download .html snippet</button>
+        <a class="btn btn-ghost" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Test in Google Rich Results ↗</a>
+      </div>
+      <p style="color:var(--ink-faint);font-size:13.5px;margin-top:10px">Paste the whole <code>&lt;script&gt;</code> block inside your page's <code>&lt;head&gt;</code>.</p>
+    </div>
+  </div>
+
+  <div class="adbox">
+    <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <span>Advertisement</span>
+  </div>
+
+  <article>
+    <h2>What is schema markup?</h2>
+    <p>Schema markup (structured data) is extra code that describes your page using the shared <code>schema.org</code> vocabulary. Humans don't see it, but search engines and AI answer engines read it to understand exactly what a page is about — a product, an article, a business, a list of FAQs. When Google understands that structure, it can show <strong>rich results</strong>: star ratings, FAQ drop-downs, breadcrumbs, prices, event dates and more. Those richer listings take up more space and earn more clicks.</p>
+
+    <h2>Why JSON-LD?</h2>
+    <p>There are a few ways to add structured data, but <strong>JSON-LD</strong> is the format Google officially recommends. It's a single block of JSON inside a <code>&lt;script type="application/ld+json"&gt;</code> tag that sits separately from your visible HTML. That separation makes it easy to add, read and maintain — you don't have to weave attributes through your markup. This generator always outputs clean JSON-LD.</p>
+
+    <h2>Which schema type should I use?</h2>
+    <ul>
+      <li><strong>Organization</strong> — your company's name, logo, URL and social profiles. Add it site-wide (usually the homepage).</li>
+      <li><strong>LocalBusiness</strong> — for businesses with a physical location: address, phone, opening hours, geo.</li>
+      <li><strong>Article / BlogPosting</strong> — for blog posts and news: headline, author, dates, image.</li>
+      <li><strong>Product</strong> — for e-commerce: name, image, brand, price and availability.</li>
+      <li><strong>FAQPage</strong> — a list of question/answer pairs; can show as an expandable FAQ in results and is highly favoured by AI answer engines.</li>
+      <li><strong>WebSite</strong> — declares your site and can enable a sitelinks search box.</li>
+    </ul>
+
+    <h2>How to add and test it</h2>
+    <p>Generate your JSON-LD, copy the full script tag, and paste it into the <code>&lt;head&gt;</code> of the relevant page (FAQ schema goes on the FAQ page, Product schema on the product page, and so on). Then run it through Google's <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Rich Results Test</a> and the Schema Markup Validator to confirm it's valid before publishing. Only mark up content that's actually visible on the page — marking up things that aren't there violates Google's guidelines.</p>
+
+    <h2 class="faqh">Frequently asked questions</h2>
+    <div class="faq">
+      <details open><summary>Does schema markup directly improve rankings?</summary><p>It isn't a direct ranking factor, but the rich results it can unlock increase click-through rate, and it helps search engines and AI engines understand your content — both support visibility.</p></details>
+      <details><summary>Where should the JSON-LD go?</summary><p>Inside the <code>&lt;head&gt;</code> is cleanest, though Google also reads it in the body. Put each type on the page it describes.</p></details>
+      <details><summary>Can I use more than one schema type on a page?</summary><p>Yes. A blog post can have both Article and FAQPage, for example. Add multiple script blocks, or combine them in one <code>@graph</code>.</p></details>
+      <details><summary>Is this generator free?</summary><p>Yes — generating, copying and downloading is completely free and runs entirely in your browser. Nothing is uploaded.</p></details>
+    </div>
+  </article>
+
+  <div class="ctaband">
+    <h3>Want to check if your page's <span class="hl">structured data</span> is set up right?</h3>
+    <p>SearchLens audits any page for SEO, technical health and GEO/AEO — including JSON-LD schema and entity markup.</p>
+    <a href="/" class="btn btn-y">Run a free audit</a>
+  </div>
+</main>
+
+<footer class="wrap">SearchLens — free SEO · GEO · AEO tools. · <a href="/">Home</a> · <a href="/meta-tag-generator.html">Meta Tags</a> · <a href="/llms-txt-generator.html">llms.txt</a></footer>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const root=document.documentElement;
+$('#theme').onclick=()=>{const d=(root.getAttribute('data-theme')||'light')==='light';root.setAttribute('data-theme',d?'dark':'light');try{localStorage.setItem('sl',d?'dark':'light')}catch(e){}};
+try{const t=localStorage.getItem('sl');if(t)root.setAttribute('data-theme',t)}catch(e){}
+
+function esc(s){return String(s).replace(/"/g,'&quot;')}
+// field schemas per type: [id,label,placeholder,type]
+const SCHEMAS={
+  Organization:[
+    ['name','Organization name','Acme Inc.','text'],
+    ['url','Website URL','https://acme.com','url'],
+    ['logo','Logo URL','https://acme.com/logo.png','url'],
+    ['desc','Short description','What the organization does','textarea'],
+    ['sameAs','Social profile URLs (one per line)','https://twitter.com/acme\nhttps://linkedin.com/company/acme','textarea']
+  ],
+  LocalBusiness:[
+    ['name','Business name','Acme Cafe','text'],
+    ['url','Website URL','https://acmecafe.com','url'],
+    ['phone','Phone','+1-555-123-4567','text'],
+    ['street','Street address','123 Main St','text'],
+    ['city','City','Austin','text'],
+    ['region','State / region','TX','text'],
+    ['postal','Postal code','78701','text'],
+    ['country','Country code','US','text'],
+    ['hours','Opening hours','Mo-Fr 09:00-17:00','text'],
+    ['price','Price range','$$','text']
+  ],
+  Article:[
+    ['headline','Headline','How to do X','text'],
+    ['url','Article URL','https://acme.com/blog/x','url'],
+    ['image','Image URL','https://acme.com/x.jpg','url'],
+    ['author','Author name','Jane Doe','text'],
+    ['publisher','Publisher name','Acme Inc.','text'],
+    ['published','Date published','2026-10-07','text'],
+    ['modified','Date modified','2026-10-07','text'],
+    ['desc','Description','Short summary of the article','textarea']
+  ],
+  Product:[
+    ['name','Product name','Acme Widget','text'],
+    ['image','Image URL','https://acme.com/widget.jpg','url'],
+    ['brand','Brand','Acme','text'],
+    ['desc','Description','What the product is','textarea'],
+    ['sku','SKU','AW-100','text'],
+    ['price','Price','29.99','text'],
+    ['currency','Currency code','USD','text'],
+    ['availability','Availability','InStock','text'],
+    ['url','Product URL','https://acme.com/widget','url']
+  ],
+  FAQPage:[],
+  WebSite:[
+    ['name','Site name','Acme','text'],
+    ['url','Site URL','https://acme.com','url'],
+    ['search','Search URL template (optional)','https://acme.com/search?q={search_term_string}','text']
+  ]
+};
+const fields=$('#fields');
+let faqRows=null;
+function render(type){
+  fields.innerHTML='';faqRows=null;
+  if(type==='FAQPage'){
+    const lbl=document.createElement('label');lbl.textContent='Questions & answers';fields.appendChild(lbl);
+    const box=document.createElement('div');box.id='faq';fields.appendChild(box);faqRows=box;
+    const add=document.createElement('button');add.className='btn btn-ghost';add.type='button';add.textContent='+ Add question';
+    add.onclick=()=>box.appendChild(faqItem());fields.appendChild(add);
+    [['What is X?','X is ...'],['How much does it cost?','It is free.']].forEach(q=>box.appendChild(faqItem(q[0],q[1])));
+    return;
+  }
+  SCHEMAS[type].forEach(f=>{
+    const lbl=document.createElement('label');lbl.textContent=f[1];lbl.htmlFor='f_'+f[0];fields.appendChild(lbl);
+    const el=document.createElement(f[3]==='textarea'?'textarea':'input');
+    el.id='f_'+f[0];el.placeholder=f[2];if(f[3]!=='textarea')el.type=f[3];
+    fields.appendChild(el);
+  });
+}
+function faqItem(q='',a=''){
+  const el=document.createElement('div');el.className='rowitem';
+  el.innerHTML='<button class="rm" type="button" title="Remove">×</button>'+
+    '<label style="font-size:12.5px">Question</label><input class="fq" type="text" value="'+esc(q)+'">'+
+    '<label style="font-size:12.5px">Answer</label><textarea class="fa">'+esc(a)+'</textarea>';
+  el.querySelector('.rm').onclick=()=>el.remove();
+  return el;
+}
+function v(id){const e=$('#f_'+id);return e?e.value.trim():''}
+
+function build(type){
+  const o={'@context':'https://schema.org','@type':type};
+  if(type==='Organization'){
+    o.name=v('name');if(v('url'))o.url=v('url');if(v('logo'))o.logo=v('logo');
+    if(v('desc'))o.description=v('desc');
+    const sa=v('sameAs').split('\n').map(s=>s.trim()).filter(Boolean);if(sa.length)o.sameAs=sa;
+  }else if(type==='LocalBusiness'){
+    o.name=v('name');if(v('url'))o.url=v('url');if(v('phone'))o.telephone=v('phone');
+    o.address={'@type':'PostalAddress',streetAddress:v('street'),addressLocality:v('city'),addressRegion:v('region'),postalCode:v('postal'),addressCountry:v('country')};
+    if(v('hours'))o.openingHours=v('hours');if(v('price'))o.priceRange=v('price');
+  }else if(type==='Article'){
+    o['@type']='Article';o.headline=v('headline');if(v('url'))o.mainEntityOfPage=v('url');
+    if(v('image'))o.image=v('image');
+    if(v('author'))o.author={'@type':'Person',name:v('author')};
+    if(v('publisher'))o.publisher={'@type':'Organization',name:v('publisher')};
+    if(v('published'))o.datePublished=v('published');if(v('modified'))o.dateModified=v('modified');
+    if(v('desc'))o.description=v('desc');
+  }else if(type==='Product'){
+    o.name=v('name');if(v('image'))o.image=v('image');
+    if(v('brand'))o.brand={'@type':'Brand',name:v('brand')};
+    if(v('desc'))o.description=v('desc');if(v('sku'))o.sku=v('sku');
+    if(v('price')){o.offers={'@type':'Offer',price:v('price'),priceCurrency:v('currency')||'USD',availability:'https://schema.org/'+(v('availability')||'InStock')};if(v('url'))o.offers.url=v('url');}
+  }else if(type==='WebSite'){
+    o.name=v('name');o.url=v('url');
+    if(v('search'))o.potentialAction={'@type':'SearchAction',target:v('search'),'query-input':'required name=search_term_string'};
+  }else if(type==='FAQPage'){
+    const items=$$('#faq .rowitem').map(el=>({q:el.querySelector('.fq').value.trim(),a:el.querySelector('.fa').value.trim()})).filter(x=>x.q&&x.a);
+    o.mainEntity=items.map(x=>({'@type':'Question',name:x.q,acceptedAnswer:{'@type':'Answer',text:x.a}}));
+  }
+  return o;
+}
+function wrap(obj){return '<script type="application/ld+json">\n'+JSON.stringify(obj,null,2)+'\n<\/script>'}
+
+let LAST='';
+$('#gen').onclick=()=>{
+  LAST=wrap(build($('#type').value));
+  $('#output').textContent=LAST;
+  $('#out').hidden=false;
+  $('#out').scrollIntoView({behavior:'smooth',block:'nearest'});
+};
+$('#copy').onclick=()=>{navigator.clipboard?.writeText(LAST);const b=$('#copy');b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};
+$('#download').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([LAST],{type:'text/html'}));a.download='schema.html';a.click()};
+$('#type').onchange=()=>render($('#type').value);
+render('Organization');
+</script>
+</body>
+</html>
