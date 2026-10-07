@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Robots.txt for AI Crawlers — Allow or Block GPTBot, ClaudeBot &amp; More (2026) | SearchLens</title>
+<meta name="description" content="A complete guide to controlling AI crawlers in robots.txt: what GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended and CCBot are, and how to allow or block each one.">
+<link rel="canonical" href="https://searchlens-five.vercel.app/robots-txt-for-ai-crawlers.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#5AB8F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0F15" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230D1117'/%3E%3Ccircle cx='16' cy='16' r='7.5' fill='none' stroke='%235AB8F5' stroke-width='2.5'/%3E%3Cline x1='16' y1='16' x2='24' y2='11.5' stroke='%23FFCB2D' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='1.7' fill='%23FFCB2D'/%3E%3C/svg%3E">
+<meta property="og:site_name" content="SearchLens">
+<meta property="og:title" content="Robots.txt for AI Crawlers — Allow or Block GPTBot, ClaudeBot &amp; More (2026) | SearchLens">
+<meta property="og:description" content="A complete guide to controlling AI crawlers in robots.txt: what GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended and CCBot are, and how to allow or block each one.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://searchlens-five.vercel.app/robots-txt-for-ai-crawlers.html">
+<meta property="og:image" content="https://searchlens-five.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Google AdSense — paste your publisher ID and uncomment to activate:
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Robots.txt for AI Crawlers — Allow or Block GPTBot, ClaudeBot &amp; More (2026) | SearchLens", "description": "A complete guide to controlling AI crawlers in robots.txt: what GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended and CCBot are, and how to allow or block each one.", "mainEntityOfPage": "https://searchlens-five.vercel.app/robots-txt-for-ai-crawlers.html", "datePublished": "2026-10-07", "dateModified": "2026-10-07", "author": {"@type": "Organization", "name": "SearchLens"}, "publisher": {"@type": "Organization", "name": "SearchLens", "url": "https://searchlens-five.vercel.app/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I block GPTBot?", "acceptedAnswer": {"@type": "Answer", "text": "Add this to robots.txt at your site root: 'User-agent: GPTBot' on one line and 'Disallow: /' on the next. Repeat for other AI user-agents you want to block, such as ClaudeBot or PerplexityBot."}}, {"@type": "Question", "name": "Should I allow or block AI crawlers?", "acceptedAnswer": {"@type": "Answer", "text": "Most sites allow them, because being crawled is what lets ChatGPT, Perplexity and Google AI Overviews cite you — a growing traffic source. Block them only if you specifically don't want your content used by AI."}}, {"@type": "Question", "name": "What is Google-Extended?", "acceptedAnswer": {"@type": "Answer", "text": "Google-Extended is a robots.txt token that controls whether Google can use your content for its AI products (Gemini, AI Overviews). Blocking it does not affect your normal Google Search ranking, so it's the way to opt out of Google's AI while staying in Search."}}, {"@type": "Question", "name": "Does Disallow remove my page from Google?", "acceptedAnswer": {"@type": "Answer", "text": "No. Disallow stops crawling but the URL can still be indexed if linked from elsewhere. To deindex a page, allow crawling and add a noindex meta tag instead."}}]}]}</script>
+<style>
+:root{--bg:#E9F4FF;--surface:#fff;--surface-2:#D9ECFF;--ink:#0D1117;--ink-soft:#465A73;--ink-faint:#7C8DA6;--line:#CBE3FB;--blue:#5AB8F5;--blue-deep:#1287DE;--blue-soft:#E4F3FF;--yellow:#FFCB2D;--yellow-deep:#F2B705;--yellow-soft:#FFF3C9;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--r:18px;--shadow:0 12px 40px -12px rgba(18,135,222,.28);box-sizing:border-box;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}
+:root[data-theme="dark"]{--bg:#0C0F15;--surface:#151A23;--surface-2:#1D2531;--ink:#EAF2FB;--ink-soft:#93A4BC;--ink-faint:#61728C;--line:#26303E;--blue:#6CC4FF;--blue-deep:#3EA6F2;--blue-soft:#122234;--yellow:#FFD23F;--yellow-deep:#FFC21A;--yellow-soft:#2A2612;--shadow:0 16px 44px -14px rgba(0,0,0,.6)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0F15;--surface:#151A23;--surface-2:#1D2531;--ink:#EAF2FB;--ink-soft:#93A4BC;--ink-faint:#61728C;--line:#26303E;--blue:#6CC4FF;--blue-deep:#3EA6F2;--blue-soft:#122234;--yellow:#FFD23F;--yellow-deep:#FFC21A;--yellow-soft:#2A2612;--shadow:0 16px 44px -14px rgba(0,0,0,.6)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+a{color:var(--blue-deep);text-decoration:none}a:hover{text-decoration:underline}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1040px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--ink)}
+.logo{width:32px;height:32px;border-radius:10px;background:var(--ink);position:relative;flex:none}
+.logo::before{content:"";position:absolute;inset:0;border-radius:50%;margin:8px;border:2.3px solid var(--blue)}
+.logo::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2.3px;background:var(--yellow);transform-origin:left;transform:translateY(-50%) rotate(-35deg);border-radius:2px}
+.btn{font-family:var(--sans);font-weight:700;font-size:14.5px;border-radius:12px;padding:11px 18px;cursor:pointer;border:2px solid transparent;display:inline-flex;align-items:center;gap:8px;transition:transform .12s,box-shadow .2s}
+.btn-y{background:var(--yellow);color:#141414;box-shadow:0 5px 0 var(--yellow-deep)}.btn-y:hover{transform:translateY(-1px);text-decoration:none}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}.btn-ghost:hover{background:var(--surface-2);text-decoration:none}
+.tgl{background:var(--surface-2);border:1px solid var(--line);color:var(--ink-soft);width:38px;height:36px;border-radius:10px;cursor:pointer;font-size:15px}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;background:var(--blue-soft);color:var(--blue-deep);font-weight:700;font-size:13px;padding:6px 13px;border-radius:99px;margin:40px 0 14px}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin:0 0 12px}
+.meta{color:var(--ink-faint);font-size:14px;margin:0 0 10px}
+.lede{color:var(--ink-soft);font-size:19px;margin:0 0 8px}
+article{margin:26px 0 10px}
+article h2{font-size:clamp(21px,3.4vw,27px);font-weight:800;letter-spacing:-.02em;margin:34px 0 10px}
+article h3{font-size:18px;font-weight:800;margin:24px 0 6px}
+article p{color:var(--ink-soft);margin:0 0 14px}
+article ul,article ol{color:var(--ink-soft);padding-left:22px;margin:0 0 14px}article li{margin:7px 0}
+article code{background:var(--surface-2);padding:2px 6px;border-radius:5px;font-family:var(--mono);font-size:13px}
+article strong{color:var(--ink)}
+.keypoint{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:12px;padding:16px 18px;margin:0 0 20px}
+.keypoint p{margin:0}
+table{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:14.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--ink);font-weight:800}
+td{color:var(--ink-soft)}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:15.5px}
+.faq p{padding:0 0 12px;color:var(--ink-soft)}
+.adbox{margin:26px 0;padding:10px;background:var(--surface);border:1px dashed var(--line);border-radius:12px;text-align:center;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.adbox span{color:var(--ink-faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.ctaband{background:var(--ink);color:#fff;border-radius:var(--r);padding:34px;text-align:center;margin:40px 0}
+.ctaband h3{font-size:clamp(21px,3.4vw,28px);font-weight:800;margin:0 0 8px}.ctaband h3 .hl{color:var(--yellow)}
+.ctaband p{color:#aebfd4;margin:0 0 20px}
+.related{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin:30px 0}
+.related h4{margin:0 0 10px;font-size:15px}
+.related a{display:inline-block;margin:0 10px 8px 0;font-weight:600}
+footer{padding:32px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;border-top:1px solid var(--line);margin-top:20px}
+footer a{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav">
+  <a class="brand" href="/"><span class="logo"></span>SearchLens</a>
+  <div style="display:flex;gap:10px;align-items:center">
+    <button class="tgl" id="theme" title="Theme">◐</button>
+    <a href="/" class="btn btn-ghost">Audit a page</a>
+  </div>
+</div></nav>
+<main class="wrap">
+<span class="eyebrow">Technical SEO</span>
+<h1>Robots.txt for AI crawlers: the complete guide</h1>
+<p class="meta">Guide · Updated 2026-10-07</p>
+<p class="lede">AI bots now crawl the web for training and answers. Here's every major one and exactly how to allow or block it.</p>
+<article>
+<div class="keypoint"><p><strong>Quick answer:</strong> To allow an AI crawler, add a block like <code>User-agent: GPTBot</code> then <code>Allow: /</code>. To block one, use <code>Disallow: /</code>. Most publishers now <em>allow</em> AI crawlers to be citable in ChatGPT, Perplexity and AI Overviews. Build it in clicks with our <a href="/robots-txt-generator.html">robots.txt generator</a>.</p></div>
+
+<h2>Why AI crawlers matter now</h2>
+<p>AI companies run their own crawlers to gather training data and to fetch pages on demand when answering questions. Your <code>robots.txt</code> is where you decide, per bot, whether they're welcome. Allowing them means your content can be used and <strong>cited</strong> by AI answer engines — a growing source of visibility. Blocking them keeps your content out of AI, at the cost of that visibility.</p>
+
+<h2>The major AI crawlers</h2>
+<table>
+<tr><th>User-agent</th><th>Who</th><th>Purpose</th></tr>
+<tr><td><code>GPTBot</code></td><td>OpenAI</td><td>Training data</td></tr>
+<tr><td><code>OAI-SearchBot</code></td><td>OpenAI</td><td>ChatGPT search index</td></tr>
+<tr><td><code>ChatGPT-User</code></td><td>OpenAI</td><td>On-demand fetch when a user asks</td></tr>
+<tr><td><code>ClaudeBot</code></td><td>Anthropic</td><td>Training / crawling</td></tr>
+<tr><td><code>Claude-SearchBot</code></td><td>Anthropic</td><td>Search</td></tr>
+<tr><td><code>PerplexityBot</code></td><td>Perplexity</td><td>Index for answers</td></tr>
+<tr><td><code>Perplexity-User</code></td><td>Perplexity</td><td>On-demand fetch</td></tr>
+<tr><td><code>Google-Extended</code></td><td>Google</td><td>Controls AI (Gemini / AI Overviews) use — separate from Search</td></tr>
+<tr><td><code>CCBot</code></td><td>Common Crawl</td><td>Open dataset used by many AI models</td></tr>
+</table>
+
+<h2>How to allow all AI crawlers</h2>
+<p>This is what most publishers want — full web SEO <em>and</em> AI visibility:</p>
+<p><code>User-agent: GPTBot</code><br><code>Allow: /</code><br><br><code>User-agent: ClaudeBot</code><br><code>Allow: /</code></p>
+<p>…and so on for each bot. Our generator writes all of them for you with one toggle each.</p>
+
+<h2>How to block AI crawlers</h2>
+<p>If you'd rather keep your content out of AI training and answers:</p>
+<p><code>User-agent: GPTBot</code><br><code>Disallow: /</code></p>
+<p>Note two things: blocking is only respected by well-behaved bots, and <code>Google-Extended</code> is special — blocking it stops Google using your content for AI features <em>without</em> affecting your normal Search ranking. That makes it the one to use if you want to rank in Google but opt out of its AI.</p>
+
+<h2>Where robots.txt goes</h2>
+<p>At the root of your domain, reachable at <code>yourdomain.com/robots.txt</code>. A robots.txt in a subfolder is ignored. Add a <code>Sitemap:</code> line pointing to your <a href="/sitemap-generator.html">sitemap.xml</a> while you're there.</p>
+
+<h2>Important: robots.txt is not deindexing or security</h2>
+<p><code>Disallow</code> stops crawling, but a blocked URL can still appear in search if other sites link to it. To remove a page from Google, allow crawling and use a <code>noindex</code> meta tag instead. And robots.txt is a set of polite directives, not a lock — never rely on it to hide sensitive content.</p>
+
+<h2>Test before you ship</h2>
+<p>A single wrong <code>Disallow</code> can hide your whole site. Use the tester in our <a href="/robots-txt-generator.html">robots.txt generator</a> to check that a given bot and path resolve to Allowed or Blocked the way you expect.</p>
+
+<h2 class="faqh">Frequently asked questions</h2>
+<div class="faq">
+  <details open><summary>How do I block GPTBot?</summary><p>Add this to robots.txt at your site root: 'User-agent: GPTBot' on one line and 'Disallow: /' on the next. Repeat for other AI user-agents you want to block, such as ClaudeBot or PerplexityBot.</p></details>
+  <details><summary>Should I allow or block AI crawlers?</summary><p>Most sites allow them, because being crawled is what lets ChatGPT, Perplexity and Google AI Overviews cite you — a growing traffic source. Block them only if you specifically don't want your content used by AI.</p></details>
+  <details><summary>What is Google-Extended?</summary><p>Google-Extended is a robots.txt token that controls whether Google can use your content for its AI products (Gemini, AI Overviews). Blocking it does not affect your normal Google Search ranking, so it's the way to opt out of Google's AI while staying in Search.</p></details>
+  <details><summary>Does Disallow remove my page from Google?</summary><p>No. Disallow stops crawling but the URL can still be indexed if linked from elsewhere. To deindex a page, allow crawling and add a noindex meta tag instead.</p></details>
+</div>
+</article>
+
+<div class="adbox">
+  <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <span>Advertisement</span>
+</div>
+
+<div class="related">
+  <h4>Free tools mentioned in this guide</h4>
+  <a href="/robots-txt-generator.html">Robots.txt Generator &amp; Tester →</a>
+  <a href="/sitemap-generator.html">Sitemap Generator →</a>
+  <a href="/llms-txt-generator.html">llms.txt Generator →</a>
+</div>
+
+<div class="ctaband">
+  <h3>Check your page for <span class="hl">SEO &amp; AI search</span> — free</h3>
+  <p>SearchLens scans any page for on-page SEO, technical health and GEO/AEO readiness in one click.</p>
+  <a href="/" class="btn btn-y">Run a free audit</a>
+</div>
+</main>
+<footer class="wrap">SearchLens — free SEO · GEO · AEO tools. · <a href="/">Home</a> · <a href="/meta-tag-generator.html">Meta Tags</a> · <a href="/schema-generator.html">Schema</a> · <a href="/robots-txt-generator.html">Robots.txt</a> · <a href="/sitemap-generator.html">Sitemap</a> · <a href="/llms-txt-generator.html">llms.txt</a></footer>
+<script>
+(function(){var r=document.documentElement,b=document.getElementById('theme');try{var s=localStorage.getItem('sl');if(s)r.setAttribute('data-theme',s)}catch(e){}if(b)b.onclick=function(){var n=(r.getAttribute('data-theme')||'light')==='light'?'dark':'light';r.setAttribute('data-theme',n);try{localStorage.setItem('sl',n)}catch(e){}}})();
+</script>
+</body>
+</html>
