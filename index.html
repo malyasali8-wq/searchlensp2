@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SearchLens — SEO &amp; AI-Search (GEO/AEO/AIO) Audit Tool</title>
-<meta name="description" content="Free SEO, GEO, AEO &amp; AIO audit tool. Scan any page for classic SEO, technical health, and AI-search (AI Optimization) readiness — get a 0–100 score, evidence, and ready-to-paste fixes.">
+<title>SearchLens — SEO, GEO, AEO, AIO &amp; SXO Audit Tool</title>
+<meta name="description" content="Free SEO, GEO, AEO, AIO &amp; SXO audit tool. Scan any page for classic SEO, technical health, AI-search (AI Optimization) and search-experience readiness — get a 0–100 score, evidence, and ready-to-paste fixes.">
 <link rel="canonical" href="https://searchlens-five.vercel.app/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#5AB8F5" media="(prefers-color-scheme: light)">
@@ -15,8 +15,8 @@
 
 <!-- Open Graph -->
 <meta property="og:site_name" content="SearchLens">
-<meta property="og:title" content="SearchLens — SEO & AI-Search (GEO/AEO/AIO) Audit Tool">
-<meta property="og:description" content="Scan any page for classic SEO, technical health, and AI-search (GEO/AEO/AIO) readiness.">
+<meta property="og:title" content="SearchLens — SEO, GEO, AEO, AIO & SXO Audit Tool">
+<meta property="og:description" content="Scan any page for classic SEO, technical health, AI-search (GEO/AEO/AIO) and search-experience (SXO) readiness.">
 <meta property="og:url" content="https://searchlens-five.vercel.app/">
 <meta property="og:type" content="website">
 
@@ -255,7 +255,7 @@ footer a:hover { color: var(--ink); }
 
 <header class="hero"><div class="wrap hero-grid">
   <div class="rv">
-    <div class="eyebrow"><b></b>SEO · GEO · AEO · AIO in one scan</div>
+    <div class="eyebrow"><b></b>SEO · GEO · AEO · AIO · SXO in one scan</div>
     <h1>Is your page ready for <span class="hl">Google &amp; AI</span> search?</h1>
     <p class="lede">Paste your page or enter URL. In one scan, SearchLens shows classic SEO, technical health, and how AI engines like ChatGPT read you.</p>
     <div class="cta-row">
@@ -314,11 +314,12 @@ footer a:hover { color: var(--ink); }
 
 <section class="blk" id="checks"><div class="wrap">
   <h2 class="kh rv">What it checks</h2>
-  <p class="ksub rv">Three layers, one score — classic SEO, technical schema, and AI-search (GEO · AEO · AIO) readiness.</p>
+  <p class="ksub rv">Four layers, one score — classic SEO, technical schema, AI-search (GEO · AEO · AIO), and search experience (SXO).</p>
   <div class="feats">
     <div class="feat f1 rv"><div class="ic">🔎</div><h4>Classic SEO</h4><p>Title, meta description, H1 headings, image alt text, canonical links, Open Graph tags.</p></div>
     <div class="feat f2 rv"><div class="ic">⚙️</div><h4>Technical &amp; schema</h4><p>Structured JSON-LD schema markup, Organization entities, and raw HTML content readability.</p></div>
     <div class="feat f3 rv"><div class="ic">🤖</div><h4>GEO · AEO · AIO — AI search</h4><p>AI Optimization: AI bot access (GPTBot/Perplexity/Claude), llms.txt validation, answer-first &amp; question-heading structure for AI Overviews.</p></div>
+    <div class="feat f1 rv"><div class="ic">⚡</div><h4>SXO — Search experience</h4><p>HTTPS, mobile responsiveness, layout stability (CLS), render-blocking scripts, content depth and semantic landmarks.</p></div>
   </div>
 </div></section>
 
@@ -380,7 +381,7 @@ footer a:hover { color: var(--ink); }
 <section class="blk" id="about"><div class="wrap rv">
   <div class="policy-card">
     <h3>About SearchLens</h3>
-    <p>SearchLens is a free online web auditing application designed to analyze web pages for search engine optimization (SEO), generative engine optimization (GEO), answer engine optimization (AEO), and AI optimization (AIO). Our mission is to provide webmasters and developers with real-time, actionable insights to improve search visibility, AI crawler readability, and citation in AI answers like Google AI Overviews, ChatGPT and Perplexity.</p>
+    <p>SearchLens is a free online web auditing application designed to analyze web pages for search engine optimization (SEO), generative engine optimization (GEO), answer engine optimization (AEO), AI optimization (AIO), and search experience optimization (SXO). Our mission is to provide webmasters and developers with real-time, actionable insights to improve search visibility, AI crawler readability, page experience, and citation in AI answers like Google AI Overviews, ChatGPT and Perplexity.</p>
   </div>
 </div></section>
 
@@ -456,7 +457,8 @@ $('#tab-html').onclick=()=>selTab(false);
 const CATS = {
   onpage: 'On-Page SEO',
   tech: 'Technical & Schema',
-  geo: 'GEO / AEO / AIO (AI-Search)'
+  geo: 'GEO / AEO / AIO (AI-Search)',
+  sxo: 'SXO (Search Experience)'
 };
 
 const R = (id, cat, name, status, evidence, why, prio='Low', fix='') => ({
@@ -561,6 +563,66 @@ function auditEngine(html, robots='', llms=''){
     questionHeadings.length?`${questionHeadings.length} question heading(s) found`:'No question headings found', 
     'Helps AI answer engines extract concise direct answers.', 'Medium'));
 
+  // 4. SXO — SEARCH EXPERIENCE OPTIMIZATION
+  // HTTPS (derived from canonical / og:url)
+  const secureUrl = (doc.querySelector('link[rel="canonical"]')?.getAttribute('href')
+                   || doc.querySelector('meta[property="og:url"]')?.getAttribute('content') || '').trim();
+  const isHttps = /^https:\/\//i.test(secureUrl);
+  checks.push(R('https','sxo','HTTPS (Secure)',
+    secureUrl ? (isHttps?'pass':'fail') : 'warn',
+    secureUrl ? (isHttps?'Page uses HTTPS':'Page URL is not HTTPS') : 'Could not detect URL (add a canonical tag)',
+    'Security is a ranking and trust signal; browsers warn on non-HTTPS.', 'High',
+    (secureUrl && !isHttps) ? 'Serve the site over https:// and redirect http to https.' : ''));
+
+  // Mobile responsiveness (viewport width=device-width)
+  const vpc = (vp?.getAttribute('content')||'').toLowerCase();
+  const respOK = vpc.includes('width=device-width');
+  checks.push(R('responsive','sxo','Mobile Responsiveness',
+    respOK?'pass':(vp?'warn':'fail'),
+    respOK?'Responsive viewport set':(vp?'Viewport present but missing width=device-width':'No viewport meta'),
+    'Mobile experience is central to ranking and usability.', 'High',
+    !respOK?'<meta name="viewport" content="width=device-width, initial-scale=1">':''));
+
+  // Language attribute
+  const lang = doc.documentElement.getAttribute('lang');
+  checks.push(R('lang','sxo','Language Declared',
+    lang?'pass':'warn',
+    lang?`<html lang="${lang}">`:'No lang attribute on <html>',
+    'Helps browsers, screen readers and search understand the page language.', 'Low',
+    !lang?'<html lang="en">':''));
+
+  // Layout stability (CLS): images with dimensions or lazy-loading
+  const stable = im.filter(i => (i.getAttribute('width') && i.getAttribute('height')) || i.getAttribute('loading')==='lazy');
+  checks.push(R('cls','sxo','Image Layout Stability',
+    im.length===0?'pass':(stable.length===im.length?'pass':(stable.length>=im.length/2?'warn':'fail')),
+    im.length?`${stable.length}/${im.length} images have width/height or lazy-load`:'No images found',
+    'Sized/lazy images prevent layout shift (CLS) — a Core Web Vital.', 'Medium',
+    (im.length && stable.length<im.length)?'<img src="…" width="800" height="600" loading="lazy" alt="…">':''));
+
+  // Render-blocking scripts in <head>
+  const blockingJs = $$('head script[src]',doc).filter(s=>!s.hasAttribute('async')&&!s.hasAttribute('defer'));
+  checks.push(R('render','sxo','Render-Blocking Scripts',
+    blockingJs.length===0?'pass':(blockingJs.length<=2?'warn':'fail'),
+    blockingJs.length?`${blockingJs.length} blocking script(s) in <head>`:'No render-blocking scripts in head',
+    'Blocking scripts slow first paint and hurt LCP / experience.', 'Medium',
+    blockingJs.length?'Add async or defer to head scripts, or move them before </body>.':''));
+
+  // Content depth / readability
+  const words = txt ? txt.split(/\s+/).filter(Boolean).length : 0;
+  checks.push(R('depth','sxo','Content Depth',
+    words>=600?'pass':(words>=300?'warn':'fail'),
+    `${words} words of readable text`,
+    'Thin pages give a weak experience and rank/convert poorly.', 'Medium',
+    words<300?'Add substantive, helpful content that fully answers the page intent.':''));
+
+  // Semantic landmarks (nav + main)
+  const hasMain = !!doc.querySelector('main'), hasNav = !!doc.querySelector('nav');
+  checks.push(R('landmarks','sxo','Semantic Landmarks',
+    (hasMain&&hasNav)?'pass':((hasMain||hasNav)?'warn':'fail'),
+    `${hasNav?'<nav> ✓':'<nav> ✗'}  ${hasMain?'<main> ✓':'<main> ✗'}`,
+    'Landmarks improve accessibility and navigation experience.', 'Low',
+    (!hasMain||!hasNav)?'Wrap primary content in <main> and navigation in <nav>.':''));
+
   // Calculate Scores
   const catScores = {};
   Object.keys(CATS).forEach(c => {
@@ -604,6 +666,10 @@ function renderResults(data){
         <div class="cat">
           <div class="cl"><span>GEO / AEO / AIO (AI-Search)</span><em>${data.catScores.geo}%</em></div>
           <div class="bar"><i style="width:${data.catScores.geo}%;background:var(--pass)"></i></div>
+        </div>
+        <div class="cat">
+          <div class="cl"><span>SXO (Search Experience)</span><em>${data.catScores.sxo}%</em></div>
+          <div class="bar"><i style="width:${data.catScores.sxo}%;background:var(--blue)"></i></div>
         </div>
       </div>
     </div>
