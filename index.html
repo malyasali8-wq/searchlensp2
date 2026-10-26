@@ -159,8 +159,7 @@ nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color
 .hero{position:relative;padding:50px 0 30px;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 40%,color-mix(in srgb,var(--blue) 12%,transparent),transparent),radial-gradient(ellipse 60% 50% at 80% 30%,color-mix(in srgb,var(--yellow) 8%,transparent),transparent);pointer-events:none;z-index:0}
 .hero>*{position:relative;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
-@media(max-width:840px){.hero-grid{grid-template-columns:1fr;gap:20px}.radar-wrap{order:-1;margin:0 auto}}
+.hero-grid{max-width:680px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--yellow-soft);color:var(--yellow-deep);font-weight:700;font-size:13px;padding:7px 14px;border-radius:99px;margin-bottom:20px;border:1px solid color-mix(in srgb,var(--yellow) 25%,transparent);animation:fadeInScale .6s ease both}
 .eyebrow b{width:7px;height:7px;border-radius:50%;background:var(--yellow-deep);animation:pulse 1.8s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
@@ -169,19 +168,11 @@ h1 .hl{background:var(--yellow);color:#141414;padding:0 .12em;border-radius:6px;
 .lede{color:var(--ink-soft);font-size:18px;max-width:46ch;margin:0 0 28px}
 .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 
-/* radar animation */
-.radar-wrap{display:grid;place-items:center;position:relative;width:100%;max-width:320px}
-.radar{position:relative;width:280px;height:280px;max-width:78vw;max-height:78vw}
-.ring{position:absolute;inset:0;border:2px solid var(--line);border-radius:50%}
-.ring.r2{inset:34px}.ring.r3{inset:68px}.ring.r4{inset:102px}
-.radar .core{position:absolute;inset:0;margin:auto;width:14px;height:14px;background:var(--blue-deep);border-radius:50%;box-shadow:0 0 0 6px var(--blue-soft)}
-.beam{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0deg,color-mix(in srgb,var(--yellow) 55%,transparent) 40deg,transparent 60deg);animation:spin 3.4s linear infinite;-webkit-mask:radial-gradient(circle,transparent 6px,#000 7px);mask:radial-gradient(circle,transparent 6px,#000 7px)}
-@keyframes spin{to{transform:rotate(360deg)}}
-.blip{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 4px var(--yellow-soft);animation:blip 3.4s ease-in-out infinite}
-.blip.b1{top:22%;left:64%}.blip.b2{top:60%;left:30%;animation-delay:1.1s}.blip.b3{top:70%;left:70%;animation-delay:2.2s}
-@keyframes blip{0%,70%,100%{transform:scale(.5);opacity:.3}80%{transform:scale(1.15);opacity:1}}
-.float{animation:float 6s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translate3d(0, 0, 0)}50%{transform:translate3d(0, -10px, 0)}}
+/* hero trust badges */
+.trust-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+.trust-badge{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--ink-soft);transition:border-color .3s ease,transform .3s ease}
+.trust-badge:hover{border-color:var(--blue);transform:translate3d(0,-2px,0)}
+.trust-badge span{font-size:16px}
 
 /* section headers */
 section.blk{padding:44px 0}
@@ -322,12 +313,13 @@ footer a:hover { color: var(--blue-deep); }
       <a href="#tool" class="btn btn-y">Scan my page — free</a>
       <a href="#how" class="btn btn-ghost">See how it works</a>
     </div>
+    <div class="trust-row rv">
+      <div class="trust-badge"><span>✅</span> No sign-up</div>
+      <div class="trust-badge"><span>🔒</span> Private &amp; secure</div>
+      <div class="trust-badge"><span>⚡</span> Instant results</div>
+      <div class="trust-badge"><span>🆓</span> 100% free</div>
+    </div>
   </div>
-  <div class="radar-wrap rv"><div class="radar float">
-    <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div><div class="ring r4"></div>
-    <div class="beam"></div><div class="core"></div>
-    <div class="blip b1"></div><div class="blip b2"></div><div class="blip b3"></div>
-  </div></div>
 </div></header>
 
 <main>
