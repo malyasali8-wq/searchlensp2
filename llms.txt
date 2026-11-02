@@ -12,6 +12,7 @@
 
 ## Blog
 - [SEOGlint Blog](https://searchlens-five.vercel.app/blog.html): weekly SEO, GEO and AEO tips and guides.
+- [Google AI Search 2026: 9 Ways to Rank in AI Overviews](https://searchlens-five.vercel.app/blog/google-ai-search-2026-how-to-rank.html): how to get your website cited in Google AI Overviews, AI Mode, and generative search results.
 - [How to Get Cited by AI Search Engines](https://searchlens-five.vercel.app/blog/how-to-get-cited-by-ai-search-engines.html): 7 actionable fixes to get your site cited by ChatGPT, Perplexity and Gemini.
 
 ## About
