@@ -1,10 +1,10 @@
 {
-  "name": "searchlens",
+  "name": "seoglint",
   "version": "1.0.0",
   "private": true,
   "description": "SEOGlint – SEO / GEO / AEO audit tool (static frontend + serverless scan API)",
   "type": "module",
   "engines": {
-    "node": ">=18"
+    "node": "20.x"
   }
 }
