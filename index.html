@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Free SEO, GEO &amp; AEO Audit Tool | SearchLens</title>
-<meta name="description" content="Free SEO, GEO, AEO &amp; AIO audit tool. Scan any page for on-page SEO, technical health and AI-search readiness — get a score with fixes.">
+<meta name="description" content="Is your site invisible to AI search? Free SEO, GEO &amp; AEO audit — scan any page in seconds, get a 0-100 score and instant fixes. No sign-up needed.">
 <link rel="canonical" href="https://searchlens-five.vercel.app/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#5AB8F5" media="(prefers-color-scheme: light)">
@@ -32,22 +32,71 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "SearchLens",
-  "url": "https://searchlens-five.vercel.app/",
-  "description": "Free SEO, GEO, AEO and AIO audit tool. Scan any page for on-page SEO, technical health and AI-search readiness.",
-  "applicationCategory": "SEO Tool",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "creator": {
-    "@type": "Organization",
-    "name": "SearchLens",
-    "url": "https://searchlens-five.vercel.app/"
-  }
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "SearchLens",
+      "url": "https://searchlens-five.vercel.app/",
+      "description": "Free SEO, GEO, AEO and AIO audit tool. Scan any page for on-page SEO, technical health and AI-search readiness.",
+      "applicationCategory": "SEO Tool",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "SearchLens",
+        "url": "https://searchlens-five.vercel.app/"
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": "SearchLens",
+      "url": "https://searchlens-five.vercel.app/",
+      "logo": "https://searchlens-five.vercel.app/og-banner.png",
+      "description": "Free SEO, GEO, AEO, AIO and SXO audit tools for webmasters and developers.",
+      "sameAs": []
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the SearchLens SEO audit tool work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enter a live website URL or paste your HTML source code into the scanner. SearchLens instantly analyzes on-page SEO, technical schema markup, AI-search readiness (GEO, AEO, AIO) and search experience (SXO) — then returns a 0-100 score with per-check evidence and ready-to-paste fixes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SearchLens really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, SearchLens is 100% free. No sign-up, no credit card, no limits. The audit runs in your browser for HTML scans, and uses a lightweight serverless backend for live URL scanning."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does SearchLens check for AI search optimization?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SearchLens checks AI-crawler access (GPTBot, PerplexityBot, ClaudeBot, Google-Extended), llms.txt validation, answer-first content structure, question-style headings, FAQ schema, extractable HTML content, and freshness signals — everything needed for GEO, AEO and AIO."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between SEO, GEO and AEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SEO optimizes for traditional search engine rankings. AEO (Answer Engine Optimization) targets featured snippets and voice answers. GEO (Generative Engine Optimization) optimizes for AI engines like ChatGPT, Perplexity and Google AI Overviews. SearchLens audits all three in one scan."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -324,7 +373,7 @@ footer a:hover { color: var(--blue-deep); }
 
 <main>
 <section class="blk" id="tool"><div class="wrap">
-  <h2 class="kh rv">Scan your page now</h2>
+  <h2 class="kh rv">Free SEO, GEO &amp; AEO Audit Scanner</h2>
   <p class="ksub rv">No sign-up required. Enter a live website URL or paste HTML code directly.</p>
   <div class="tool-card rv">
     <div class="tool-head"><div class="dot3"><i></i><i></i><i></i></div><span>SearchLens Scanner</span></div>
@@ -366,7 +415,7 @@ footer a:hover { color: var(--blue-deep); }
 </div>
 
 <section class="blk" id="checks"><div class="wrap">
-  <h2 class="kh rv">What it checks</h2>
+  <h2 class="kh rv">What Our Free SEO Audit Tool Checks</h2>
   <p class="ksub rv">Four layers, one score — classic SEO, technical schema, AI-search (GEO · AEO · AIO), and search experience (SXO).</p>
   <div class="feats">
     <div class="feat f1 rv"><div class="ic">🔎</div><h3>Classic SEO</h3><p>Title, meta description, H1 headings, image alt text, canonical links, Open Graph tags.</p></div>
@@ -377,7 +426,7 @@ footer a:hover { color: var(--blue-deep); }
 </div></section>
 
 <section class="blk" id="how"><div class="wrap">
-  <h2 class="kh rv">How it works</h2>
+  <h2 class="kh rv">How the SEO Audit Works — 3 Easy Steps</h2>
   <p class="ksub rv">Three simple steps to audit your web page.</p>
   <div class="steps">
     <div class="step rv"><h3>1. Paste or enter URL</h3><p>Copy your page source or type your website URL into the scanner box.</p></div>
@@ -387,7 +436,7 @@ footer a:hover { color: var(--blue-deep); }
 </div></section>
 
 <section class="blk" id="tools"><div class="wrap">
-  <h2 class="kh rv">More free tools</h2>
+  <h2 class="kh rv">More Free SEO, AEO &amp; GEO Tools</h2>
   <p class="ksub rv">Beyond the audit — one-click generators to fix what the scan finds.</p>
   <div class="feats">
     <a class="feat f1 rv" href="/meta-tag-generator.html" style="text-decoration:none;color:inherit;cursor:pointer">
@@ -439,7 +488,7 @@ footer a:hover { color: var(--blue-deep); }
 </div></section>
 
 <section class="blk" id="guides"><div class="wrap">
-  <h2 class="kh rv">Guides</h2>
+  <h2 class="kh rv">SEO &amp; AI Search Optimization Guides for 2026</h2>
   <p class="ksub rv">Plain-English guides to SEO and the new world of AI search.</p>
   <div class="feats">
     <a class="feat f1 rv" href="/geo-vs-seo-vs-aeo.html" style="text-decoration:none;color:inherit"><div class="ic">🧭</div><h3>GEO vs SEO vs AEO →</h3><p>What each term means and how to optimize for Google and AI engines at once.</p></a>
