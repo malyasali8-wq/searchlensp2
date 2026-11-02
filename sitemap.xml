@@ -7,6 +7,18 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://searchlens-five.vercel.app/blog.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://searchlens-five.vercel.app/blog/how-to-get-cited-by-ai-search-engines.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://searchlens-five.vercel.app/meta-tag-generator.html</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
