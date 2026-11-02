@@ -5,6 +5,6 @@
   "description": "SEOGlint – SEO / GEO / AEO audit tool (static frontend + serverless scan API)",
   "type": "module",
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   }
 }
