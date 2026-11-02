@@ -1,4 +1,4 @@
-# SearchLens — robots.txt
+# SEOGlint — robots.txt
 # Standard crawlers: full access
 User-agent: *
 Allow: /
