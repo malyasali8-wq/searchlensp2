@@ -297,37 +297,43 @@ $('#copy').onclick=()=>{navigator.clipboard?.writeText(LAST||generate());const b
 $('#download').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([LAST||generate()],{type:'text/plain'}));a.download='robots.txt';a.click()};
 
 // ---- Tester (longest-match) ----
-function parse(txt){
-  const groups=[];let cur=null;
-  txt.split('\n').forEach(line=>{
+function rbParse(txt){
+  const groups=[];let cur=null,lastUA=false;
+  String(txt||'').replace(/^﻿/,'').split(/\r\n|\n|\r/).forEach(line=>{
     line=line.replace(/#.*$/,'').trim();if(!line)return;
     const i=line.indexOf(':');if(i<0)return;
     const k=line.slice(0,i).trim().toLowerCase(),val=line.slice(i+1).trim();
-    if(k==='user-agent'){if(!cur||cur.rules.length){cur={agents:[],rules:[]};groups.push(cur)}cur.agents.push(val.toLowerCase())}
-    else if((k==='allow'||k==='disallow')&&cur){cur.rules.push({allow:k==='allow',path:val})}
+    if(k==='user-agent'){
+      if(!cur||!lastUA){cur={agents:[],rules:[]};groups.push(cur)}
+      cur.agents.push(val.toLowerCase());lastUA=true;
+    }else if(k==='allow'||k==='disallow'){
+      if(cur)cur.rules.push({allow:k==='allow',path:val});
+      lastUA=false;
+    }
   });
   return groups;
 }
-function pick(groups,ua){
-  ua=ua.toLowerCase();let g=groups.find(x=>x.agents.some(a=>a!=='*'&&ua.includes(a)));
-  if(!g)g=groups.find(x=>x.agents.includes('*'));
-  return g;
+function rbRules(groups,ua){
+  const tok=String(ua||'*').toLowerCase().split(/[\/\s]/)[0]||'*';
+  let sel=tok==='*'?[]:groups.filter(g=>g.agents.includes(tok));
+  if(!sel.length)sel=groups.filter(g=>g.agents.includes('*'));
+  return sel.reduce((a,g)=>a.concat(g.rules),[]);
 }
-function allowed(group,path){
-  if(!group)return true;
+function rbAllowed(rules,path){
+  path=String(path||'/').trim()||'/';if(path[0]!=='/')path='/'+path;
   let best=null;
-  group.rules.forEach(r=>{
-    if(r.path===''){return}
-    const p=r.path.replace(/\*/g,'.*').replace(/[.+?^${}()|[\]\\]/g,m=>m==='.*'?m:'\\'+m);
-    let rx;try{rx=new RegExp('^'+r.path.split('*').map(s=>s.replace(/[.+?^${}()|[\]\\]/g,'\\$&')).join('.*'))}catch(e){return}
-    if(rx.test(path)){if(!best||r.path.length>best.path.length)best=r}
+  rules.forEach(r=>{
+    if(!r.path)return;
+    let pat=r.path,end=false;
+    if(pat.endsWith('$')){end=true;pat=pat.slice(0,-1)}
+    let rx;try{rx=new RegExp('^'+pat.split('*').map(s=>s.replace(/[.+?^${}()|[\]\\]/g,'\\$&')).join('.*')+(end?'$':''))}catch(e){return}
+    if(!rx.test(path))return;
+    if(!best||r.path.length>best.path.length||(r.path.length===best.path.length&&r.allow))best=r;
   });
-  if(!best)return true;
-  return best.allow;
+  return best?best.allow:true;
 }
 $('#test').onclick=()=>{
-  const g=pick(parse($('#testrobots').value),$('#testua').value.trim()||'*');
-  const ok=allowed(g,$('#testpath').value.trim()||'/');
+  const ok=rbAllowed(rbRules(rbParse($('#testrobots').value),$('#testua').value.trim()||'*'),$('#testpath').value.trim()||'/');
   const v=$('#verdict');
   v.className='verdict '+(ok?'allow':'block');
   v.textContent=ok?'✓ ALLOWED — '+($('#testua').value.trim()||'*')+' may crawl '+($('#testpath').value.trim()||'/'):'✕ BLOCKED — '+($('#testua').value.trim()||'*')+' is disallowed from '+($('#testpath').value.trim()||'/');

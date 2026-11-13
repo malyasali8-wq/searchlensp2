@@ -167,15 +167,47 @@ Allow: /</textarea>
 
 const $=(s,r=document)=>r.querySelector(s);
 const BOTS=[['GPTBot','OpenAI — training'],['OAI-SearchBot','OpenAI — ChatGPT search'],['ChatGPT-User','OpenAI — live fetch'],['ClaudeBot','Anthropic'],['PerplexityBot','Perplexity'],['Google-Extended','Google AI / Gemini'],['CCBot','Common Crawl'],['Bytespider','TikTok / ByteDance']];
-function parse(txt){const groups=[];let cur=null;txt.split('\n').forEach(line=>{line=line.replace(/#.*$/,'').trim();if(!line)return;const i=line.indexOf(':');if(i<0)return;const k=line.slice(0,i).trim().toLowerCase(),val=line.slice(i+1).trim();if(k==='user-agent'){if(!cur||cur.rules.length){cur={agents:[],rules:[]};groups.push(cur)}cur.agents.push(val.toLowerCase())}else if((k==='allow'||k==='disallow')&&cur){cur.rules.push({allow:k==='allow',path:val})}});return groups}
-function pick(groups,ua){ua=ua.toLowerCase();let g=groups.find(x=>x.agents.some(a=>a!=='*'&&ua.includes(a)));if(!g)g=groups.find(x=>x.agents.includes('*'));return g}
-function allowed(g){if(!g)return true;let best=null;g.rules.forEach(r=>{if(r.path==='')return;let rx;try{rx=new RegExp('^'+r.path.split('*').map(s=>s.replace(/[.+?^${}()|[\]\\]/g,'\\$&')).join('.*'))}catch(e){return}if(rx.test('/')){if(!best||r.path.length>best.path.length)best=r}});if(!best)return true;return best.allow}
+function rbParse(txt){
+  const groups=[];let cur=null,lastUA=false;
+  String(txt||'').replace(/^﻿/,'').split(/\r\n|\n|\r/).forEach(line=>{
+    line=line.replace(/#.*$/,'').trim();if(!line)return;
+    const i=line.indexOf(':');if(i<0)return;
+    const k=line.slice(0,i).trim().toLowerCase(),val=line.slice(i+1).trim();
+    if(k==='user-agent'){
+      if(!cur||!lastUA){cur={agents:[],rules:[]};groups.push(cur)}
+      cur.agents.push(val.toLowerCase());lastUA=true;
+    }else if(k==='allow'||k==='disallow'){
+      if(cur)cur.rules.push({allow:k==='allow',path:val});
+      lastUA=false;
+    }
+  });
+  return groups;
+}
+function rbRules(groups,ua){
+  const tok=String(ua||'*').toLowerCase().split(/[\/\s]/)[0]||'*';
+  let sel=tok==='*'?[]:groups.filter(g=>g.agents.includes(tok));
+  if(!sel.length)sel=groups.filter(g=>g.agents.includes('*'));
+  return sel.reduce((a,g)=>a.concat(g.rules),[]);
+}
+function rbAllowed(rules,path){
+  path=String(path||'/').trim()||'/';if(path[0]!=='/')path='/'+path;
+  let best=null;
+  rules.forEach(r=>{
+    if(!r.path)return;
+    let pat=r.path,end=false;
+    if(pat.endsWith('$')){end=true;pat=pat.slice(0,-1)}
+    let rx;try{rx=new RegExp('^'+pat.split('*').map(s=>s.replace(/[.+?^${}()|[\]\\]/g,'\\$&')).join('.*')+(end?'$':''))}catch(e){return}
+    if(!rx.test(path))return;
+    if(!best||r.path.length>best.path.length||(r.path.length===best.path.length&&r.allow))best=r;
+  });
+  return best?best.allow:true;
+}
 $('#run').onclick=()=>{
-  const groups=parse($('#robots').value);
+  const groups=rbParse($('#robots').value);
   let allowCount=0;
   const botsEl=$('#bots');botsEl.innerHTML='';
   BOTS.forEach(([name,desc])=>{
-    const ok=allowed(pick(groups,name));if(ok)allowCount++;
+    const ok=rbAllowed(rbRules(groups,name),'/');if(ok)allowCount++;
     const el=document.createElement('div');el.className='bot';
     el.innerHTML='<div><b>'+name+'</b><small>'+desc+'</small></div><span class="pill '+(ok?'allow':'block')+'">'+(ok?'Allowed':'Blocked')+'</span>';
     botsEl.appendChild(el);

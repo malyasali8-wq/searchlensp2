@@ -622,6 +622,43 @@ const R = (id, cat, name, status, evidence, why, prio='Low', fix='') => ({
   id, cat, name, status, evidence, why, prio, fix
 });
 
+// robots.txt parser (RFC 9309 style)
+function rbParse(txt){
+  const groups=[];let cur=null,lastUA=false;
+  String(txt||'').replace(/^﻿/,'').split(/\r\n|\n|\r/).forEach(line=>{
+    line=line.replace(/#.*$/,'').trim();if(!line)return;
+    const i=line.indexOf(':');if(i<0)return;
+    const k=line.slice(0,i).trim().toLowerCase(),val=line.slice(i+1).trim();
+    if(k==='user-agent'){
+      if(!cur||!lastUA){cur={agents:[],rules:[]};groups.push(cur)}
+      cur.agents.push(val.toLowerCase());lastUA=true;
+    }else if(k==='allow'||k==='disallow'){
+      if(cur)cur.rules.push({allow:k==='allow',path:val});
+      lastUA=false;
+    }
+  });
+  return groups;
+}
+function rbRules(groups,ua){
+  const tok=String(ua||'*').toLowerCase().split(/[\/\s]/)[0]||'*';
+  let sel=tok==='*'?[]:groups.filter(g=>g.agents.includes(tok));
+  if(!sel.length)sel=groups.filter(g=>g.agents.includes('*'));
+  return sel.reduce((a,g)=>a.concat(g.rules),[]);
+}
+function rbAllowed(rules,path){
+  path=String(path||'/').trim()||'/';if(path[0]!=='/')path='/'+path;
+  let best=null;
+  rules.forEach(r=>{
+    if(!r.path)return;
+    let pat=r.path,end=false;
+    if(pat.endsWith('$')){end=true;pat=pat.slice(0,-1)}
+    let rx;try{rx=new RegExp('^'+pat.split('*').map(s=>s.replace(/[.+?^${}()|[\]\\]/g,'\\$&')).join('.*')+(end?'$':''))}catch(e){return}
+    if(!rx.test(path))return;
+    if(!best||r.path.length>best.path.length||(r.path.length===best.path.length&&r.allow))best=r;
+  });
+  return best?best.allow:true;
+}
+
 // FULL AUDIT ENGINE
 function auditEngine(html, robots='', llms=''){
   const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -703,16 +740,19 @@ function auditEngine(html, robots='', llms=''){
     'Markdown map for AI engines (ChatGPT, Perplexity, Claude).', 'High',
     !hasllms?'# Your Site Name\n> Short site summary\n\n## Pages\n- [Docs](https://yourdomain.com/docs): API docs':''));
 
-  let aiBotBlocked = false;
-  if(robots){
-    if(robots.includes('GPTBot') || robots.includes('PerplexityBot') || robots.includes('ClaudeBot')){
-      if(robots.includes('Disallow: /')) aiBotBlocked = true;
-    }
+  const AI_BOTS=['GPTBot','OAI-SearchBot','ClaudeBot','PerplexityBot'];
+  let aiEv, aiSt, aiFix='';
+  if(!robots || !robots.trim()){
+    aiSt='pass'; aiEv='No readable robots.txt found — AI bots are allowed by default';
+  } else {
+    const grp=rbParse(robots);
+    const blocked=AI_BOTS.filter(b=>!rbAllowed(rbRules(grp,b),'/'));
+    if(blocked.length===0){aiSt='pass';aiEv='AI search bots are allowed (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot)';}
+    else if(blocked.length===AI_BOTS.length){aiSt='fail';aiEv='All major AI bots are blocked in robots.txt ('+blocked.join(', ')+')';aiFix='User-agent: GPTBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /';}
+    else {aiSt='warn';aiEv='Blocked in robots.txt: '+blocked.join(', ')+'. Allowed: '+AI_BOTS.filter(b=>!blocked.includes(b)).join(', ');}
   }
-  checks.push(R('aibots','geo','AI Crawler Access', 
-    aiBotBlocked?'fail':'pass', 
-    aiBotBlocked?'AI Bots blocked in robots.txt':'AI search bots are allowed', 
-    'Blocking AI crawlers removes your site from AI answers.', 'High'));
+  checks.push(R('aibots','geo','AI Crawler Access', aiSt, aiEv,
+    'Blocking AI crawlers removes your site from AI answers.', 'High', aiFix));
 
   const questionHeadings = $$('h2,h3',doc).filter(h => /\?|How|What|Why|Where|Who/i.test(h.textContent));
   checks.push(R('aeo_questions','geo','Question-Based Headings', 
