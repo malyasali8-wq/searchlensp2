@@ -31,4 +31,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://searchlens-five.vercel.app/sitemap.xml
+Sitemap: https://seoglint.com/sitemap.xml
