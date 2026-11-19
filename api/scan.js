@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     // Target Website ka HTML Fetch Karein
     const response = await fetch(targetUrl, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) SEOGlint/1.0 (+https://seoglint.com)'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) SEOGlint/1.0 (+https://www.seoglint.com)'
       }
     });
 
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 
     // robots.txt aur llms.txt (validated: HTML soft-404 ko file nahi maana jata)
     const origin = new URL(targetUrl).origin;
-    const UA = 'Mozilla/5.0 (compatible; SEOGlint/1.0; +https://seoglint.com)';
+    const UA = 'Mozilla/5.0 (compatible; SEOGlint/1.0; +https://www.seoglint.com)';
     const getFile = async (path) => {
       try {
         const r = await fetch(origin + path, {

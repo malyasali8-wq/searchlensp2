@@ -31,4 +31,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://seoglint.com/sitemap.xml
+Sitemap: https://www.seoglint.com/sitemap.xml
