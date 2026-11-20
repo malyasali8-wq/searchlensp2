@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sitemap Checker: Free XML Sitemap Validator</title>
-<meta name="description" content="Free sitemap checker. Paste your sitemap.xml to validate the XML, URL count, duplicates and dates before you submit it to Google and Bing.">
+<meta name="description" content="Free sitemap checker and XML sitemap validator. Paste your sitemap.xml to find XML errors, duplicates and bad dates before you submit it to Google.">
 <link rel="canonical" href="https://www.seoglint.com/sitemap-checker.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#5AB8F5" media="(prefers-color-scheme: light)">
@@ -22,7 +22,7 @@
 <!-- Google AdSense — paste your publisher ID and uncomment to activate:
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 -->
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Sitemap Checker","url":"https://www.seoglint.com/sitemap-checker.html","applicationCategory":"BusinessApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.seoglint.com/"},{"@type":"ListItem","position":2,"name":"Sitemap Checker","item":"https://www.seoglint.com/sitemap-checker.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a sitemap checker?","acceptedAnswer":{"@type":"Answer","text":"A sitemap checker reads your sitemap.xml and tests it against the sitemap protocol: valid XML, a urlset or sitemapindex root, absolute URLs, valid dates and the size limits."}},{"@type":"Question","name":"How do I check my sitemap.xml?","acceptedAnswer":{"@type":"Answer","text":"Open your sitemap in a browser, copy the XML, paste it into the box above and press Check. Errors and warnings are listed with the URL they apply to."}},{"@type":"Question","name":"What are the sitemap limits?","acceptedAnswer":{"@type":"Answer","text":"A single sitemap file can hold up to 50,000 URLs and must be no larger than 50 MB uncompressed. Larger sites split into several sitemaps listed in a sitemap index."}},{"@type":"Question","name":"Does a sitemap guarantee my pages get indexed?","acceptedAnswer":{"@type":"Answer","text":"No. A sitemap helps search engines discover URLs, but indexing is decided by quality, duplicates and crawl access. Check coverage in Google Search Console."}},{"@type":"Question","name":"Do changefreq and priority matter?","acceptedAnswer":{"@type":"Answer","text":"Google has said it ignores priority and changefreq. The lastmod date is used when it is accurate. Keeping the other tags valid is harmless."}},{"@type":"Question","name":"Can this tool fetch my sitemap by URL?","acceptedAnswer":{"@type":"Answer","text":"Not at the moment. Browsers block fetching other sites, so paste the XML instead. The check runs locally and nothing is uploaded."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Sitemap Checker","url":"https://www.seoglint.com/sitemap-checker.html","applicationCategory":"BusinessApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.seoglint.com/"},{"@type":"ListItem","position":2,"name":"Sitemap Checker","item":"https://www.seoglint.com/sitemap-checker.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a sitemap checker?","acceptedAnswer":{"@type":"Answer","text":"A sitemap checker reads your sitemap.xml and tests it against the sitemap protocol: valid XML, a urlset or sitemapindex root, absolute URLs, valid dates and the size limits."}},{"@type":"Question","name":"How do I check my sitemap.xml?","acceptedAnswer":{"@type":"Answer","text":"Open your sitemap in a browser, copy the XML, paste it into the box above and press Check. Errors and warnings are listed with the URL they apply to."}},{"@type":"Question","name":"What are the sitemap limits?","acceptedAnswer":{"@type":"Answer","text":"A single sitemap file can hold up to 50,000 URLs and must be no larger than 50 MB uncompressed. Larger sites split into several sitemaps listed in a sitemap index."}},{"@type":"Question","name":"Does a sitemap guarantee my pages get indexed?","acceptedAnswer":{"@type":"Answer","text":"No. A sitemap helps search engines discover URLs, but indexing is decided by quality, duplicates and crawl access. Check coverage in Google Search Console."}},{"@type":"Question","name":"Do changefreq and priority matter?","acceptedAnswer":{"@type":"Answer","text":"Google has said it ignores priority and changefreq. The lastmod date is used when it is accurate. Keeping the other tags valid is harmless."}},{"@type":"Question","name":"Can this tool fetch my sitemap by URL?","acceptedAnswer":{"@type":"Answer","text":"Not at the moment. Browsers block fetching other sites, so paste the XML instead. The check runs locally and nothing is uploaded."}},{"@type":"Question","name":"What should an XML sitemap include?","acceptedAnswer":{"@type":"Answer","text":"Only canonical, indexable URLs that return a 200 status, ideally with an accurate lastmod date. Leave out redirects, noindex pages and duplicates."}},{"@type":"Question","name":"Where do I submit my sitemap?","acceptedAnswer":{"@type":"Answer","text":"Add it in Google Search Console and Bing Webmaster Tools, and reference it in robots.txt with a Sitemap line."}}]}]}</script>
 <style>
 :root{
   --bg:#E9F4FF;--surface:#fff;--surface-2:#D9ECFF;--ink:#0D1117;--ink-soft:#465A73;--ink-faint:#7C8DA6;--line:#CBE3FB;
@@ -150,6 +150,24 @@ footer a{color:var(--ink-soft)}
 <li>Submit it in Google Search Console and Bing Webmaster Tools.</li>
 </ul>
 <p>Need to build one? Use the <a href="/sitemap-generator.html">sitemap.xml generator</a>, and set your crawl rules with the <a href="/robots-txt-generator.html">robots.txt generator</a>.</p>
+<h2>Why an SEO sitemap matters</h2>
+<p>An SEO sitemap tells search engines which URLs you want them to find, and when they last changed. It matters most for new sites, large sites and pages with few internal links. It is a hint, not a command, but a clean sitemap makes discovery faster and makes problems easy to spot in Search Console.</p>
+<h2>Ecommerce sitemap tips</h2>
+<ul>
+<li>Include product, category and key content pages that you want indexed.</li>
+<li>Leave out filtered, sorted and session URLs that create duplicates.</li>
+<li>Split large catalogs into several sitemaps and list them in a sitemap index.</li>
+<li>Remove products that are permanently gone, or redirect them.</li>
+</ul>
+<h2>Common sitemap errors and fixes</h2>
+<ul>
+<li><strong>Not valid XML:</strong> an unescaped &amp; or an unclosed tag. Use <code>&amp;amp;</code> in URLs.</li>
+<li><strong>Duplicate URLs:</strong> keep one canonical version of each page.</li>
+<li><strong>Wrong host or http URLs:</strong> list only URLs that match your preferred https host.</li>
+<li><strong>Bad lastmod:</strong> use the W3C format, like 2026-11-20.</li>
+</ul>
+<h2>Sitemap changefreq and priority</h2>
+<p>The <code>changefreq</code> and <code>priority</code> tags are optional, and Google has said it does not use them. Keep them valid if you include them, and focus on an accurate <code>lastmod</code>.</p>
 <h2 class="faqh">Frequently asked questions</h2>
 <div class="faq">
   <details open><summary>What is a sitemap checker?</summary><p>A sitemap checker reads your sitemap.xml and tests it against the sitemap protocol: valid XML, a urlset or sitemapindex root, absolute URLs, valid dates and the size limits.</p></details>
@@ -158,6 +176,8 @@ footer a{color:var(--ink-soft)}
   <details><summary>Does a sitemap guarantee my pages get indexed?</summary><p>No. A sitemap helps search engines discover URLs, but indexing is decided by quality, duplicates and crawl access. Check coverage in Google Search Console.</p></details>
   <details><summary>Do changefreq and priority matter?</summary><p>Google has said it ignores priority and changefreq. The lastmod date is used when it is accurate. Keeping the other tags valid is harmless.</p></details>
   <details><summary>Can this tool fetch my sitemap by URL?</summary><p>Not at the moment. Browsers block fetching other sites, so paste the XML instead. The check runs locally and nothing is uploaded.</p></details>
+  <details><summary>What should an XML sitemap include?</summary><p>Only canonical, indexable URLs that return a 200 status, ideally with an accurate lastmod date. Leave out redirects, noindex pages and duplicates.</p></details>
+  <details><summary>Where do I submit my sitemap?</summary><p>Add it in Google Search Console and Bing Webmaster Tools, and reference it in robots.txt with a Sitemap line.</p></details>
 </div>
 </article>
 <section class="related-links"><h2 class="faqh">Related guides and free tools</h2><ul><li><a href="/sitemap-generator.html">Sitemap.xml generator</a></li><li><a href="/robots-txt-generator.html">Robots.txt generator and checker</a></li><li><a href="/seo-audit-checklist.html">Website audit checklist</a></li><li><a href="/free-seo-tools.html">All free SEO tools</a></li></ul></section>
