@@ -10,6 +10,27 @@
 - Technical & schema: JSON-LD structured data, Organization/entity markup, and whether core content lives in the raw HTML.
 - GEO / AEO / AIO (AI Optimization): AI-crawler access (GPTBot, PerplexityBot, ClaudeBot, Google-Extended, etc.), llms.txt, answer-first content, question-style headings, extractable content, FAQ schema, and freshness signals.
 
+## Free SEO tools
+- [Free SEO tools hub](https://www.seoglint.com/free-seo-tools.html): all free SEO, schema, sitemap, robots.txt and AI search tools.
+- [Robots.txt generator and checker](https://www.seoglint.com/robots-txt-generator.html): build and test a valid robots.txt, including AI crawler rules.
+- [Sitemap.xml generator](https://www.seoglint.com/sitemap-generator.html) and [sitemap checker](https://www.seoglint.com/sitemap-checker.html): create and validate an XML sitemap.
+- [Schema markup generator](https://www.seoglint.com/schema-generator.html), [FAQ schema generator](https://www.seoglint.com/faq-schema-generator.html) and [schema markup validator](https://www.seoglint.com/schema-markup-validator.html): create and check JSON-LD.
+- [Meta tag generator](https://www.seoglint.com/meta-tag-generator.html) and [OG meta tags checker](https://www.seoglint.com/open-graph-preview.html): meta title, description and Open Graph tags.
+- [llms.txt generator](https://www.seoglint.com/llms-txt-generator.html) and [AI visibility checker](https://www.seoglint.com/ai-visibility-checker.html): prepare for AI search.
+- [Core Web Vitals checker](https://www.seoglint.com/core-web-vitals-checker.html): find LCP and CLS issues.
+
+## Guides
+- [Generative engine optimization (GEO) guide](https://www.seoglint.com/generative-engine-optimization.html)
+- [GEO vs SEO vs AEO](https://www.seoglint.com/geo-vs-seo-vs-aeo.html)
+- [How to rank in AI Overviews](https://www.seoglint.com/optimize-for-ai-overviews.html)
+- [What is llms.txt?](https://www.seoglint.com/what-is-llms-txt.html)
+- [Robots.txt for AI crawlers](https://www.seoglint.com/robots-txt-for-ai-crawlers.html)
+- [What is schema markup?](https://www.seoglint.com/what-is-schema-markup.html)
+- [OG image size](https://www.seoglint.com/og-image-size.html)
+- [Search experience optimization (SXO)](https://www.seoglint.com/search-experience-optimization.html)
+- [Website audit checklist](https://www.seoglint.com/seo-audit-checklist.html)
+- [SEOGlint vs other SEO tools](https://www.seoglint.com/seoglint-vs-other-seo-tools.html)
+
 ## Blog
 - [SEOGlint Blog](https://www.seoglint.com/blog.html): weekly SEO, GEO and AEO tips and guides.
 - [Google AI Search 2026: 9 Ways to Rank in AI Overviews](https://www.seoglint.com/blog/google-ai-search-2026-how-to-rank.html): how to get your website cited in Google AI Overviews, AI Mode, and generative search results.

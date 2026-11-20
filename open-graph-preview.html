@@ -174,8 +174,7 @@ footer a{color:var(--ink-soft)}
 const $=(s,r=document)=>r.querySelector(s);
 function hostOf(u){try{return new URL(u).hostname.replace(/^www\./,'')}catch(e){return u||'example.com'}}
 $('#run').onclick=()=>{
-  const doc=new DOMParser().parseFromString('<head>'+$('#src').value+'<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SEOGlint","url":"https://www.seoglint.com/","logo":"https://www.seoglint.com/seoglint-og.png","email":"hello@seoglint.com","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"hello@seoglint.com"}},{"@type":"WebSite","name":"SEOGlint","url":"https://www.seoglint.com/"}]}</script>
-</head>','text/html');
+  const doc=new DOMParser().parseFromString('<head>'+$('#src').value+'</head>','text/html');
   const g=p=>doc.querySelector('meta[property="'+p+'"]')?.getAttribute('content')||'';
   const t=n=>doc.querySelector('meta[name="'+n+'"]')?.getAttribute('content')||'';
   const title=g('og:title')||doc.querySelector('title')?.textContent||'';
