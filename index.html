@@ -731,6 +731,17 @@ function auditEngine(html, robots='', llms=''){
     'Provides structured facts directly to AI search models.', 'Medium',
     ld.length===0?'<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "WebPage",\n  "name": "Page Title"\n}\n<\/script>':''));
 
+  let hasBcLd = false;
+  const bcWalk = x => { if(!x||typeof x!=='object') return; if(Array.isArray(x)) return x.forEach(bcWalk);
+    const t = [].concat(x['@type']||[]); if(t.includes('BreadcrumbList')) hasBcLd = true; if(x['@graph']) bcWalk(x['@graph']); };
+  ld.forEach(s => { try { bcWalk(JSON.parse(s.textContent)); } catch(e){} });
+  const hasBcHtml = !!doc.querySelector('nav[aria-label*="readcrumb" i], .breadcrumb, .breadcrumbs, .crumbs, [itemtype*="BreadcrumbList"]');
+  checks.push(R('breadcrumb','tech','Breadcrumbs (BreadcrumbList)',
+    hasBcLd&&hasBcHtml?'pass':(hasBcLd||hasBcHtml?'warn':'warn'),
+    hasBcLd&&hasBcHtml?'BreadcrumbList schema and visible breadcrumb found':(hasBcLd?'Schema found, but no visible breadcrumb on the page':(hasBcHtml?'Visible breadcrumb found, but no BreadcrumbList schema':'No breadcrumb found (not needed on a homepage)')),
+    'Breadcrumbs show your site path in Google results and help AI engines understand structure.', 'Low',
+    !hasBcLd?'<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "BreadcrumbList",\n  "itemListElement": [\n    {"@type":"ListItem","position":1,"name":"Home","item":"https://example.com/"},\n    {"@type":"ListItem","position":2,"name":"Page","item":"https://example.com/page"}\n  ]\n}\n<\/script>':''));
+
   checks.push(R('nojs','tech','Raw HTML Content', 
     txt.length>300?'pass':'warn', `${txt.length} chars of text in HTML`, 
     'AI web crawlers prefer direct HTML text.', 'Medium'));

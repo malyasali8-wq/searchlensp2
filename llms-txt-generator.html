@@ -86,12 +86,14 @@ article code{background:var(--surface-2);padding:2px 6px;border-radius:5px;font-
 .ctaband p{color:#aebfd4;margin:0 0 20px}
 footer{padding:32px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;border-top:1px solid var(--line)}
 footer a{color:var(--ink-soft)}
+.crumbs{font-size:13px;color:var(--ink-soft);padding:14px 0 0}.crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}.crumbs li+li::before{content:'›';margin-right:6px;color:var(--ink-faint)}.crumbs a{color:var(--blue-deep);text-decoration:none}.crumbs a:hover{text-decoration:underline}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SEOGlint","url":"https://www.seoglint.com/","logo":"https://www.seoglint.com/seoglint-og.png","email":"hello@seoglint.com","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"hello@seoglint.com"}},{"@type":"WebSite","name":"SEOGlint","url":"https://www.seoglint.com/"}]}</script>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.seoglint.com/"},{"@type":"ListItem","position":2,"name":"Free SEO Tools","item":"https://www.seoglint.com/free-seo-tools.html"},{"@type":"ListItem","position":3,"name":"llms.txt Generator","item":"https://www.seoglint.com/llms-txt-generator.html"}]}</script>
 </head>
 <body>
 <nav><div class="wrap nav">
@@ -101,6 +103,7 @@ footer a{color:var(--ink-soft)}
     <a href="/" class="btn btn-ghost">Audit a page</a>
   </div>
 </div></nav>
+<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/free-seo-tools.html">Free SEO Tools</a></li><li aria-current="page">llms.txt Generator</li></ol></nav></div>
 
 <header class="hero"><div class="wrap">
   <div class="eyebrow">🤖 For AI search — ChatGPT, Perplexity, Claude</div>
