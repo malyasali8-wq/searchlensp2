@@ -33,6 +33,7 @@
 
 ## Blog
 - [SEOGlint Blog](https://www.seoglint.com/blog.html): weekly SEO, GEO and AEO tips and guides.
+- [12 JSON-LD and Schema Markup Mistakes: Real Tests and Fixes](https://www.seoglint.com/blog/json-ld-schema-errors-tested.html): 12 flawed JSON-LD snippets tested in the SEOGlint validator, with screenshots, observed messages and proposed fixes.
 - [Google AI Search 2026: 9 Ways to Rank in AI Overviews](https://www.seoglint.com/blog/google-ai-search-2026-how-to-rank.html): how to get your website cited in Google AI Overviews, AI Mode, and generative search results.
 - [How to Get Cited by AI Search Engines](https://www.seoglint.com/blog/how-to-get-cited-by-ai-search-engines.html): 7 actionable fixes to get your site cited by ChatGPT, Perplexity and Gemini.
 

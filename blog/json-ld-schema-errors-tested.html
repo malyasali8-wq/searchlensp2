@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>12 JSON-LD Schema Errors: Real Tests and Fixes | SEOGlint</title>
+<meta name="description" content="Explore 12 real JSON-LD and schema markup mistakes tested in SEOGlint, with screenshots, validator messages, corrected examples and practical fixes.">
+<link rel="canonical" href="https://www.seoglint.com/blog/json-ld-schema-errors-tested.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#5AB8F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0F15" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="SEOGlint">
+<meta property="og:title" content="12 JSON-LD Schema Errors: Real Tests and Fixes | SEOGlint">
+<meta property="og:description" content="Explore 12 real JSON-LD and schema markup mistakes tested in SEOGlint, with screenshots, validator messages, corrected examples and practical fixes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.seoglint.com/blog/json-ld-schema-errors-tested.html">
+<meta property="og:image" content="https://www.seoglint.com/blog/img/json-ld-schema-errors-hero.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="article:published_time" content="2026-11-26">
+<meta property="article:author" content="Muhammad Ilyas">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="12 JSON-LD Schema Errors: Real Tests and Fixes | SEOGlint">
+<meta name="twitter:description" content="Explore 12 real JSON-LD and schema markup mistakes tested in SEOGlint, with screenshots, validator messages, corrected examples and practical fixes.">
+<meta name="twitter:image" content="https://www.seoglint.com/blog/img/json-ld-schema-errors-hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#E9F4FF;--surface:#fff;--surface-2:#D9ECFF;--ink:#0D1117;--ink-soft:#465A73;--ink-faint:#7C8DA6;--line:#CBE3FB;--blue:#5AB8F5;--blue-deep:#1287DE;--blue-soft:#E4F3FF;--yellow:#FFCB2D;--yellow-deep:#F2B705;--yellow-soft:#FFF3C9;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--r:18px;--shadow:0 12px 40px -12px rgba(18,135,222,.28)}
+:root[data-theme="dark"]{--bg:#0C0F15;--surface:#151A23;--surface-2:#1D2531;--ink:#EAF2FB;--ink-soft:#93A4BC;--ink-faint:#61728C;--line:#26303E;--blue:#6CC4FF;--blue-deep:#3EA6F2;--blue-soft:#122234;--yellow:#FFD23F;--yellow-deep:#FFC21A;--yellow-soft:#2A2612;--shadow:0 16px 44px -14px rgba(0,0,0,.6)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0F15;--surface:#151A23;--surface-2:#1D2531;--ink:#EAF2FB;--ink-soft:#93A4BC;--ink-faint:#61728C;--line:#26303E;--blue:#6CC4FF;--blue-deep:#3EA6F2;--blue-soft:#122234;--yellow:#FFD23F;--yellow-deep:#FFC21A;--yellow-soft:#2A2612;--shadow:0 16px 44px -14px rgba(0,0,0,.6)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+a{color:var(--blue-deep);text-decoration:none}a:hover{text-decoration:underline}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1040px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--ink)}
+.logo{width:32px;height:32px;border-radius:10px;background:var(--ink);position:relative;flex:none}
+.logo::before{content:"";position:absolute;inset:0;border-radius:50%;margin:8px;border:2.3px solid var(--blue)}
+.logo::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2.3px;background:var(--yellow);transform-origin:left;transform:translateY(-50%) rotate(-35deg);border-radius:2px}
+.btn{font-family:var(--sans);font-weight:700;font-size:14.5px;border-radius:12px;padding:11px 18px;cursor:pointer;border:2px solid transparent;display:inline-flex;align-items:center;gap:8px;transition:transform .12s,box-shadow .2s}
+.btn-y{background:var(--yellow);color:#141414;box-shadow:0 5px 0 var(--yellow-deep)}.btn-y:hover{transform:translateY(-1px);text-decoration:none}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}.btn-ghost:hover{background:var(--surface-2);text-decoration:none}
+.tgl{background:var(--surface-2);border:1px solid var(--line);color:var(--ink-soft);width:38px;height:36px;border-radius:10px;cursor:pointer;font-size:15px}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;background:var(--blue-soft);color:var(--blue-deep);font-weight:700;font-size:13px;padding:6px 13px;border-radius:99px;margin:40px 0 14px}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin:0 0 12px}
+.meta{color:var(--ink-faint);font-size:14px;margin:0 0 10px}
+.lede{color:var(--ink-soft);font-size:19px;margin:0 0 8px}
+article{margin:26px 0 10px}
+article h2{font-size:clamp(21px,3.4vw,27px);font-weight:800;letter-spacing:-.02em;margin:34px 0 10px}
+article h3{font-size:18px;font-weight:800;margin:24px 0 6px}
+article p{color:var(--ink-soft);margin:0 0 14px}
+article ul,article ol{color:var(--ink-soft);padding-left:22px;margin:0 0 14px}article li{margin:7px 0}
+article code{background:var(--surface-2);padding:2px 6px;border-radius:5px;font-family:var(--mono);font-size:13px}
+article strong{color:var(--ink)}
+.keypoint{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:12px;padding:16px 18px;margin:0 0 20px}
+.keypoint p{margin:0}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:15.5px}
+.faq p{padding:0 0 12px;color:var(--ink-soft)}
+.adbox{margin:26px 0;padding:10px;background:var(--surface);border:1px dashed var(--line);border-radius:12px;text-align:center;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.adbox span{color:var(--ink-faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.ctaband{background:var(--ink);color:#fff;border-radius:var(--r);padding:34px;text-align:center;margin:40px 0}
+.ctaband h3{font-size:clamp(21px,3.4vw,28px);font-weight:800;margin:0 0 8px}.ctaband h3 .hl{color:var(--yellow)}
+.ctaband p{color:#aebfd4;margin:0 0 20px}
+.related{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin:30px 0}
+.related h4{margin:0 0 10px;font-size:15px}
+.related a{display:inline-block;margin:0 10px 8px 0;font-weight:600}
+footer{padding:32px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;border-top:1px solid var(--line);margin-top:20px}
+footer a{color:var(--ink-soft)}
+.crumbs{font-size:13px;color:var(--ink-soft);padding:14px 0 0}.crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}.crumbs li+li::before{content:'›';margin-right:6px;color:var(--ink-faint)}.crumbs a{color:var(--blue-deep);text-decoration:none}.crumbs a:hover{text-decoration:underline}
+.byline{font-size:14px;color:var(--ink-soft);margin:-4px 0 18px}.byline a{color:var(--blue-deep);text-decoration:none;font-weight:600}.byline a:hover{text-decoration:underline}
+.codeblock{margin:0 0 18px;border-radius:12px;overflow:hidden;background:#0D1117;border:1px solid #26303E}
+.codeblock .lbl{display:block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;background:#161C26;color:#9FB0C6}
+.codeblock.fix .lbl{color:#6EE7A1}.codeblock.sub .lbl{color:#FFB4A8}
+.codeblock pre{margin:0;padding:14px 16px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.6;color:#E6EDF3;tab-size:2}
+.codeblock pre:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+article .codeblock code{background:none;padding:0;color:inherit;font-size:inherit}
+.codeblock .k{color:#7DC4FF}.codeblock .s{color:#A5D6A7}.codeblock .n{color:#F9C97C}.codeblock .p{color:#8B9BB0}.codeblock .bk{color:#FFB4A8}
+.msgs{margin:0 0 14px}.msg{border-radius:10px;padding:10px 14px;margin:0 0 8px;font-size:14.5px;line-height:1.5;word-break:break-word}
+article .msg.err{background:#FDE7E4;color:#B3261E}article .msg.warn{background:#FFF3D4;color:#7A5200}
+:root[data-theme="dark"] article .msg.err{background:#3A1A1A;color:#FF9C92}:root[data-theme="dark"] article .msg.warn{background:#3A2E12;color:#F5C96A}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) article .msg.err{background:#3A1A1A;color:#FF9C92}:root:not([data-theme="light"]) article .msg.warn{background:#3A2E12;color:#F5C96A}}
+article figure{margin:6px 0 20px}article figure img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line)}
+article figcaption{font-size:13px;color:var(--ink-faint);margin-top:8px}
+.tablewrap{overflow-x:auto;margin:0 0 20px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.tablewrap table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}.tablewrap th{text-align:left;background:var(--surface-2);padding:10px 12px;font-size:12.5px;letter-spacing:.03em}
+.tablewrap td{padding:10px 12px;border-top:1px solid var(--line);color:var(--ink-soft);vertical-align:top}
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:0 0 24px}
+.toc-title{margin:0 0 8px!important;font-weight:800;color:var(--ink)!important}.toc ol{margin:0;padding-left:20px}.toc ol.sub{margin:4px 0 6px;font-size:14px}.toc li{margin:4px 0}
+article h2,article h3{scroll-margin-top:84px}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="author" content="Muhammad Ilyas">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"12 JSON-LD and Schema Markup Mistakes: Real Tests and Fixes","description":"Explore 12 real JSON-LD and schema markup mistakes tested in SEOGlint, with screenshots, validator messages, corrected examples and practical fixes.","image":["https://www.seoglint.com/blog/img/json-ld-schema-errors-hero.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.seoglint.com/blog/json-ld-schema-errors-tested.html"},"datePublished":"2026-11-26","dateModified":"2026-11-26","author":{"@type":"Person","name":"Muhammad Ilyas","url":"https://www.seoglint.com/about.html","sameAs":["https://www.linkedin.com/in/muhammad-ilyas-35a093320/"]},"publisher":{"@type":"Organization","name":"SEOGlint","url":"https://www.seoglint.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.seoglint.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.seoglint.com/blog.html"},{"@type":"ListItem","position":3,"name":"12 JSON-LD Schema Errors","item":"https://www.seoglint.com/blog/json-ld-schema-errors-tested.html"}]}</script>
+<meta name="author" content="Muhammad Ilyas">
+</head>
+<body>
+<nav><div class="wrap nav">
+  <a class="brand" href="/"><span class="logo"></span>SEOGlint</a>
+  <div style="display:flex;gap:10px;align-items:center">
+    <a href="/blog.html" style="font-weight:600;font-size:14px;color:var(--ink-soft)">Blog</a>
+    <button class="tgl" id="theme" title="Theme">◐</button>
+    <a href="/" class="btn btn-ghost">Audit a page</a>
+  </div>
+</div></nav>
+<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/blog.html">Blog</a></li><li aria-current="page">12 JSON-LD Schema Errors</li></ol></nav></div>
+<main class="wrap">
+<span class="eyebrow">Original research</span>
+<img src="/blog/img/json-ld-schema-errors-hero.webp" alt="SEOGlint original research graphic: 12 schema markup errors, real JSON-LD tests and fixes, showing a validator error and a valid result" width="1200" height="675" fetchpriority="high" style="width:100%;height:auto;border-radius:var(--r);margin:0 0 20px;display:block">
+<h1>12 JSON-LD and Schema Markup Mistakes: Real Tests and Fixes</h1>
+<p class="byline">By <a href="/about.html" rel="author">Muhammad Ilyas</a>, <a href="/">SEOGlint</a></p>
+<p class="meta">Blog · Tests documented and published November 26, 2026 · Method: examples submitted manually to the SEOGlint Schema Markup Validator</p>
+<p class="lede">We submitted 12 flawed JSON-LD snippets to the SEOGlint validator and recorded exactly what it reported, with screenshots and suggested fixes.</p>
+<article>
+<p>Structured data helps describe entities such as organizations, articles, products, events, and videos. But small mistakes in JSON-LD can make markup unreadable—or leave important properties missing. The challenge is knowing whether a problem is a <strong>JSON syntax error</strong>, a <strong>schema-property issue</strong>, or a <strong>warning from a particular validator</strong>.</p>
+<p>We documented <strong>12 distinct test cases</strong> using the <a href="/schema-markup-validator.html">SEOGlint Schema Markup Validator</a> and retained <strong>13 screenshots</strong>. One Organization missing-name test was captured twice and is counted once. This article shows the exact messages observed in SEOGlint, the submitted snippets, and suggested corrected versions. If you are looking for how to fix JSON-LD syntax errors, or how to validate schema markup before publishing a page, the 12 cases below cover common causes and what each message looked like.</p>
+<div class="keypoint"><p><strong>Scope of this research:</strong> These are observations of <strong>SEOGlint's own checker</strong>, not a comparison benchmark or proof of Google rich-result eligibility. We have <strong>not</strong> supplied independent test outcomes from Google's Rich Results Test or Schema.org Validator. The corrected examples below are proposed code fixes and should be tested again before being used on a live website.</p></div>
+<h2 id="quick-answer-how-do-you-fix-json-ld-schema-errors">Quick answer: how do you fix JSON-LD schema errors?</h2>
+<div class="keypoint"><p>Start by checking whether the snippet is valid JSON: use double-quoted keys and strings, add commas between properties, and remove trailing commas. Then confirm that <code>@context</code>, <code>@type</code>, and the properties appropriate to the chosen schema type are present. Finally, check the markup against a Schema.org validator and, if you are targeting a Google search feature, Google's Rich Results Test. <strong>Valid JSON, meaningful Schema.org markup, and Google rich-result eligibility are three different checks.</strong></p></div>
+<div class="toc" role="navigation" aria-label="Table of contents"><p class="toc-title">On this page</p><ol><li><a href="#quick-answer-how-do-you-fix-json-ld-schema-errors">Quick answer: how do you fix JSON-LD schema errors?</a></li><li><a href="#results-at-a-glance">Results at a glance</a></li><li><a href="#the-12-tests-original-inputs-observed-results-and-suggested-fixes">The 12 tests: original inputs, observed results, and suggested fixes</a><ol class="sub"><li><a href="#test-01">Test 01: Trailing comma after the final JSON property</a></li><li><a href="#test-02">Test 02: Single quotes instead of double quotes</a></li><li><a href="#test-03">Test 03: Unquoted JSON property name</a></li><li><a href="#test-04">Test 04: Missing comma between JSON properties</a></li><li><a href="#test-05">Test 05: Missing @context in an Organization object</a></li><li><a href="#test-06">Test 06: Organization object missing name</a></li><li><a href="#test-07">Test 07: FAQPage object missing mainEntity</a></li><li><a href="#test-08">Test 08: BreadcrumbList missing itemListElement</a></li><li><a href="#test-09">Test 09: Event missing startDate and location</a></li><li><a href="#test-10">Test 10: Product missing name; nested Offer missing priceCurrency</a></li><li><a href="#test-11">Test 11: VideoObject missing thumbnailUrl and uploadDate</a></li><li><a href="#test-12">Test 12: Misspelled Schema.org type: Artical instead of Article</a></li></ol></li><li><a href="#what-these-tests-actually-tell-us">What these tests actually tell us</a></li><li><a href="#a-practical-validation-workflow">A practical validation workflow</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li><li><a href="#research-methodology-and-limitations">Research methodology and limitations</a></li><li><a href="#reference-tools-and-documentation">Reference tools and documentation</a></li></ol></div>
+<h2 id="results-at-a-glance">Results at a glance</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Mistake tested</th>
+<th>SEOGlint result</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><a href="#test-01">1</a></td>
+<td>Trailing comma after the final JSON property</td>
+<td>1 error(s), 0 warning(s)</td>
+<td>JSON syntax</td>
+</tr>
+<tr><td><a href="#test-02">2</a></td>
+<td>Single quotes instead of double quotes</td>
+<td>1 error(s), 0 warning(s)</td>
+<td>JSON syntax</td>
+</tr>
+<tr><td><a href="#test-03">3</a></td>
+<td>Unquoted JSON property name</td>
+<td>1 error(s), 0 warning(s)</td>
+<td>JSON syntax</td>
+</tr>
+<tr><td><a href="#test-04">4</a></td>
+<td>Missing comma between JSON properties</td>
+<td>1 error(s), 0 warning(s)</td>
+<td>JSON syntax</td>
+</tr>
+<tr><td><a href="#test-05">5</a></td>
+<td>Missing @context in an Organization object</td>
+<td>1 error(s), 1 warning(s)</td>
+<td>Context and properties</td>
+</tr>
+<tr><td><a href="#test-06">6</a></td>
+<td>Organization object missing name</td>
+<td>1 error(s), 0 warning(s)</td>
+<td>Context and properties</td>
+</tr>
+<tr><td><a href="#test-07">7</a></td>
+<td>FAQPage object missing mainEntity</td>
+<td>1 error(s), 0 warning(s)</td>
+<td>Context and properties</td>
+</tr>
+<tr><td><a href="#test-08">8</a></td>
+<td>BreadcrumbList missing itemListElement</td>
+<td>1 error(s), 0 warning(s)</td>
+<td>Context and properties</td>
+</tr>
+<tr><td><a href="#test-09">9</a></td>
+<td>Event missing startDate and location</td>
+<td>2 error(s), 0 warning(s)</td>
+<td>Context and properties</td>
+</tr>
+<tr><td><a href="#test-10">10</a></td>
+<td>Product missing name; nested Offer missing priceCurrency</td>
+<td>2 error(s), 1 warning(s)</td>
+<td>Context and properties</td>
+</tr>
+<tr><td><a href="#test-11">11</a></td>
+<td>VideoObject missing thumbnailUrl and uploadDate</td>
+<td>2 error(s), 0 warning(s)</td>
+<td>Context and properties</td>
+</tr>
+<tr><td><a href="#test-12">12</a></td>
+<td>Misspelled Schema.org type: Artical instead of Article</td>
+<td>0 error(s), 1 warning(s)</td>
+<td>Unknown type</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="the-12-tests-original-inputs-observed-results-and-suggested-fixes">The 12 tests: original inputs, observed results, and suggested fixes</h2>
+<p>The screenshots below are original captures of SEOGlint's interface. Error messages are transcribed from the screenshots. Sample domains, products, events, and dates are illustrative—not verified real-world entities.</p>
+<h3 id="test-01">Test 01: Trailing comma after the final JSON property</h3>
+<p><strong>What we submitted:</strong> A comma remains after the last property, immediately before the closing brace.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Organization&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example Co&quot;</span><span class="p">,</span>
+  <span class="k">&quot;url&quot;</span>: <span class="s">&quot;https://www.example.com&quot;</span><span class="p">,</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg err"><strong>Error:</strong> Invalid JSON: Expected double-quoted property name in JSON at position 125 (line 6 column 1)</p></div>
+<figure><img src="/blog/img/test-01-trailing-comma.webp" srcset="/blog/img/test-01-trailing-comma-560.webp 560w, /blog/img/test-01-trailing-comma.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking an Organization JSON-LD snippet that ends with a trailing comma, showing the error: Invalid JSON, expected double-quoted property name at position 125 (line 6 column 1)" width="1000" height="711" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 01: Trailing comma after the final property.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Remove the comma after the final <code>url</code> value. A JSON-LD trailing comma error like this one is a plain JSON problem, because JSON does not permit trailing commas.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Organization&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example Co&quot;</span><span class="p">,</span>
+  <span class="k">&quot;url&quot;</span>: <span class="s">&quot;https://www.example.com&quot;</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="test-02">Test 02: Single quotes instead of double quotes</h3>
+<p><strong>What we submitted:</strong> The input uses single-quoted JSON property names and string values.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&#x27;@context&#x27;</span>: <span class="s">&#x27;https://schema.org&#x27;</span><span class="p">,</span>
+  <span class="k">&#x27;@type&#x27;</span>: <span class="s">&#x27;Organization&#x27;</span><span class="p">,</span>
+  <span class="k">&#x27;name&#x27;</span>: <span class="s">&#x27;Example Co&#x27;</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg err"><strong>Error:</strong> Invalid JSON: Expected property name or &#x27;}&#x27; in JSON at position 4 (line 2 column 3)</p></div>
+<figure><img src="/blog/img/test-02-single-quotes.webp" srcset="/blog/img/test-02-single-quotes-560.webp 560w, /blog/img/test-02-single-quotes.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking a snippet written with single quotes, showing the error: Invalid JSON, expected property name or closing brace at position 4 (line 2 column 3)" width="1000" height="787" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 02: Single quotes.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Use double quotes for every JSON key and string value. Single quotes are not valid JSON string delimiters.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Organization&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example Co&quot;</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="test-03">Test 03: Unquoted JSON property name</h3>
+<p><strong>What we submitted:</strong> The <code>name</code> property is written without quotation marks.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Organization&quot;</span><span class="p">,</span>
+  <span class="bk">name</span><span class="p">:</span> <span class="s">&quot;Example Co&quot;</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg err"><strong>Error:</strong> Invalid JSON: Expected double-quoted property name in JSON at position 67 (line 4 column 3)</p></div>
+<figure><img src="/blog/img/test-03-unquoted-key.webp" srcset="/blog/img/test-03-unquoted-key-560.webp 560w, /blog/img/test-03-unquoted-key.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking a snippet with an unquoted name property, showing the error: Invalid JSON, expected double-quoted property name at position 67 (line 4 column 3)" width="1000" height="642" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 03: Unquoted property name.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Wrap the <code>name</code> property key in double quotes.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Organization&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example Co&quot;</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="test-04">Test 04: Missing comma between JSON properties</h3>
+<p><strong>What we submitted:</strong> There is no comma between the <code>@type</code> value and the next <code>name</code> property.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Organization&quot;</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example Co&quot;</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg err"><strong>Error:</strong> Invalid JSON: Expected double-quoted property name in JSON at position 67 (line 4 column 3)</p></div>
+<figure><img src="/blog/img/test-04-missing-comma.webp" srcset="/blog/img/test-04-missing-comma-560.webp 560w, /blog/img/test-04-missing-comma.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking a snippet with no comma after the @type value, showing the error: Invalid JSON, expected double-quoted property name at position 67 (line 4 column 3)" width="1000" height="660" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 04: Missing comma.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Insert a comma after <code>"Organization"</code>. Notice that tests 3 and 4 produced the same parser message, despite different mistakes; inspect the source at the reported location rather than relying only on the wording.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Organization&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example Co&quot;</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="test-05">Test 05: Missing <code>@context</code> in an Organization object</h3>
+<p><strong>What we submitted:</strong> The object declares <code>@type: Organization</code> but omits the Schema.org context.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Organization&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example Co&quot;</span><span class="p">,</span>
+  <span class="k">&quot;url&quot;</span>: <span class="s">&quot;https://www.example.com&quot;</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg err"><strong>Error:</strong> Missing &quot;@context&quot; (use https://schema.org)</p><p class="msg warn"><strong>Warning:</strong> @type Organization: consider adding &quot;logo&quot;</p></div>
+<figure><img src="/blog/img/test-05-missing-context.webp" srcset="/blog/img/test-05-missing-context-560.webp 560w, /blog/img/test-05-missing-context.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking an Organization snippet without @context, showing the error: Missing @context, and a warning suggesting a logo" width="1000" height="730" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 05: Missing @context.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Add <code>"@context": "https://schema.org"</code>. A JSON-LD missing @context error means the parser cannot tell which vocabulary the properties belong to. The separate logo message is a suggestion from SEOGlint, not proof that every Organization object must contain a logo.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Organization&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example Co&quot;</span><span class="p">,</span>
+  <span class="k">&quot;url&quot;</span>: <span class="s">&quot;https://www.example.com&quot;</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="test-06">Test 06: Organization object missing <code>name</code></h3>
+<p><strong>What we submitted:</strong> The input has <code>@context</code>, <code>@type</code>, <code>url</code>, and <code>logo</code>, but no organization name.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Organization&quot;</span><span class="p">,</span>
+  <span class="k">&quot;url&quot;</span>: <span class="s">&quot;https://www.example.com&quot;</span><span class="p">,</span>
+  <span class="k">&quot;logo&quot;</span>: <span class="s">&quot;https://www.example.com/logo.png&quot;</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg err"><strong>Error:</strong> @type Organization is missing &quot;name&quot;</p></div>
+<figure><img src="/blog/img/test-06-organization-missing-name.webp" srcset="/blog/img/test-06-organization-missing-name-560.webp 560w, /blog/img/test-06-organization-missing-name.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking an Organization snippet with a url and logo but no name, showing the error: Organization is missing name" width="1000" height="815" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 06: Organization missing name.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Add a truthful <code>name</code> matching the organization. A second screenshot showed this same test result; it is not counted as a new case.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Organization&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example Co&quot;</span><span class="p">,</span>
+  <span class="k">&quot;url&quot;</span>: <span class="s">&quot;https://www.example.com&quot;</span><span class="p">,</span>
+  <span class="k">&quot;logo&quot;</span>: <span class="s">&quot;https://www.example.com/logo.png&quot;</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="test-07">Test 07: FAQPage object missing <code>mainEntity</code></h3>
+<p><strong>What we submitted:</strong> A <code>FAQPage</code> object is present with no question-and-answer entities.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;FAQPage&quot;</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg err"><strong>Error:</strong> @type FAQPage is missing &quot;mainEntity&quot;</p></div>
+<figure><img src="/blog/img/test-07-faq-missing-mainentity.webp" srcset="/blog/img/test-07-faq-missing-mainentity-560.webp 560w, /blog/img/test-07-faq-missing-mainentity.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking a FAQPage snippet with no mainEntity, showing the error: FAQPage is missing mainEntity" width="1000" height="772" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 07: FAQPage missing mainEntity. The note under the error is SEOGlint's own wording at the time of testing; for current Google FAQ rich result availability, check Google's official documentation.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Add actual visible questions and answers under <code>mainEntity</code> when FAQPage markup is appropriate. Do not assume FAQPage markup will create a Google FAQ rich result; feature availability and eligibility are separate matters.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;FAQPage&quot;</span><span class="p">,</span>
+  <span class="k">&quot;mainEntity&quot;</span>: <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Question&quot;</span><span class="p">,</span>
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;What is JSON-LD?&quot;</span><span class="p">,</span>
+      <span class="k">&quot;acceptedAnswer&quot;</span>: <span class="p">{</span>
+        <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Answer&quot;</span><span class="p">,</span>
+        <span class="k">&quot;text&quot;</span>: <span class="s">&quot;JSON-LD is a JSON-based format for linked data.&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="test-08">Test 08: BreadcrumbList missing <code>itemListElement</code></h3>
+<p><strong>What we submitted:</strong> The breadcrumb type is declared without any list items.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;BreadcrumbList&quot;</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg err"><strong>Error:</strong> @type BreadcrumbList is missing &quot;itemListElement&quot;</p></div>
+<figure><img src="/blog/img/test-08-breadcrumb-missing-items.webp" srcset="/blog/img/test-08-breadcrumb-missing-items-560.webp 560w, /blog/img/test-08-breadcrumb-missing-items.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking a BreadcrumbList snippet with no items, showing the error: BreadcrumbList is missing itemListElement" width="1000" height="764" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 08: BreadcrumbList missing itemListElement.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Add the real breadcrumb path as ordered <code>ListItem</code> entries with positions and URLs. The markup should match the site navigation.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;BreadcrumbList&quot;</span><span class="p">,</span>
+  <span class="k">&quot;itemListElement&quot;</span>: <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;ListItem&quot;</span><span class="p">,</span>
+      <span class="k">&quot;position&quot;</span>: <span class="n">1</span><span class="p">,</span>
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Home&quot;</span><span class="p">,</span>
+      <span class="k">&quot;item&quot;</span>: <span class="s">&quot;https://www.example.com/&quot;</span>
+    <span class="p">}</span><span class="p">,</span>
+    <span class="p">{</span>
+      <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;ListItem&quot;</span><span class="p">,</span>
+      <span class="k">&quot;position&quot;</span>: <span class="n">2</span><span class="p">,</span>
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Guides&quot;</span><span class="p">,</span>
+      <span class="k">&quot;item&quot;</span>: <span class="s">&quot;https://www.example.com/guides&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="test-09">Test 09: Event missing <code>startDate</code> and <code>location</code></h3>
+<p><strong>What we submitted:</strong> The Event contains a name but lacks a start date and location.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Event&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;SEO Workshop&quot;</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg err"><strong>Error:</strong> @type Event is missing &quot;startDate&quot;</p><p class="msg err"><strong>Error:</strong> @type Event is missing &quot;location&quot;</p></div>
+<figure><img src="/blog/img/test-09-event-missing-details.webp" srcset="/blog/img/test-09-event-missing-details-560.webp 560w, /blog/img/test-09-event-missing-details.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking an Event snippet that has only a name, showing two errors: missing startDate and missing location" width="1000" height="748" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 09: Event missing startDate and location.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Add the real event start time and actual physical or virtual location. The values shown here are illustrative placeholders, not details of a real SEOGlint event.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Event&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example SEO Workshop&quot;</span><span class="p">,</span>
+  <span class="k">&quot;startDate&quot;</span>: <span class="s">&quot;2026-12-15T10:00:00+05:00&quot;</span><span class="p">,</span>
+  <span class="k">&quot;location&quot;</span>: <span class="p">{</span>
+    <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Place&quot;</span><span class="p">,</span>
+    <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example Venue&quot;</span><span class="p">,</span>
+    <span class="k">&quot;address&quot;</span>: <span class="s">&quot;Example City&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="test-10">Test 10: Product missing <code>name</code>; nested Offer missing <code>priceCurrency</code></h3>
+<p><strong>What we submitted:</strong> A Product has a description and nested Offer with a price, but lacks a name and currency.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Product&quot;</span><span class="p">,</span>
+  <span class="k">&quot;description&quot;</span>: <span class="s">&quot;A test product&quot;</span><span class="p">,</span>
+  <span class="k">&quot;offers&quot;</span>: <span class="p">{</span>
+    <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Offer&quot;</span><span class="p">,</span>
+    <span class="k">&quot;price&quot;</span>: <span class="s">&quot;29.99&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg err"><strong>Error:</strong> @type Product is missing &quot;name&quot;</p><p class="msg warn"><strong>Warning:</strong> @type Product: consider adding &quot;image&quot;</p><p class="msg err"><strong>Error:</strong> @type Offer is missing &quot;priceCurrency&quot;</p></div>
+<figure><img src="/blog/img/test-10-product-missing-fields.webp" srcset="/blog/img/test-10-product-missing-fields-560.webp 560w, /blog/img/test-10-product-missing-fields.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking a Product snippet, showing errors for the missing product name and the missing Offer priceCurrency, plus a warning suggesting an image" width="1000" height="802" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 10: Product missing name, Offer missing priceCurrency.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Provide a real product name and the correct ISO currency code for the offer. SEOGlint also suggested an image. Never invent product details or prices in live markup.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Product&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Example Product&quot;</span><span class="p">,</span>
+  <span class="k">&quot;description&quot;</span>: <span class="s">&quot;An illustrative test product&quot;</span><span class="p">,</span>
+  <span class="k">&quot;image&quot;</span>: <span class="s">&quot;https://www.example.com/product.jpg&quot;</span><span class="p">,</span>
+  <span class="k">&quot;offers&quot;</span>: <span class="p">{</span>
+    <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Offer&quot;</span><span class="p">,</span>
+    <span class="k">&quot;price&quot;</span>: <span class="s">&quot;29.99&quot;</span><span class="p">,</span>
+    <span class="k">&quot;priceCurrency&quot;</span>: <span class="s">&quot;USD&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="test-11">Test 11: VideoObject missing <code>thumbnailUrl</code> and <code>uploadDate</code></h3>
+<p><strong>What we submitted:</strong> The video object includes a name but omits the thumbnail and upload date.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;VideoObject&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;How to run an SEO audit&quot;</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg err"><strong>Error:</strong> @type VideoObject is missing &quot;thumbnailUrl&quot;</p><p class="msg err"><strong>Error:</strong> @type VideoObject is missing &quot;uploadDate&quot;</p></div>
+<figure><img src="/blog/img/test-11-video-missing-fields.webp" srcset="/blog/img/test-11-video-missing-fields-560.webp 560w, /blog/img/test-11-video-missing-fields.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking a VideoObject snippet that has only a name, showing two errors: missing thumbnailUrl and missing uploadDate" width="1000" height="679" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 11: VideoObject missing thumbnailUrl and uploadDate.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Add a real, accessible thumbnail URL and the correct video upload date. Additional Google video requirements may apply; this sample does not establish rich-result eligibility.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;VideoObject&quot;</span><span class="p">,</span>
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;How to Run an SEO Audit&quot;</span><span class="p">,</span>
+  <span class="k">&quot;description&quot;</span>: <span class="s">&quot;An illustrative SEO audit tutorial.&quot;</span><span class="p">,</span>
+  <span class="k">&quot;thumbnailUrl&quot;</span>: <span class="s">&quot;https://www.example.com/video-thumb.jpg&quot;</span><span class="p">,</span>
+  <span class="k">&quot;uploadDate&quot;</span>: <span class="s">&quot;2026-11-01T09:00:00+00:00&quot;</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="test-12">Test 12: Misspelled Schema.org type: <code>Artical</code> instead of <code>Article</code></h3>
+<p><strong>What we submitted:</strong> The JSON syntax is valid, but the type name is misspelled.</p>
+<div class="codeblock sub"><span class="lbl">Submitted in the test</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Artical&quot;</span><span class="p">,</span>
+  <span class="k">&quot;headline&quot;</span>: <span class="s">&quot;Example headline&quot;</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>What SEOGlint displayed:</strong></p>
+<div class="msgs"><p class="msg warn"><strong>Warning:</strong> @type Artical is not in this checker&#x27;s rule list, so only syntax was checked. Verify it on schema.org</p></div>
+<figure><img src="/blog/img/test-12-misspelled-schema-type.webp" srcset="/blog/img/test-12-misspelled-schema-type-560.webp 560w, /blog/img/test-12-misspelled-schema-type.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Schema Markup Validator after checking a snippet whose type is spelled Artical, showing zero errors and one warning that the type is not in the checker&#x27;s rule list so only syntax was checked" width="1000" height="705" loading="lazy" decoding="async"><figcaption>SEOGlint output for test 12: Misspelled type Artical.</figcaption></figure>
+<p><strong>Suggested fix:</strong> Correct <code>Artical</code> to <code>Article</code>. This is a particularly important finding: SEOGlint reported zero errors and one warning because it did not apply type-specific checks. Zero errors in a limited checker is not the same as verified Schema.org validity.</p>
+<div class="codeblock fix"><span class="lbl">Proposed fix</span><pre tabindex="0"><code><span class="p">{</span>
+  <span class="k">&quot;@context&quot;</span>: <span class="s">&quot;https://schema.org&quot;</span><span class="p">,</span>
+  <span class="k">&quot;@type&quot;</span>: <span class="s">&quot;Article&quot;</span><span class="p">,</span>
+  <span class="k">&quot;headline&quot;</span>: <span class="s">&quot;Example headline&quot;</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="what-these-tests-actually-tell-us">What these tests actually tell us</h2>
+<h3 id="1-four-examples-failed-before-schema-validation-could-begin">1. Four examples failed before schema validation could begin</h3>
+<p>The trailing comma, single quotes, unquoted key, and missing comma all caused JSON parser errors. In particular, <strong>tests 3 and 4 displayed the same parser message and position</strong> even though the source mistakes were different. A useful troubleshooting guide should show the code near the reported location, not just repeat the error message. The exact wording and position of parser messages also come from the browser's JSON parser, so another browser may phrase them differently.</p>
+<h3 id="2-seven-examples-reached-schema-related-checks">2. Seven examples reached schema-related checks</h3>
+<p>The Organization, FAQPage, BreadcrumbList, Event, Product, and VideoObject examples show missing context or properties according to <strong>SEOGlint's rules</strong>. The number and severity of messages differ by type. A missing property in this checker does <strong>not automatically mean</strong> the same field is universally mandatory under Schema.org or that Google will reject the page.</p>
+<h3 id="3-the-typo-example-exposed-an-important-limit">3. The typo example exposed an important limit</h3>
+<p><code>Artical</code> (rather than <code>Article</code>) produced <strong>zero errors and one warning</strong>. SEOGlint explicitly said the type was outside its rule list and only syntax was checked. This demonstrates why <strong>zero reported errors is not equivalent to complete semantic validation</strong>. A separate vocabulary check is useful.</p>
+<h3 id="4-warnings-and-errors-should-not-be-conflated">4. Warnings and errors should not be conflated</h3>
+<p>The tool suggested adding <code>logo</code> for Organization and <code>image</code> for Product. These were <strong>warnings</strong>, not the same as the observed missing-property errors. Whether a field is necessary depends on the type, purpose, and search feature being targeted.</p>
+<h2 id="a-practical-validation-workflow">A practical validation workflow</h2>
+<ol>
+<li><strong>Check JSON syntax first.</strong> Fix parser errors before interpreting schema properties.</li>
+<li><strong>Check the declared type.</strong> Confirm that <code>@type</code> is spelled correctly and refers to a recognized Schema.org type.</li>
+<li><strong>Review the actual page.</strong> The markup must describe content and entities that really exist on the page.</li>
+<li><strong>Use a general vocabulary validator.</strong> Compare the snippet with <a href="https://validator.schema.org/" target="_blank" rel="noopener">Schema.org Validator</a>.</li>
+<li><strong>Check Google-specific eligibility separately.</strong> Use <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Google Rich Results Test</a> for relevant supported features. Passing a test never guarantees display.</li>
+<li><strong>Keep a reproducible record.</strong> Save the input, tool output, test date, and screenshot. Retest after updating the markup or the validator.</li>
+</ol>
+<p>Whether you publish in the US, UK, India or anywhere else, the same checks apply, because JSON-LD and Schema.org are not region-specific. A free schema markup validator for structured data errors, such as the SEOGlint checker, is a quick first pass before the other tools. If you need to create JSON-LD from scratch, start with the <a href="/schema-generator.html">SEOGlint Schema Markup Generator</a>. Then check the output using the <a href="/schema-markup-validator.html">Schema Markup Validator</a>.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<div class="faq"><details><summary>Is valid JSON the same as valid schema markup?</summary><p>No. A JSON document can parse successfully but contain a misspelled type or inappropriate properties. Test 12 is an example: the JSON syntax was accepted, while the type-specific validation was not performed.</p></details><details><summary>Why does SEOGlint show a warning instead of an error?</summary><p>The tool distinguishes some recommendations and unsupported checks from errors. In our screenshots, missing <code>logo</code> and <code>image</code> appeared as suggestions, while the unknown <code>Artical</code> type produced a warning that only syntax had been checked.</p></details><details><summary>Does valid schema markup guarantee Google rich results?</summary><p>No. Google evaluates whether the page, content, markup, and search feature meet its requirements, and may choose not to display a rich result. General structured data validation and Google feature eligibility are separate checks.</p></details><details><summary>Can I use these corrected snippets on my website?</summary><p>They are illustrative starting points. Replace sample names, URLs, dates, prices, and locations with accurate information. Revalidate the final snippet and confirm that it describes visible content on the page.</p></details><details><summary>Did this study compare SEOGlint with Google's or Schema.org's validators?</summary><p>No. All supplied result screenshots came from SEOGlint. The other validators are recommended follow-up checks, but their results are not represented as completed experiments here.</p></details></div>
+<h2 id="research-methodology-and-limitations">Research methodology and limitations</h2>
+<ul>
+<li><strong>Evidence date:</strong> November 26, 2026, based on the filenames of the supplied screenshots.</li>
+<li><strong>Test source:</strong> 13 screenshots of the SEOGlint browser-based Schema Markup Validator, covering 12 distinct inputs. Two screenshots show the Organization missing-name case.</li>
+<li><strong>Method:</strong> Enter an intentionally flawed JSON-LD snippet, run the validator, and capture the visible error/warning output.</li>
+<li><strong>What we can substantiate:</strong> The snippets visible in the screenshots and the corresponding messages displayed by SEOGlint.</li>
+<li><strong>What we cannot substantiate from these screenshots:</strong> How Google or Schema.org Validator would respond, whether a corrected snippet was subsequently retested, and whether any markup would receive a rich result.</li>
+<li><strong>Generalization:</strong> These 12 hand-picked cases are examples, <strong>not</strong> a statistical accuracy, recall, or reliability benchmark for SEOGlint.</li>
+<li><strong>Future work:</strong> Retest corrected snippets and run the same inputs through Schema.org Validator and Google's Rich Results Test, recording the tool version/date and each distinct outcome.</li>
+</ul>
+<h2 id="reference-tools-and-documentation">Reference tools and documentation</h2>
+<ul>
+<li><a href="/schema-markup-validator.html">SEOGlint Schema Markup Validator</a></li>
+<li><a href="/schema-generator.html">SEOGlint Schema Markup Generator</a></li>
+<li><a href="https://validator.schema.org/" target="_blank" rel="noopener">Schema.org Validator</a></li>
+<li><a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Google Rich Results Test</a></li>
+<li><a href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data" target="_blank" rel="noopener">Google Search Central: Introduction to structured data</a></li>
+</ul>
+</article>
+
+<div class="related">
+  <h4>Related guides and tools</h4>
+  <a href="/schema-markup-validator.html">Schema Markup Validator →</a>
+  <a href="/schema-generator.html">Schema Markup Generator →</a>
+  <a href="/what-is-schema-markup.html">What Is Schema Markup? →</a>
+</div>
+</main>
+<footer class="wrap" style="padding:32px 22px;text-align:center;font-size:13px;color:var(--ink-faint);border-top:1px solid var(--line);margin-top:48px"><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-bottom:12px"><a href="/" style="color:var(--ink-soft)">Home</a><a href="/free-seo-tools.html" style="color:var(--ink-soft)">Free SEO Tools</a><a href="/blog.html" style="color:var(--ink-soft)">Blog</a><a href="/about.html" style="color:var(--ink-soft)">About</a><a href="/contact.html" style="color:var(--ink-soft)">Contact</a><a href="/privacy.html" style="color:var(--ink-soft)">Privacy</a><a href="/terms.html" style="color:var(--ink-soft)">Terms</a></div><p style="margin:0">&copy; 2026 SEOGlint &mdash; Free SEO, GEO &amp; AEO Audit Tool.</p></footer>
+<script>
+(function(){var r=document.documentElement,b=document.getElementById('theme');try{var s=localStorage.getItem('sl');if(s)r.setAttribute('data-theme',s)}catch(e){}if(b)b.onclick=function(){var n=(r.getAttribute('data-theme')||'light')==='light'?'dark':'light';r.setAttribute('data-theme',n);try{localStorage.setItem('sl',n)}catch(e){}}})();
+</script>
+</body>
+</html>
