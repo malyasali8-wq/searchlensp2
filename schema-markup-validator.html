@@ -21,7 +21,7 @@
 <!-- Google AdSense — paste your publisher ID and uncomment to activate:
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 -->
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Schema Markup Validator","url":"https://www.seoglint.com/schema-markup-validator.html","applicationCategory":"BusinessApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.seoglint.com/"},{"@type":"ListItem","position":2,"name":"Schema Markup Validator","item":"https://www.seoglint.com/schema-markup-validator.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a schema markup validator?","acceptedAnswer":{"@type":"Answer","text":"A schema markup validator reads the structured data on a page, usually JSON-LD, and checks that it is valid JSON, uses a known type and includes the properties that type needs."}},{"@type":"Question","name":"What is the difference between a schema checker and Google's Rich Results Test?","acceptedAnswer":{"@type":"Answer","text":"This schema checker runs in your browser and flags syntax errors and missing common properties. Google's Rich Results Test shows whether a page is eligible for Google rich results, so use both."}},{"@type":"Question","name":"How do I check my schema markup?","acceptedAnswer":{"@type":"Answer","text":"Paste your JSON-LD or the full page HTML into the box above and press Check. Each block is listed with its type and any errors or warnings."}},{"@type":"Question","name":"Why does my schema say a property is missing?","acceptedAnswer":{"@type":"Answer","text":"Each schema type has properties that search engines expect, such as headline and datePublished for an Article. Adding them makes the data complete, although not every property is required for every use."}},{"@type":"Question","name":"Does this validator check Microdata or RDFa?","acceptedAnswer":{"@type":"Answer","text":"No. It checks JSON-LD, which is the format Google recommends and the one SEOGlint generates."}},{"@type":"Question","name":"Is my code sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. The check runs entirely in your browser, so the markup you paste stays on your device."}},{"@type":"Question","name":"Is this a JSON-LD validator?","acceptedAnswer":{"@type":"Answer","text":"Yes. It checks that your JSON-LD parses correctly, has an @context and @type, and includes the common properties for the main schema types."}},{"@type":"Question","name":"What are the most common structured data errors?","acceptedAnswer":{"@type":"Answer","text":"Invalid JSON such as a trailing comma, a missing @context or @type, missing required properties, and markup that does not match the visible page content."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Schema Markup Validator","url":"https://www.seoglint.com/schema-markup-validator.html","applicationCategory":"BusinessApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.seoglint.com/"},{"@type":"ListItem","position":2,"name":"Schema Markup Validator","item":"https://www.seoglint.com/schema-markup-validator.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a schema markup validator?","acceptedAnswer":{"@type":"Answer","text":"A schema markup validator reads the structured data on a page, usually JSON-LD, and checks that it is valid JSON, uses a known type and includes the properties that type needs."}},{"@type":"Question","name":"What is the difference between a schema checker and Google's Rich Results Test?","acceptedAnswer":{"@type":"Answer","text":"This schema checker runs in your browser and flags syntax errors and missing common properties. Google's Rich Results Test shows whether a page is eligible for Google rich results, so use both."}},{"@type":"Question","name":"How do I check my schema markup?","acceptedAnswer":{"@type":"Answer","text":"Paste your JSON-LD or the full page HTML into the box above and press Check. Each block is listed with its type and any errors or warnings."}},{"@type":"Question","name":"Why does my schema say a property is missing?","acceptedAnswer":{"@type":"Answer","text":"Each schema type has properties that search engines expect, such as headline and datePublished for an Article. Adding them makes the data complete, although not every property is required for every use."}},{"@type":"Question","name":"Does this validator check Microdata or RDFa?","acceptedAnswer":{"@type":"Answer","text":"No. It checks JSON-LD, which is the format Google recommends and the one SEOGlint generates."}},{"@type":"Question","name":"Is my code sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. The check runs entirely in your browser, so the markup you paste stays on your device."}},{"@type":"Question","name":"Is this a JSON-LD validator?","acceptedAnswer":{"@type":"Answer","text":"Yes. It checks that your JSON-LD parses correctly, has an @context and @type, and includes the common properties for the main schema types."}},{"@type":"Question","name":"What are the most common structured data errors?","acceptedAnswer":{"@type":"Answer","text":"Invalid JSON such as a trailing comma, a missing @context or @type, missing required properties, and markup that does not match the visible page content."}},{"@type":"Question","name":"Does valid schema markup mean I will get rich results?","acceptedAnswer":{"@type":"Answer","text":"No. Valid markup is the first step. Google also needs the page to meet its feature requirements and decides whether to show a rich result."}},{"@type":"Question","name":"Does this validator check FAQ rich results?","acceptedAnswer":{"@type":"Answer","text":"It checks that FAQPage markup is valid JSON-LD with questions and answers. Google stopped showing FAQ rich results in May 2026, so the tool adds a note instead of testing eligibility."}},{"@type":"Question","name":"Can I validate a live URL?","acceptedAnswer":{"@type":"Answer","text":"Paste the page's HTML into the box (use View Source in your browser) and the checker finds every JSON-LD block in it. To test a live URL directly, use Google's Rich Results Test."}}]}]}</script>
 <style>
 :root{
   --bg:#E9F4FF;--surface:#fff;--surface-2:#D9ECFF;--ink:#0D1117;--ink-soft:#465A73;--ink-faint:#7C8DA6;--line:#CBE3FB;
@@ -107,6 +107,7 @@ footer a{color:var(--ink-soft)}
 .adbox span{color:var(--ink-faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .muted{color:var(--ink-faint);font-size:13.5px}
 .crumbs{font-size:13px;color:var(--ink-soft);padding:14px 0 0}.crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}.crumbs li+li::before{content:'›';margin-right:6px;color:var(--ink-faint)}.crumbs a{color:var(--blue-deep);text-decoration:none}.crumbs a:hover{text-decoration:underline}
+.ex{background:var(--ink);color:#e6edf3;border-radius:12px;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.55;margin:0 0 16px;white-space:pre-wrap;word-break:break-word}article .ex code{background:none;padding:0;color:inherit;font-size:inherit}.vi.note{background:var(--blue-soft);color:var(--ink-soft)}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SEOGlint","url":"https://www.seoglint.com/","logo":"https://www.seoglint.com/seoglint-og.png","email":"hello@seoglint.com","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"hello@seoglint.com"}},{"@type":"WebSite","name":"SEOGlint","url":"https://www.seoglint.com/"}]}</script>
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -132,7 +133,7 @@ footer a{color:var(--ink-soft)}
   <textarea id="src" style="min-height:220px" placeholder='{"@context":"https://schema.org","@type":"Organization","name":"Example"}'></textarea>
   <div class="row"><button class="btn btn-y" id="go" type="button" style="flex:1;min-width:180px;justify-content:center">Check schema markup</button><button class="btn btn-ghost" id="sample" type="button">Try a sample</button></div>
   <div id="res" aria-live="polite"></div>
-  <p class="muted" style="margin-top:12px">For Google rich result eligibility also test with <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Google's Rich Results Test</a> or the <a href="https://validator.schema.org/" target="_blank" rel="noopener">Schema.org validator</a>.</p>
+  <p class="muted" style="margin-top:12px">No markup yet? Create it with the <a href="/schema-generator.html">schema markup generator</a>. For Google rich result eligibility also test with <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Google's Rich Results Test</a> or the <a href="https://validator.schema.org/" target="_blank" rel="noopener">Schema.org validator</a>.</p>
 </div>
 <div class="adbox"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins><span>Advertisement</span></div>
 <article>
@@ -142,15 +143,44 @@ footer a{color:var(--ink-soft)}
 <ul>
 <li><strong>JSON syntax:</strong> a missing comma or quote breaks the whole block, so it is checked first.</li>
 <li><strong>@context and @type:</strong> every block needs <code>"@context": "https://schema.org"</code> and a type.</li>
-<li><strong>Required properties:</strong> for types such as Organization, Article, Product, FAQPage, BreadcrumbList, VideoObject and Event.</li>
-<li><strong>Recommended properties:</strong> shown as warnings, because they improve the markup but are not always mandatory.</li>
+<li><strong>Required properties:</strong> for types such as Organization, Product, FAQPage, BreadcrumbList, VideoObject and Event.</li>
+<li><strong>Recommended properties:</strong> shown as warnings, because they improve the markup but are not always mandatory. For an Article, Google recommends author, headline, dates and an image, so those show as warnings.</li>
 </ul>
 <h2>How to validate JSON-LD</h2>
 <p>Copy the script block from your page, or paste the full HTML, and press Check. Fix any errors, then test the live URL in Google's Rich Results Test. Need to create markup first? Use the <a href="/schema-generator.html">schema markup generator</a> or the <a href="/faq-schema-generator.html">FAQ schema generator</a>.</p>
+<h2>Valid and invalid JSON-LD examples</h2>
+<p>A block that passes has valid JSON, an <code>@context</code>, an <code>@type</code> and the usual properties:</p>
+<pre class="ex"><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Example Co",
+  "url": "https://www.example.com"
+}
+&lt;/script&gt;</code></pre>
+<p>A trailing comma is the most common syntax mistake. The comma after the last property makes the whole block unreadable:</p>
+<pre class="ex"><code>{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Example Co",
+}</code></pre>
+<p>Delete the comma after <code>"Example Co"</code> and the block parses. Need fresh markup instead? Build it with the <a href="/schema-generator.html">JSON-LD schema generator</a> and check it here.</p>
+
+<h2>How to read the results</h2>
+<ul>
+<li><strong>Invalid JSON:</strong> the code cannot be parsed. Look for a trailing comma, a missing quote or an unclosed bracket near the position in the message.</li>
+<li><strong>Missing @context or @type:</strong> add <code>"@context": "https://schema.org"</code> and the type of the page entity.</li>
+<li><strong>Is missing a property (error):</strong> the type needs that property in this checker's rules. Add it with a real value from the page.</li>
+<li><strong>Consider adding (warning):</strong> the property is recommended, not mandatory. Add it if it is true for the page.</li>
+<li><strong>Not in this checker's rule list:</strong> only syntax was checked. Confirm the type and properties on schema.org.</li>
+<li><strong>No messages:</strong> the code is valid and has the common properties. That does not mean Google will show a rich result.</li>
+</ul>
+
 <h2>Why structured data matters for SEO and AI search</h2>
 <p>Structured data helps search engines understand what a page is about. It also gives AI answer engines clean, labelled facts to read. Valid markup does not guarantee rich results or rankings, but broken markup is ignored, so checking it is worth doing. See our guide to <a href="/generative-engine-optimization.html">generative engine optimization</a> for how structured data fits into AI search.</p>
 <h2>JSON-LD validator: what it can and cannot tell you</h2>
 <p>This works as a JSON-LD validator for syntax and common properties. It tells you if the code parses, if the type is known and if the usual properties are present. It cannot tell you whether Google will show a rich result for your page. That depends on Google's own eligibility rules, which the Rich Results Test checks.</p>
+<p><strong>Valid is not the same as eligible.</strong> Valid markup follows the syntax and vocabulary. Eligibility also needs the properties Google requires for a specific feature, content that visitors can see, and a type that Google still supports. For example, Google stopped showing FAQ rich results in May 2026, so FAQPage markup can be valid and still produce no rich result.</p>
 <h2>Structured data validator vs Google's Rich Results Test</h2>
 <ul>
 <li><strong>SEOGlint validator:</strong> instant, runs in the browser, works on pasted code before the page is live.</li>
@@ -162,7 +192,7 @@ footer a{color:var(--ink-soft)}
 <ul>
 <li><strong>Invalid JSON:</strong> a trailing comma, a missing quote or an unclosed bracket.</li>
 <li><strong>Missing @context or @type:</strong> without them, the block is not read as schema.</li>
-<li><strong>Missing required properties:</strong> for example an Article without headline or author.</li>
+<li><strong>Missing required properties:</strong> for example an Event without startDate or a BreadcrumbList without itemListElement.</li>
 <li><strong>Markup that does not match the page:</strong> FAQs or reviews in the code that visitors cannot see.</li>
 <li><strong>Wrong value types:</strong> a date written in the wrong format or a price with a currency symbol.</li>
 </ul>
@@ -176,6 +206,9 @@ footer a{color:var(--ink-soft)}
   <details><summary>Is my code sent to a server?</summary><p>No. The check runs entirely in your browser, so the markup you paste stays on your device.</p></details>
   <details><summary>Is this a JSON-LD validator?</summary><p>Yes. It checks that your JSON-LD parses correctly, has an @context and @type, and includes the common properties for the main schema types.</p></details>
   <details><summary>What are the most common structured data errors?</summary><p>Invalid JSON such as a trailing comma, a missing @context or @type, missing required properties, and markup that does not match the visible page content.</p></details>
+  <details><summary>Does valid schema markup mean I will get rich results?</summary><p>No. Valid markup is the first step. Google also needs the page to meet its feature requirements and decides whether to show a rich result.</p></details>
+  <details><summary>Does this validator check FAQ rich results?</summary><p>It checks that FAQPage markup is valid JSON-LD with questions and answers. Google stopped showing FAQ rich results in May 2026, so the tool adds a note instead of testing eligibility.</p></details>
+  <details><summary>Can I validate a live URL?</summary><p>Paste the page's HTML into the box (use View Source in your browser) and the checker finds every JSON-LD block in it. To test a live URL directly, use Google's Rich Results Test.</p></details>
 </div>
 </article>
 <section class="related-links"><h2 class="faqh">Related guides and free tools</h2><ul><li><a href="/schema-generator.html">Schema markup generator (JSON-LD)</a></li><li><a href="/faq-schema-generator.html">FAQ schema generator</a></li><li><a href="/seo-audit-checklist.html">Website audit checklist</a></li><li><a href="/free-seo-tools.html">All free SEO tools</a></li></ul></section>
@@ -186,8 +219,9 @@ footer a{color:var(--ink-soft)}
 (function(){var r=document.documentElement,b=document.getElementById('theme');try{var s=localStorage.getItem('sl');if(s)r.setAttribute('data-theme',s)}catch(e){}if(b)b.onclick=function(){var n=(r.getAttribute('data-theme')||'light')==='light'?'dark':'light';r.setAttribute('data-theme',n);try{localStorage.setItem('sl',n)}catch(e){}}})();
 
 const $=(s,r=document)=>r.querySelector(s);
-const REQ={Organization:['name'],LocalBusiness:['name','address'],Article:['headline','author','datePublished'],NewsArticle:['headline','author','datePublished'],BlogPosting:['headline','author','datePublished'],Product:['name'],Person:['name'],WebSite:['url'],WebPage:['name'],WebApplication:['name'],SoftwareApplication:['name'],FAQPage:['mainEntity'],HowTo:['name','step'],BreadcrumbList:['itemListElement'],VideoObject:['name','thumbnailUrl','uploadDate'],Event:['name','startDate','location'],Recipe:['name','recipeIngredient'],Offer:['price','priceCurrency'],Review:['reviewRating','author'],ImageObject:['url']};
-const REC={Organization:['url','logo'],Article:['image','dateModified','publisher'],BlogPosting:['image','dateModified'],Product:['image','offers','description'],WebSite:['name'],LocalBusiness:['telephone','url']};
+const REQ={Organization:['name'],LocalBusiness:['name','address'],Article:[],NewsArticle:[],BlogPosting:[],Product:['name'],Person:['name'],WebSite:['url'],WebPage:['name'],WebApplication:['name'],SoftwareApplication:['name'],FAQPage:['mainEntity'],HowTo:['name','step'],BreadcrumbList:['itemListElement'],VideoObject:['name','thumbnailUrl','uploadDate'],Event:['name','startDate','location'],Recipe:['name','recipeIngredient'],Offer:['price','priceCurrency'],Review:['reviewRating','author'],ImageObject:['url']};
+const REC={Organization:['url','logo'],Article:['headline','author','datePublished','image','dateModified'],NewsArticle:['headline','author','datePublished','image','dateModified'],BlogPosting:['headline','author','datePublished','image','dateModified'],Product:['image','offers','description'],WebSite:['name'],LocalBusiness:['telephone','url']};
+const SUB=['PostalAddress','Brand','Question','Answer','ListItem','SearchAction','AggregateRating','Rating','ContactPoint','GeoCoordinates','OpeningHoursSpecification','PropertyValue','HowToStep','HowToSection','InteractionCounter','Thing','Place','Audience','Country','MonetaryAmount','QuantitativeValue','PriceSpecification','ItemList','EntryPoint','ReadAction'];
 function types(o){const t=o['@type'];return Array.isArray(t)?t:(t?[t]:[])}
 function has(o,k){const v=o[k];return !(v===undefined||v===null||v===''||(Array.isArray(v)&&!v.length))}
 function checkNode(o,path,out){
@@ -201,7 +235,7 @@ function checkNode(o,path,out){
       if(t==='FAQPage'&&Array.isArray(o.mainEntity)){o.mainEntity.forEach((q,i)=>{if(!q||q['@type']!=='Question'||!q.name)out.push({lv:'fail',msg:'FAQPage question '+(i+1)+' needs @type Question and a name',at:path});else if(!q.acceptedAnswer||!q.acceptedAnswer.text)out.push({lv:'fail',msg:'Question "'+String(q.name).slice(0,50)+'" is missing acceptedAnswer.text',at:path})})}
       if(t==='BreadcrumbList'&&Array.isArray(o.itemListElement)){o.itemListElement.forEach((it,i)=>{if(!it||it.position===undefined||!it.name)out.push({lv:'warn',msg:'Breadcrumb item '+(i+1)+' should have position and name',at:path})})}
     });
-    if(!REQ[ts[0]]&&!(ts[0] in REC))out.push({lv:'warn',msg:'@type '+ts.join(', ')+' is not in this checker\'s rule list, so only syntax was checked. Verify it on schema.org',at:path});
+    if(!REQ[ts[0]]&&!(ts[0] in REC)&&!SUB.includes(ts[0]))out.push({lv:'warn',msg:'@type '+ts.join(', ')+' is not in this checker\'s rule list, so only syntax was checked. Verify it on schema.org',at:path});
   }
   Object.keys(o).forEach(k=>{if(k[0]!=='@')checkNode(o[k],path+'.'+k,out)});
   if(o['@graph'])checkNode(o['@graph'],path+'.@graph',out);
@@ -235,12 +269,14 @@ function run(){
         checkNode(r,'root',out);
       });
     }
+    const notes=[];if(ty.includes('FAQPage'))notes.push('FAQPage is still valid schema.org, but Google stopped showing FAQ rich results in May 2026. This tool checks its syntax only.');
     out.forEach(o=>o.lv==='fail'?f++:w++);
     if(!out.length)p++;
     const card=document.createElement('div');card.className='vblock';
     const h=document.createElement('h3');h.textContent='Block '+(i+1)+(ty.length?': '+[...new Set(ty)].join(', '):'');card.appendChild(h);
     if(!out.length){const d=document.createElement('div');d.className='vi pass';d.textContent='Valid JSON-LD with the common properties present.';card.appendChild(d)}
     out.forEach(o=>{const d=document.createElement('div');d.className='vi '+o.lv;d.textContent=(o.lv==='fail'?'Error: ':'Warning: ')+o.msg;card.appendChild(d)});
+    notes.forEach(t=>{const d=document.createElement('div');d.className='vi note';d.textContent='Note: '+t;card.appendChild(d)});
     res.appendChild(card);
   });
   const s=document.createElement('p');s.className='muted';s.textContent=blocks.length+' block(s) checked: '+f+' error(s), '+w+' warning(s). Always confirm eligibility in Google\'s Rich Results Test.';res.prepend(s);

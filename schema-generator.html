@@ -22,7 +22,7 @@
 <!-- Google AdSense — paste your publisher ID and uncomment to activate:
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 -->
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Schema Markup Generator","url":"https://www.seoglint.com/schema-generator.html","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free tool to generate valid JSON-LD structured data for SEO rich results."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is schema markup?","acceptedAnswer":{"@type":"Answer","text":"Schema markup is structured data added to a page using the schema.org vocabulary. It describes your content to search engines in a machine-readable way, which can unlock rich results such as star ratings, FAQs, breadcrumbs and more."}},{"@type":"Question","name":"What is JSON-LD?","acceptedAnswer":{"@type":"Answer","text":"JSON-LD is the format Google recommends for schema markup. It is a block of JSON placed in a script tag in the head or body of your page, kept separate from your visible HTML, which makes it easy to add and maintain."}},{"@type":"Question","name":"Does schema markup improve SEO?","acceptedAnswer":{"@type":"Answer","text":"Schema is not a direct ranking factor, but it can earn rich results that increase click-through rate and help search engines and AI answer engines understand your content, which supports visibility."}},{"@type":"Question","name":"Where do I put the JSON-LD code?","acceptedAnswer":{"@type":"Answer","text":"Paste the generated script tag inside the head of your page, or anywhere in the body. Then validate it with Google's Rich Results Test before publishing."}},{"@type":"Question","name":"How do I add schema markup to my website?","acceptedAnswer":{"@type":"Answer","text":"Generate the JSON-LD here, copy it, and paste it inside a script tag of type application/ld+json in the head or body of the page. Then test the page with Google's Rich Results Test."}},{"@type":"Question","name":"What is the difference between schema markup and structured data?","acceptedAnswer":{"@type":"Answer","text":"Structured data is the general idea of labelling page content in a machine-readable way. Schema.org is the shared vocabulary, and JSON-LD is the format Google recommends for writing it."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Schema Markup Generator","url":"https://www.seoglint.com/schema-generator.html","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free tool to generate valid JSON-LD structured data for SEO rich results."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does schema markup directly improve rankings?","acceptedAnswer":{"@type":"Answer","text":"It isn't a direct ranking factor. It helps search engines and AI engines understand your content, and where Google supports a rich result, valid markup can make the page eligible for it. Neither is a promise of higher rankings."}},{"@type":"Question","name":"Where should the JSON-LD go?","acceptedAnswer":{"@type":"Answer","text":"Inside the <head> is cleanest, though Google also reads it in the body. Put each type on the page it describes."}},{"@type":"Question","name":"Can I use more than one schema type on a page?","acceptedAnswer":{"@type":"Answer","text":"Yes. A blog post can have both Article and FAQPage, for example. Add multiple script blocks, or combine them in one @graph."}},{"@type":"Question","name":"Is this generator free?","acceptedAnswer":{"@type":"Answer","text":"Yes — generating, copying and downloading is completely free and runs entirely in your browser. Nothing is uploaded."}},{"@type":"Question","name":"How do I add schema markup to my website?","acceptedAnswer":{"@type":"Answer","text":"Generate the JSON-LD here, copy it, and paste it inside a script tag of type application/ld+json in the head or body of the page. Then test the page with Google's Rich Results Test."}},{"@type":"Question","name":"What is the difference between schema markup and structured data?","acceptedAnswer":{"@type":"Answer","text":"Structured data is the general idea of labelling page content in a machine-readable way. Schema.org is the shared vocabulary, and JSON-LD is the format Google recommends for writing it."}},{"@type":"Question","name":"What is a JSON-LD schema generator?","acceptedAnswer":{"@type":"Answer","text":"A JSON-LD schema generator turns the details you type into a script tag of structured data. You copy the tag into your page instead of writing the JSON by hand."}},{"@type":"Question","name":"Is this a Google schema generator?","acceptedAnswer":{"@type":"Answer","text":"It writes schema.org JSON-LD, the format Google recommends, but it is an independent SEOGlint tool and not made by Google. To see whether Google can use the markup on a page, test it with Google's Rich Results Test."}},{"@type":"Question","name":"Does valid schema markup mean I will get rich results?","acceptedAnswer":{"@type":"Answer","text":"No. Valid markup can make a page eligible for some rich results, but Google decides what to show, and not every schema type has a rich result."}},{"@type":"Question","name":"Can I still get FAQ rich results?","acceptedAnswer":{"@type":"Answer","text":"Not in Google. Google stopped showing FAQ rich results in May 2026. FAQPage is still a valid schema.org type, so existing markup is harmless."}}]}]}</script>
 <style>
 :root{
   --bg:#E9F4FF;--surface:#fff;--surface-2:#D9ECFF;--ink:#0D1117;--ink-soft:#465A73;--ink-faint:#7C8DA6;--line:#CBE3FB;
@@ -90,6 +90,7 @@ footer a{color:var(--ink-soft)}
 .adbox{display:none;max-width:880px;margin:26px auto;padding:10px;background:var(--surface);border:1px dashed var(--line);border-radius:12px;text-align:center;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
 .adbox span{color:var(--ink-faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .crumbs{font-size:13px;color:var(--ink-soft);padding:14px 0 0}.crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}.crumbs li+li::before{content:'›';margin-right:6px;color:var(--ink-faint)}.crumbs a{color:var(--blue-deep);text-decoration:none}.crumbs a:hover{text-decoration:underline}
+.ex{background:var(--ink);color:#e6edf3;border-radius:12px;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.55;margin:0 0 16px;white-space:pre-wrap;word-break:break-word}article .ex code{background:none;padding:0;color:inherit;font-size:inherit}.vi.note{background:var(--blue-soft);color:var(--ink-soft)}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SEOGlint","url":"https://www.seoglint.com/","logo":"https://www.seoglint.com/seoglint-og.png","email":"hello@seoglint.com","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"hello@seoglint.com"}},{"@type":"WebSite","name":"SEOGlint","url":"https://www.seoglint.com/"}]}</script>
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -111,7 +112,7 @@ footer a{color:var(--ink-soft)}
 <header class="hero"><div class="wrap">
   <div class="eyebrow">⚙️ Structured data · Rich results</div>
   <h1>Free <span class="hl">Schema Markup</span> Generator (JSON-LD)</h1>
-  <p class="lede">Pick a type, fill in the fields, and get valid <code>JSON-LD</code> structured data for Google rich results — Organization, LocalBusiness, Article, Product, FAQ and WebSite. Copy or download. Free, no sign-up.</p>
+  <p class="lede">Pick a type, fill in the fields, and get valid <code>JSON-LD</code> structured data that search engines can read — Organization, LocalBusiness, Article, Product, FAQ and WebSite. Copy or download. Free, no sign-up.</p>
 </div></header>
 
 <main class="wrap">
@@ -137,6 +138,7 @@ footer a{color:var(--ink-soft)}
       <div class="snip"><button class="copy" id="copy">Copy</button><pre id="output"></pre></div>
       <div class="row" style="margin-top:12px">
         <button class="btn btn-ghost" id="download">Download .html snippet</button>
+        <a class="btn btn-ghost" href="/schema-markup-validator.html">Check with schema markup validator</a>
         <a class="btn btn-ghost" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Test in Google Rich Results ↗</a>
       </div>
       <p style="color:var(--ink-faint);font-size:13.5px;margin-top:10px">Paste the whole <code>&lt;script&gt;</code> block inside your page's <code>&lt;head&gt;</code>.</p>
@@ -150,7 +152,8 @@ footer a{color:var(--ink-soft)}
 
   <article>
     <h2>What is schema markup?</h2>
-    <p>Schema markup (structured data) is extra code that describes your page using the shared <code>schema.org</code> vocabulary. Humans don't see it, but search engines and AI answer engines read it to understand exactly what a page is about — a product, an article, a business, a list of FAQs. When Google understands that structure, it can show <strong>rich results</strong>: star ratings, FAQ drop-downs, breadcrumbs, prices, event dates and more. Those richer listings take up more space and earn more clicks.</p>
+    <p><strong>Quick answer:</strong> schema markup is code that labels what a page is about, using the shared <code>schema.org</code> vocabulary, so search engines and AI answer engines can read it as structured facts instead of guessing. This free schema SEO tool writes it as JSON-LD, the format Google recommends.</p>
+    <p>Schema markup (structured data) is extra code that describes your page using the shared <code>schema.org</code> vocabulary. Visitors don't see it, but search engines and AI answer engines can read it to understand what a page is about — a product, an article, a business, an organization. When the markup is valid and the page follows Google's guidelines, the page <em>may</em> become eligible for <strong>rich results</strong> such as product details, review snippets or breadcrumbs. Google decides whether to show them, so eligibility is never a guarantee.</p>
 
     <h2>Why JSON-LD?</h2>
     <p>There are a few ways to add structured data, but <strong>JSON-LD</strong> is the format Google officially recommends. It's a single block of JSON inside a <code>&lt;script type="application/ld+json"&gt;</code> tag that sits separately from your visible HTML. That separation makes it easy to add, read and maintain — you don't have to weave attributes through your markup. This generator always outputs clean JSON-LD.</p>
@@ -161,25 +164,72 @@ footer a{color:var(--ink-soft)}
       <li><strong>LocalBusiness</strong> — for businesses with a physical location: address, phone, opening hours, geo.</li>
       <li><strong>Article / BlogPosting</strong> — for blog posts and news: headline, author, dates, image.</li>
       <li><strong>Product</strong> — for e-commerce: name, image, brand, price and availability.</li>
-      <li><strong>FAQPage</strong> — a list of question/answer pairs; can show as an expandable FAQ in results and is highly favoured by AI answer engines.</li>
-      <li><strong>WebSite</strong> — declares your site and can enable a sitelinks search box.</li>
+      <li><strong>FAQPage</strong> — a list of question and answer pairs. Google stopped showing FAQ rich results in May 2026, but FAQPage is still a valid schema.org type that labels Q&amp;A content clearly for any system that reads it.</li>
+      <li><strong>WebSite</strong> — declares your site name and URL. Google retired the sitelinks search box in 2024, so the optional search field only adds a <code>SearchAction</code> that other tools may read.</li>
+    </ul>
+
+    <h2>JSON-LD schema example</h2>
+    <p>This is the kind of code the JSON-LD schema generator produces. It is a complete Organization block, ready to paste into a page:</p>
+<pre class="ex"><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Example Co",
+  "url": "https://www.example.com",
+  "logo": "https://www.example.com/logo.png",
+  "sameAs": ["https://www.linkedin.com/company/example"]
+}
+&lt;/script&gt;</code></pre>
+    <ul>
+      <li><code>@context</code> tells readers the vocabulary is schema.org.</li>
+      <li><code>@type</code> says what the page entity is. Every block needs one.</li>
+      <li><code>name</code>, <code>url</code> and <code>logo</code> describe the organization. Use full, absolute URLs.</li>
+      <li><code>sameAs</code> lists your official profiles, which helps search and AI systems connect them to one entity.</li>
+    </ul>
+
+    <h2>Rich snippets generator: which types can earn rich results?</h2>
+    <p>People often search for a "rich snippets generator". Rich snippets, now called rich results, are enhanced search listings. A generator can only write the markup. Whether Google shows a rich result depends on the type and on Google's current rules, which change over time. For the types in this tool:</p>
+    <ul>
+      <li><strong>Product:</strong> can be eligible for product details such as price and availability. Review stars also need review or rating data, which this form does not create.</li>
+      <li><strong>Article:</strong> helps Google understand the headline, author and dates.</li>
+      <li><strong>Organization, LocalBusiness and WebSite:</strong> mainly help search engines understand your business and site. Treat them as clarity markup, not a ticket to a rich result.</li>
+      <li><strong>FAQPage:</strong> no longer produces an FAQ rich result in Google.</li>
+    </ul>
+    <p>Check Google's <a href="https://developers.google.com/search/docs/appearance/structured-data/search-gallery" target="_blank" rel="noopener">structured data search gallery</a> for the features that are currently supported.</p>
+
+    <h2>Valid schema markup vs rich result eligibility</h2>
+    <p><strong>Valid</strong> means the code parses as JSON and follows the schema.org vocabulary. <strong>Eligible</strong> means the page also meets the extra requirements Google sets for a specific rich result, and the markup matches content visitors can see. Valid code can still be ineligible, and neither one guarantees that Google shows anything. Check syntax and properties with the <a href="/schema-markup-validator.html">schema markup validator</a>, then test eligibility with Google's Rich Results Test.</p>
+
+    <h2>Troubleshooting generated JSON-LD</h2>
+    <ul>
+      <li><strong>A field is missing from the output:</strong> empty fields are skipped, so fill in every field you want to appear.</li>
+      <li><strong>Dates:</strong> use the ISO format, for example <code>2026-11-26</code>.</li>
+      <li><strong>Price:</strong> type the number only, such as <code>29.99</code>, and put the currency in its own field.</li>
+      <li><strong>Images and logos:</strong> use full URLs that start with https and open in a browser.</li>
+      <li><strong>Pasting:</strong> copy the whole script tag, including the opening and closing lines.</li>
+      <li><strong>"No items detected" in Google's test:</strong> the type may not have a rich result feature, or the code is not on the tested page.</li>
+      <li><strong>Mismatch with the page:</strong> only mark up details that visitors can actually see on that page.</li>
     </ul>
 
     <h2>How to add and test it</h2>
-    <p>Generate your JSON-LD, copy the full script tag, and paste it into the <code>&lt;head&gt;</code> of the relevant page (FAQ schema goes on the FAQ page, Product schema on the product page, and so on). Then run it through Google's <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Rich Results Test</a> and the Schema Markup Validator to confirm it's valid before publishing. Only mark up content that's actually visible on the page — marking up things that aren't there violates Google's guidelines.</p>
+    <p>Generate your JSON-LD, copy the full script tag, and paste it into the <code>&lt;head&gt;</code> of the relevant page (FAQ schema goes on the FAQ page, Product schema on the product page, and so on). Then check the syntax with our <a href="/schema-markup-validator.html">schema markup validator</a> and run the page through Google's <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Rich Results Test</a> before publishing. Only mark up content that's actually visible on the page — marking up things that aren't there violates Google's guidelines.</p>
 
     <h2 class="faqh">Frequently asked questions</h2>
     <div class="faq">
-      <details open><summary>Does schema markup directly improve rankings?</summary><p>It isn't a direct ranking factor, but the rich results it can unlock increase click-through rate, and it helps search engines and AI engines understand your content — both support visibility.</p></details>
+      <details open><summary>Does schema markup directly improve rankings?</summary><p>It isn't a direct ranking factor. It helps search engines and AI engines understand your content, and where Google supports a rich result, valid markup can make the page eligible for it. Neither is a promise of higher rankings.</p></details>
       <details><summary>Where should the JSON-LD go?</summary><p>Inside the <code>&lt;head&gt;</code> is cleanest, though Google also reads it in the body. Put each type on the page it describes.</p></details>
       <details><summary>Can I use more than one schema type on a page?</summary><p>Yes. A blog post can have both Article and FAQPage, for example. Add multiple script blocks, or combine them in one <code>@graph</code>.</p></details>
       <details><summary>Is this generator free?</summary><p>Yes — generating, copying and downloading is completely free and runs entirely in your browser. Nothing is uploaded.</p></details>
       <details><summary>How do I add schema markup to my website?</summary><p>Generate the JSON-LD here, copy it, and paste it inside a script tag of type application/ld+json in the head or body of the page. Then test the page with Google's Rich Results Test.</p></details>
       <details><summary>What is the difference between schema markup and structured data?</summary><p>Structured data is the general idea of labelling page content in a machine-readable way. Schema.org is the shared vocabulary, and JSON-LD is the format Google recommends for writing it.</p></details>
+      <details><summary>What is a JSON-LD schema generator?</summary><p>A JSON-LD schema generator turns the details you type into a script tag of structured data. You copy the tag into your page instead of writing the JSON by hand.</p></details>
+      <details><summary>Is this a Google schema generator?</summary><p>It writes schema.org JSON-LD, the format Google recommends, but it is an independent SEOGlint tool and not made by Google. To see whether Google can use the markup on a page, test it with Google's Rich Results Test.</p></details>
+      <details><summary>Does valid schema markup mean I will get rich results?</summary><p>No. Valid markup can make a page eligible for some rich results, but Google decides what to show, and not every schema type has a rich result.</p></details>
+      <details><summary>Can I still get FAQ rich results?</summary><p>Not in Google. Google stopped showing FAQ rich results in May 2026. FAQPage is still a valid schema.org type, so existing markup is harmless.</p></details>
     </div>
   </article>
 
-  <section class="related-links"><h2 class="faqh">Related guides and free tools</h2><ul><li><a href="/faq-schema-generator.html">FAQ schema generator (FAQPage JSON-LD)</a></li><li><a href="/optimize-for-ai-overviews.html">How to rank in AI Overviews with structured data</a></li><li><a href="/meta-tag-generator.html">Meta tag generator for SEO and Open Graph tags</a></li><li><a href="/seo-audit-checklist.html">SEO audit checklist 2026</a></li></ul></section>
+  <section class="related-links"><h2 class="faqh">Related guides and free tools</h2><ul><li><a href="/schema-markup-validator.html">Schema markup validator and schema checker</a></li><li><a href="/faq-schema-generator.html">FAQ schema generator (FAQPage JSON-LD)</a></li><li><a href="/optimize-for-ai-overviews.html">How to rank in AI Overviews with structured data</a></li><li><a href="/meta-tag-generator.html">Meta tag generator for SEO and Open Graph tags</a></li><li><a href="/seo-audit-checklist.html">SEO audit checklist 2026</a></li></ul></section>
 
   <div class="ctaband">
     <h3>Want to check if your page's <span class="hl">structured data</span> is set up right?</h3>
@@ -306,7 +356,14 @@ function build(type){
   }
   return o;
 }
-function wrap(obj){return '<script type="application/ld+json">\n'+JSON.stringify(obj,null,2)+'\n<\/script>'}
+function prune(x){
+  if(Array.isArray(x))return x.map(prune).filter(y=>y!==undefined);
+  if(x&&typeof x==='object'){const o={};Object.keys(x).forEach(k=>{const p=prune(x[k]);if(p!==undefined)o[k]=p});
+    const keys=Object.keys(o).filter(k=>k[0]!=='@');return keys.length||k0(x)?o:undefined}
+  return x===''?undefined:x;
+}
+function k0(x){return x&&x['@context']}
+function wrap(obj){const safe=JSON.stringify(prune(obj)||{},null,2).replace(/<\/(script)/gi,'<\\/$1');return '<script type="application/ld+json">\n'+safe+'\n<\/script>'}
 
 let LAST='';
 $('#gen').onclick=()=>{
