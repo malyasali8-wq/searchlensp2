@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Why Is My Website Not Showing Up on Google? 7 Fixes</title>
+<meta name="description" content="Not showing on Google? Learn to tell indexing from ranking problems with 7 fixes, a status-based troubleshooter and real Search Console data.">
+<link rel="canonical" href="https://www.seoglint.com/blog/website-not-showing-on-google.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#5AB8F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0F15" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="SEOGlint">
+<meta property="og:title" content="Why Is My Website Not Showing Up on Google? 7 Fixes">
+<meta property="og:description" content="Not showing on Google? Learn to tell indexing from ranking problems with 7 fixes, a status-based troubleshooter and real Search Console data.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.seoglint.com/blog/website-not-showing-on-google.html">
+<meta property="og:image" content="https://www.seoglint.com/blog/img/website-not-showing-on-google-hero.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="article:published_time" content="2026-11-28">
+<meta property="article:author" content="Muhammad Ilyas">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Is My Website Not Showing Up on Google? 7 Fixes">
+<meta name="twitter:description" content="Not showing on Google? Learn to tell indexing from ranking problems with 7 fixes, a status-based troubleshooter and real Search Console data.">
+<meta name="twitter:image" content="https://www.seoglint.com/blog/img/website-not-showing-on-google-hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#E9F4FF;--surface:#fff;--surface-2:#D9ECFF;--ink:#0D1117;--ink-soft:#465A73;--ink-faint:#7C8DA6;--line:#CBE3FB;--blue:#5AB8F5;--blue-deep:#1287DE;--blue-soft:#E4F3FF;--yellow:#FFCB2D;--yellow-deep:#F2B705;--yellow-soft:#FFF3C9;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--r:18px;--shadow:0 12px 40px -12px rgba(18,135,222,.28)}
+:root[data-theme="dark"]{--bg:#0C0F15;--surface:#151A23;--surface-2:#1D2531;--ink:#EAF2FB;--ink-soft:#93A4BC;--ink-faint:#61728C;--line:#26303E;--blue:#6CC4FF;--blue-deep:#3EA6F2;--blue-soft:#122234;--yellow:#FFD23F;--yellow-deep:#FFC21A;--yellow-soft:#2A2612;--shadow:0 16px 44px -14px rgba(0,0,0,.6)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0F15;--surface:#151A23;--surface-2:#1D2531;--ink:#EAF2FB;--ink-soft:#93A4BC;--ink-faint:#61728C;--line:#26303E;--blue:#6CC4FF;--blue-deep:#3EA6F2;--blue-soft:#122234;--yellow:#FFD23F;--yellow-deep:#FFC21A;--yellow-soft:#2A2612;--shadow:0 16px 44px -14px rgba(0,0,0,.6)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+a{color:var(--blue-deep);text-decoration:none}a:hover{text-decoration:underline}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1040px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--ink)}
+.logo{width:32px;height:32px;border-radius:10px;background:var(--ink);position:relative;flex:none}
+.logo::before{content:"";position:absolute;inset:0;border-radius:50%;margin:8px;border:2.3px solid var(--blue)}
+.logo::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2.3px;background:var(--yellow);transform-origin:left;transform:translateY(-50%) rotate(-35deg);border-radius:2px}
+.btn{font-family:var(--sans);font-weight:700;font-size:14.5px;border-radius:12px;padding:11px 18px;cursor:pointer;border:2px solid transparent;display:inline-flex;align-items:center;gap:8px;transition:transform .12s,box-shadow .2s}
+.btn-y{background:var(--yellow);color:#141414;box-shadow:0 5px 0 var(--yellow-deep)}.btn-y:hover{transform:translateY(-1px);text-decoration:none}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}.btn-ghost:hover{background:var(--surface-2);text-decoration:none}
+.tgl{background:var(--surface-2);border:1px solid var(--line);color:var(--ink-soft);width:38px;height:36px;border-radius:10px;cursor:pointer;font-size:15px}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;background:var(--blue-soft);color:var(--blue-deep);font-weight:700;font-size:13px;padding:6px 13px;border-radius:99px;margin:40px 0 14px}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin:0 0 12px}
+.meta{color:var(--ink-faint);font-size:14px;margin:0 0 10px}
+.lede{color:var(--ink-soft);font-size:19px;margin:0 0 8px}
+article{margin:26px 0 10px}
+article h2{font-size:clamp(21px,3.4vw,27px);font-weight:800;letter-spacing:-.02em;margin:34px 0 10px}
+article h3{font-size:18px;font-weight:800;margin:24px 0 6px}
+article p{color:var(--ink-soft);margin:0 0 14px}
+article ul,article ol{color:var(--ink-soft);padding-left:22px;margin:0 0 14px}article li{margin:7px 0}
+article code{background:var(--surface-2);padding:2px 6px;border-radius:5px;font-family:var(--mono);font-size:13px}
+article strong{color:var(--ink)}
+.keypoint{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:12px;padding:16px 18px;margin:0 0 20px}
+.keypoint p{margin:0}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:15.5px}
+.faq p{padding:0 0 12px;color:var(--ink-soft)}
+.adbox{margin:26px 0;padding:10px;background:var(--surface);border:1px dashed var(--line);border-radius:12px;text-align:center;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.adbox span{color:var(--ink-faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.ctaband{background:var(--ink);color:#fff;border-radius:var(--r);padding:34px;text-align:center;margin:40px 0}
+.ctaband h3{font-size:clamp(21px,3.4vw,28px);font-weight:800;margin:0 0 8px}.ctaband h3 .hl{color:var(--yellow)}
+.ctaband p{color:#aebfd4;margin:0 0 20px}
+.related{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin:30px 0}
+.related h4{margin:0 0 10px;font-size:15px}
+.related a{display:inline-block;margin:0 10px 8px 0;font-weight:600}
+footer{padding:32px 0;color:var(--ink-faint);font-size:13.5px;text-align:center;border-top:1px solid var(--line);margin-top:20px}
+footer a{color:var(--ink-soft)}
+.crumbs{font-size:13px;color:var(--ink-soft);padding:14px 0 0}.crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}.crumbs li+li::before{content:'›';margin-right:6px;color:var(--ink-faint)}.crumbs a{color:var(--blue-deep);text-decoration:none}.crumbs a:hover{text-decoration:underline}
+.byline{font-size:14px;color:var(--ink-soft);margin:-4px 0 18px}.byline a{color:var(--blue-deep);text-decoration:none;font-weight:600}.byline a:hover{text-decoration:underline}
+.codeblock{margin:0 0 18px;border-radius:12px;overflow:hidden;background:#0D1117;border:1px solid #26303E}
+.codeblock .lbl{display:block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;background:#161C26;color:#9FB0C6}
+.codeblock.fix .lbl{color:#6EE7A1}.codeblock.sub .lbl{color:#FFB4A8}
+.codeblock pre{margin:0;padding:14px 16px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.6;color:#E6EDF3;tab-size:2}
+.codeblock pre:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+article .codeblock code{background:none;padding:0;color:inherit;font-size:inherit}
+.codeblock .k{color:#7DC4FF}.codeblock .s{color:#A5D6A7}.codeblock .n{color:#F9C97C}.codeblock .p{color:#8B9BB0}.codeblock .bk{color:#FFB4A8}
+.msgs{margin:0 0 14px}.msg{border-radius:10px;padding:10px 14px;margin:0 0 8px;font-size:14.5px;line-height:1.5;word-break:break-word}
+article .msg.err{background:#FDE7E4;color:#B3261E}article .msg.warn{background:#FFF3D4;color:#7A5200}
+:root[data-theme="dark"] article .msg.err{background:#3A1A1A;color:#FF9C92}:root[data-theme="dark"] article .msg.warn{background:#3A2E12;color:#F5C96A}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) article .msg.err{background:#3A1A1A;color:#FF9C92}:root:not([data-theme="light"]) article .msg.warn{background:#3A2E12;color:#F5C96A}}
+article figure{margin:6px 0 20px}article figure img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line)}
+article figcaption{font-size:13px;color:var(--ink-faint);margin-top:8px}
+.tablewrap{overflow-x:auto;margin:0 0 20px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.tablewrap table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}.tablewrap th{text-align:left;background:var(--surface-2);padding:10px 12px;font-size:12.5px;letter-spacing:.03em}
+.tablewrap td{padding:10px 12px;border-top:1px solid var(--line);color:var(--ink-soft);vertical-align:top}
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:0 0 24px}
+.toc-title{margin:0 0 8px!important;font-weight:800;color:var(--ink)!important}.toc ol{margin:0;padding-left:20px}.toc ol.sub{margin:4px 0 6px;font-size:14px}.toc li{margin:4px 0}
+article h2,article h3{scroll-margin-top:84px}
+.logo{background:url(/logo-mark.png) center/cover no-repeat!important}.logo::before,.logo::after{display:none!important}.tool{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;margin:22px 0}
+.tool h3{margin:0 0 8px}.tool-note{font-size:14px;color:var(--ink-soft);background:var(--surface-2);border-radius:10px;padding:10px 14px}
+.tool select{width:100%;font:inherit;padding:12px 14px;margin:8px 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg,#fff);color:var(--ink)}
+.tool select:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.tool-out{border-left:4px solid var(--yellow);padding:4px 0 4px 16px}.tool-out h4{margin:0 0 6px}.tool-empty,.tool-avoid{color:var(--ink-soft)}
+.checklist-print{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px 20px 18px;margin:26px 0}
+.cl{list-style:none;padding:0;margin:0 0 14px}.cl li{margin:0;padding:9px 0;border-top:1px solid var(--line)}.cl label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.cl input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:#1B6FE0}.print-only-title{display:none}
+.btn-print{font:inherit;font-weight:700;padding:11px 18px;border-radius:10px;border:0;background:var(--yellow);color:#111;cursor:pointer}.btn-print:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.cl-hint{font-size:13px;color:var(--ink-faint);margin-left:8px}.authorbox{margin-top:26px}
+#print-root{display:none}
+@media print{body.print-cl>*:not(#print-root){display:none!important}body.print-cl #print-root{display:block;background:#fff!important}
+body.print-cl #print-root,body.print-cl #print-root *{background:#fff!important;color:#000!important;border-color:#555!important;box-shadow:none!important}
+body.print-cl #print-root .print-only-title{display:block;font-weight:700;margin-bottom:10px}
+body.print-cl #print-root input[type=checkbox]{appearance:auto;width:16px;height:16px}}
+a:focus-visible,summary:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #1B6FE0;outline-offset:2px;border-radius:4px}
+/* accessibility overrides for this page */
+:root{--a11y-link:#0A58B8;--a11y-muted:#44546E}
+:root[data-theme="dark"]{--a11y-link:#7CC0FF;--a11y-muted:#A9B7CC}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--a11y-link:#7CC0FF;--a11y-muted:#A9B7CC}}
+article a,.byline a,.related a,.crumbs a,.lede a{color:var(--a11y-link);text-decoration:underline;text-underline-offset:2px}
+.eyebrow,.meta,figcaption,.cl-hint,.tool-empty,.tool-avoid,.toc-title{color:var(--a11y-muted)!important}
+.eyebrow{background:transparent}
+footer p,footer a{color:var(--a11y-muted)}
+html:has(body.print-cl),body.print-cl{background:#fff!important}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="author" content="Muhammad Ilyas">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5149192401268270"
+     crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5149192401268270">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Why Is My Website Not Showing Up on Google? 7 Fixes With Real Search Console Data","description":"Not showing on Google? Learn to tell indexing from ranking problems with 7 fixes, a status-based troubleshooter and real Search Console data.","image":["https://www.seoglint.com/blog/img/website-not-showing-on-google-hero.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.seoglint.com/blog/website-not-showing-on-google.html"},"datePublished":"2026-11-28","dateModified":"2026-11-28","author":{"@type":"Person","name":"Muhammad Ilyas","url":"https://www.seoglint.com/about.html","sameAs":["https://www.linkedin.com/in/muhammad-ilyas-35a093320/"]},"publisher":{"@type":"Organization","name":"SEOGlint","url":"https://www.seoglint.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.seoglint.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.seoglint.com/blog.html"},{"@type":"ListItem","position":3,"name":"Why Is My Website Not Showing Up on Google?","item":"https://www.seoglint.com/blog/website-not-showing-on-google.html"}]}</script>
+</head>
+<body>
+<nav><div class="wrap nav">
+  <a class="brand" href="/"><span class="logo"></span>SEOGlint</a>
+  <div style="display:flex;gap:10px;align-items:center">
+    <a href="/blog.html" style="font-weight:600;font-size:14px;color:var(--ink-soft)">Blog</a>
+    <button class="tgl" id="theme" title="Toggle light or dark theme" aria-label="Toggle light or dark theme">◐</button>
+    <a href="/" class="btn btn-ghost">Audit a page</a>
+  </div>
+</div></nav>
+<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/blog.html">Blog</a></li><li aria-current="page">Why Is My Website Not Showing Up on Google?</li></ol></nav></div>
+<main class="wrap">
+<span class="eyebrow">Guide with real data</span>
+<img src="/blog/img/website-not-showing-on-google-hero.webp" alt="SEOGlint graphic: website not showing on Google, indexed is not the same as ranked, with 30 pages indexed, 940 impressions and 6 clicks" width="1200" height="675" fetchpriority="high" style="width:100%;height:auto;border-radius:var(--r);margin:0 0 20px;display:block">
+<h1>Why Is My Website Not Showing Up on Google? 7 Fixes With Real Search Console Data</h1>
+<p class="byline">By <a href="/about.html" rel="author">Muhammad Ilyas</a>, <a href="/">SEOGlint</a></p>
+<p class="meta">Blog · Published November 28, 2026 · Original website observations collected on November 28, 2026</p>
+<p class="lede">Is Google not indexing your pages, or is it indexing them without ranking them? Here is how to tell, with real SEOGlint Search Console data.</p>
+<article>
+<p>You launched your website, submitted your sitemap, optimized your pages, and waited for Google to discover your content. But when you search for your products, services, or target keywords, your website is nowhere to be found.</p>
+<p>Does that mean Google has not indexed your website?</p>
+<p>Not necessarily.</p>
+<p>At SEOGlint, we encountered an interesting example while reviewing our own website's search performance. Our website scanner reported an optimization score of 98 out of 100, and Google Search Console reported 30 indexed pages with zero non-indexed pages.</p>
+<p>Yet our Search Performance report showed only six clicks from 940 impressions, with an average position of 74.7.</p>
+<p>This illustrates why website owners must distinguish indexing problems from ranking problems before attempting to fix them.</p>
+<p>In this guide, you will learn how to diagnose both situations using practical troubleshooting steps, real Search Console observations, and official Google documentation.</p>
+<h2 id="quick-answer-why-is-my-website-not-showing-up-on-google">Quick Answer: Why Is My Website Not Showing Up on Google?</h2>
+<div class="keypoint"><p>Your website may not appear on Google because its pages have not been discovered, crawled, or indexed. Alternatively, the pages may already be indexed but rank poorly for the keywords you are searching.</p></div>
+<p>Common issues include:</p>
+<ul>
+<li>Recently published pages that Google has not processed.</li>
+<li>Unintentional robots.txt restrictions.</li>
+<li>Noindex directives.</li>
+<li>Server or page accessibility problems.</li>
+<li>Duplicate URLs and canonical conflicts.</li>
+<li>Weak internal links.</li>
+<li>Content that does not sufficiently satisfy the searcher's needs.</li>
+<li>Competitive search results.</li>
+</ul>
+<p>Start by inspecting the exact page URL in Google Search Console. The indexing result determines which troubleshooting steps you should follow.</p>
+<div class="toc" role="navigation" aria-label="Table of contents"><p class="toc-title">On this page</p><ol><li><a href="#quick-answer-why-is-my-website-not-showing-up-on-google">Quick Answer: Why Is My Website Not Showing Up on Google?</a></li><li><a href="#crawling-indexing-and-ranking-understand-the-difference">Crawling, Indexing, and Ranking: Understand the Difference</a></li><li><a href="#fix-1-check-whether-your-website-is-indexed">Fix 1: Check Whether Your Website Is Indexed</a></li><li><a href="#fix-2-diagnose-google-indexing-issues-in-search-console">Fix 2: Diagnose Google Indexing Issues in Search Console</a></li><li><a href="#fix-3-check-robots-txt-and-noindex-directives">Fix 3: Check Robots.txt and Noindex Directives</a></li><li><a href="#fix-4-check-website-accessibility-and-canonical-urls">Fix 4: Check Website Accessibility and Canonical URLs</a></li><li><a href="#fix-5-submit-your-website-to-google-using-an-xml-sitemap">Fix 5: Submit Your Website to Google Using an XML Sitemap</a></li><li><a href="#fix-6-request-indexing-after-resolving-actual-problems">Fix 6: Request Indexing After Resolving Actual Problems</a></li><li><a href="#fix-7-investigate-rankings-when-your-website-is-already-indexed">Fix 7: Investigate Rankings When Your Website Is Already Indexed</a></li><li><a href="#original-case-study-seoglint-s-indexing-and-search-visibility">Original Case Study: SEOGlint's Indexing and Search Visibility</a></li><li><a href="#website-indexing-troubleshooting-checklist">Website Indexing Troubleshooting Checklist</a></li><li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li><li><a href="#final-thoughts">Final Thoughts</a></li><li><a href="#official-references">Official References</a></li></ol></div>
+<h2 id="crawling-indexing-and-ranking-understand-the-difference">Crawling, Indexing, and Ranking: Understand the Difference</h2>
+<p>Google Search processes websites through different stages.</p>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Data table, scrollable"><table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Discovery</td>
+<td>Google becomes aware of a URL through links, sitemaps, or other sources.</td>
+</tr>
+<tr>
+<td>Crawling</td>
+<td>Google attempts to retrieve and process the page.</td>
+</tr>
+<tr>
+<td>Indexing</td>
+<td>Google analyzes the page and may include it in its search index.</td>
+</tr>
+<tr>
+<td>Ranking and serving</td>
+<td>Google selects and orders relevant results for a user's search.</td>
+</tr>
+</tbody>
+</table></div>
+<p>A website can pass the technical checks necessary for indexing without achieving strong rankings.</p>
+<p>Similarly, a URL can be discovered without being crawled, and a crawled page may remain outside Google's index.</p>
+<p>Understanding these distinctions prevents unnecessary changes and helps you focus on the actual problem.</p>
+<p>For more information, see Google's <a href="https://developers.google.com/search/docs/fundamentals/how-search-works" target="_blank" rel="noopener">guide to how Search works</a>.</p>
+<h2 id="fix-1-check-whether-your-website-is-indexed">Fix 1: Check Whether Your Website Is Indexed</h2>
+<p>Before changing your website, determine whether the affected page is actually in Google's index.</p>
+<h3 id="method-a-perform-a-quick-google-search">Method A: Perform a quick Google search</h3>
+<p>Search Google using the following format:</p>
+<p><code>site:yourdomain.com</code></p>
+<p>For a specific page, try:</p>
+<p><code>site:yourdomain.com/your-page</code></p>
+<p>This can provide a quick indication of whether Google returns pages from your domain.</p>
+<p>However, the site search operator is not a complete or definitive Google index checker. Missing results do not necessarily prove that a URL is unindexed.</p>
+<h3 id="method-b-use-google-search-console">Method B: Use Google Search Console</h3>
+<p>For a website you own or manage:</p>
+<ol>
+<li>Open <a href="https://search.google.com/search-console/" target="_blank" rel="noopener">Google Search Console</a>.</li>
+<li>Select your verified website property.</li>
+<li>Enter the exact page URL into the URL Inspection tool.</li>
+<li>Review the indexing verdict.</li>
+<li>Expand the Page indexing section for additional details.</li>
+</ol>
+<p>If Google reports that the URL is indexed, investigate its search visibility rather than immediately treating it as an indexing failure.</p>
+<p>If the URL is not indexed, examine the reported reason and follow the relevant troubleshooting steps.</p>
+<h3 id="real-example-seoglint-homepage-inspection">Real example: SEOGlint homepage inspection</h3>
+<p>On November 28, 2026, we reviewed the URL Inspection result for the SEOGlint homepage.</p>
+<p>The following information appeared in Search Console:</p>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Data table, scrollable"><table>
+<thead>
+<tr>
+<th>Inspection field</th>
+<th>Observed result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page indexing</td>
+<td>Page is indexed</td>
+</tr>
+<tr>
+<td>Last crawl</td>
+<td>November 23, 2026, 03:49:10</td>
+</tr>
+<tr>
+<td>Crawler</td>
+<td>Googlebot smartphone</td>
+</tr>
+<tr>
+<td>Crawl allowed</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Page fetch</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>Indexing allowed</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>User-declared canonical</td>
+<td>https://www.seoglint.com/</td>
+</tr>
+<tr>
+<td>Google-selected canonical</td>
+<td>Inspected URL</td>
+</tr>
+<tr>
+<td>Sitemap</td>
+<td>https://www.seoglint.com/sitemap.xml</td>
+</tr>
+</tbody>
+</table></div>
+<p>These observations showed that Google had successfully retrieved the homepage and selected the expected canonical URL.</p>
+<p>They did not establish that the homepage would rank highly for competitive SEO keywords.</p>
+<figure><img src="/blog/img/gsc-url-inspection-homepage.webp" srcset="/blog/img/gsc-url-inspection-homepage-560.webp 560w, /blog/img/gsc-url-inspection-homepage.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="Google Search Console URL Inspection result for the SEOGlint homepage showing Page is indexed, last crawl 23 Nov 2026, Googlebot smartphone, crawl allowed, page fetch successful, and matching user-declared and Google-selected canonicals" width="1000" height="576" loading="lazy" decoding="async"><figcaption>Search Console URL Inspection for the SEOGlint homepage, observed 28 November 2026.</figcaption></figure>
+<h2 id="fix-2-diagnose-google-indexing-issues-in-search-console">Fix 2: Diagnose Google Indexing Issues in Search Console</h2>
+<p>Open the Page Indexing report under the Indexing section of Search Console.</p>
+<p>This report helps identify groups of URLs that Google has indexed or excluded.</p>
+<p>Use the following diagnostic table to determine your next action.</p>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Data table, scrollable"><table>
+<thead>
+<tr>
+<th>Search Console status</th>
+<th>What to investigate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page is indexed</td>
+<td>Search performance and ranking</td>
+</tr>
+<tr>
+<td>Discovered – currently not indexed</td>
+<td>Discovery, crawling, and server accessibility</td>
+</tr>
+<tr>
+<td>Crawled – currently not indexed</td>
+<td>Rendered content, duplication, and indexing selection</td>
+</tr>
+<tr>
+<td>Blocked by robots.txt</td>
+<td>Unintended crawl restrictions</td>
+</tr>
+<tr>
+<td>Excluded by noindex tag</td>
+<td>Robots meta tags and HTTP headers</td>
+</tr>
+<tr>
+<td>Indexed, though blocked by robots.txt</td>
+<td>Whether the URL should be accessible or excluded</td>
+</tr>
+<tr>
+<td>Duplicate or alternate page</td>
+<td>Canonical signals and duplicate URLs</td>
+</tr>
+<tr>
+<td>Not found (404)</td>
+<td>Whether the URL should exist</td>
+</tr>
+<tr>
+<td>Server error (5xx)</td>
+<td>Hosting, application, or server reliability</td>
+</tr>
+</tbody>
+</table></div>
+<p>Not every excluded page represents a problem. Redirects, duplicate URLs, intentionally private pages, and removed content may be excluded as expected.</p>
+<section class="tool" id="indexing-troubleshooter" aria-labelledby="tool-h">
+<h3 id="tool-h">Google Indexing Troubleshooter</h3>
+<p class="tool-note"><strong>How this works:</strong> this is a status-based educational tool. You choose the status you see in Google Search Console, and it shows general next steps from the guidance in this article and Google's documentation. It does not connect to Search Console, does not scan your website and cannot see Google's index.</p>
+<noscript><p class="tool-note">JavaScript is turned off, so the interactive tool is unavailable. Use the diagnostic table above: it lists the same statuses and what to investigate for each.</p></noscript>
+<div class="tool-js" hidden>
+<label for="status-select"><strong>Which status does Search Console show for your URL?</strong></label>
+<select id="status-select"><option value="">Choose a status...</option></select>
+<div id="tool-out" class="tool-out" role="status" aria-live="polite"><p class="tool-empty">Select a status to see what to check next.</p></div>
+</div></section>
+<h3 id="crawled-currently-not-indexed">Crawled – Currently Not Indexed</h3>
+<p>This status indicates that Google retrieved the page but has not included it in its index at the time of reporting.</p>
+<p>Investigate:</p>
+<ul>
+<li>Whether the main content renders correctly.</li>
+<li>Whether other URLs contain substantially similar information.</li>
+<li>Whether the page has conflicting canonical signals.</li>
+<li>Whether the content provides a distinct reason for users to visit it.</li>
+</ul>
+<p>Do not assume that this status proves poor content quality. Search Console does not necessarily identify the specific reason Google declined to index an individual page.</p>
+<h3 id="discovered-currently-not-indexed">Discovered – Currently Not Indexed</h3>
+<p>Google knows about the URL, but it has not yet been crawled.</p>
+<p>Check whether the page:</p>
+<ul>
+<li>Appears in a valid sitemap.</li>
+<li>Has crawlable internal links from relevant pages.</li>
+<li>Is served by a reliable website.</li>
+<li>Is unnecessarily duplicated across different URL variations.</li>
+</ul>
+<p>For recently published pages, allow Google time to process the URL. Repeatedly requesting indexing is not a substitute for resolving discovery or accessibility issues.</p>
+<p>See Google's official <a href="https://support.google.com/webmasters/answer/7440203?hl=en" target="_blank" rel="noopener">Page Indexing report documentation</a> for additional status explanations.</p>
+<h2 id="fix-3-check-robots-txt-and-noindex-directives">Fix 3: Check Robots.txt and Noindex Directives</h2>
+<p>Robots.txt and noindex directives serve different purposes.</p>
+<p>Robots.txt controls crawler access, while noindex instructs supported search engines not to include a resource in search results when they can retrieve that directive.</p>
+<h3 id="inspect-your-robots-txt-file">Inspect your robots.txt file</h3>
+<p>Visit:</p>
+<p><code>https://yourdomain.com/robots.txt</code></p>
+<p>An example of a rule that blocks compliant crawlers from the entire website is:</p>
+<div class="codeblock"><span class="lbl">Example robots.txt rule</span><pre tabindex="0"><code>User-agent: *
+Disallow: /</code></pre></div>
+<p>If this rule was accidentally carried over from a development or staging website, it could prevent Google from crawling pages intended for public search visibility.</p>
+<p>Do not remove intentional restrictions without understanding their purpose.</p>
+<p>You can use the <a href="/robots-txt-generator.html">SEOGlint Robots.txt Generator</a> to prepare rules, but always review them before deployment.</p>
+<h3 id="check-for-noindex">Check for noindex</h3>
+<p>Inspect the page's HTML source and HTTP response headers.</p>
+<p>A robots meta tag containing <code>noindex</code> or an HTTP <code>X-Robots-Tag</code> header containing <code>noindex</code> may prevent indexing.</p>
+<p>Remove unintended noindex directives from pages that should appear in search results.</p>
+<h3 id="what-does-indexed-though-blocked-by-robots-txt-mean">What does "Indexed, though blocked by robots.txt" mean?</h3>
+<p>Google may discover and index a URL through links even when robots.txt prevents it from reading the page content.</p>
+<p>If you want that page indexed normally, allow appropriate crawl access.</p>
+<p>If you want to exclude a public page from Google, use a suitable indexing exclusion method and allow Google to retrieve the directive. Blocking crawling alone is not a reliable removal method.</p>
+<p>For confidential content, use authentication rather than relying on robots.txt or noindex.</p>
+<p>Reference: <a href="https://developers.google.com/search/docs/crawling-indexing/block-indexing" target="_blank" rel="noopener">Google's noindex documentation</a>.</p>
+<h2 id="fix-4-check-website-accessibility-and-canonical-urls">Fix 4: Check Website Accessibility and Canonical URLs</h2>
+<p>Google needs to retrieve the public content you want it to process.</p>
+<p>A website may appear normal in your browser while encountering difficulties during automated crawling.</p>
+<p>Check for:</p>
+<ul>
+<li>Unexpected HTTP errors.</li>
+<li>Redirect loops or chains.</li>
+<li>Authentication requirements.</li>
+<li>Firewall restrictions.</li>
+<li>Missing content during rendering.</li>
+<li>Incorrect canonical tags.</li>
+<li>Broken internal links.</li>
+</ul>
+<h3 id="use-the-test-live-url-feature">Use the Test Live URL feature</h3>
+<p>Inspect the affected page in Search Console and select <strong>Test Live URL</strong>.</p>
+<p>This helps you investigate current accessibility and certain technical eligibility checks.</p>
+<p>A successful live test does not mean the page has been indexed. It also does not guarantee that Google will select the URL for indexing.</p>
+<h3 id="verify-canonical-selection">Verify canonical selection</h3>
+<p>A canonical URL identifies the preferred version among duplicate or substantially similar pages.</p>
+<p>For example, a website might have multiple URL variations:</p>
+<ul>
+<li><code>https://example.com/page</code></li>
+<li><code>https://www.example.com/page</code></li>
+<li><code>https://www.example.com/page?ref=campaign</code></li>
+</ul>
+<p>When these represent the same content, consistent redirects, canonical annotations, internal links, and sitemap entries can help Google understand the preferred URL.</p>
+<p>Compare the user-declared canonical with the Google-selected canonical in Search Console.</p>
+<p>If they differ, investigate why Google may prefer another URL before making changes.</p>
+<p>Reference: <a href="https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls" target="_blank" rel="noopener">Google's canonical URL guidelines</a>.</p>
+<h2 id="fix-5-submit-your-website-to-google-using-an-xml-sitemap">Fix 5: Submit Your Website to Google Using an XML Sitemap</h2>
+<p>An XML sitemap provides search engines with a list of URLs you want them to discover.</p>
+<p>It is particularly useful for newly launched websites and websites with content that is difficult to discover through links alone.</p>
+<h3 id="practical-sitemap-generation-test">Practical sitemap generation test</h3>
+<p>We tested the <a href="/sitemap-generator.html">SEOGlint XML Sitemap Generator</a> using three URLs:</p>
+<ul>
+<li>https://www.seoglint.com/</li>
+<li>https://www.seoglint.com/schema-generator.html</li>
+<li>https://www.seoglint.com/schema-markup-validator.html</li>
+</ul>
+<figure><img src="/blog/img/sitemap-generator-input.webp" srcset="/blog/img/sitemap-generator-input-560.webp 560w, /blog/img/sitemap-generator-input.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint XML Sitemap Generator with three SEOGlint URLs entered, weekly change frequency, priority 0.8, and the option to add today&#x27;s date as lastmod checked" width="1000" height="527" loading="lazy" decoding="async"><figcaption>SEOGlint Sitemap Generator input for the three-URL test. The automatic lastmod option was enabled.</figcaption></figure>
+<p>The generator displayed an XML sitemap containing three corresponding URL entries, using UTF-8 encoding.</p>
+<p>The demonstration also included a weekly change frequency, priority of 0.8, and a last-modified date of November 28, 2026.</p>
+<p>There is an important limitation here: the generator's automatic date option was enabled. The generated dates do not establish that each page was significantly modified on that day.</p>
+<figure><img src="/blog/img/sitemap-generator-output.webp" srcset="/blog/img/sitemap-generator-output-560.webp 560w, /blog/img/sitemap-generator-output.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="Generated sitemap.xml with three URL entries for seoglint.com pages, each with lastmod 2026-11-28, weekly changefreq and priority 0.8" width="1000" height="705" loading="lazy" decoding="async"><figcaption>Generated three-URL sitemap. Every entry received the same automatic lastmod date, which is why accurate dates matter in production.</figcaption></figure>
+<p>For production sitemaps, use accurate page modification dates or omit the optional lastmod field when the date is unknown.</p>
+<p>Google ignores the priority and change frequency fields, so increasing these values will not improve search rankings.</p>
+<h3 id="a-minimal-xml-sitemap-example">A minimal XML sitemap example</h3>
+<div class="codeblock"><span class="lbl">Example sitemap</span><pre tabindex="0"><code><span class="k">&lt;?xml</span> version=<span class="s">&quot;1.0&quot;</span> encoding=<span class="s">&quot;UTF-8&quot;</span><span class="k">?&gt;</span>
+<span class="k">&lt;urlset</span> xmlns=<span class="s">&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;</span><span class="k">&gt;</span>
+  <span class="k">&lt;url</span><span class="k">&gt;</span>
+    <span class="k">&lt;loc</span><span class="k">&gt;</span>https://www.seoglint.com/<span class="k">&lt;/loc</span><span class="k">&gt;</span>
+  <span class="k">&lt;/url</span><span class="k">&gt;</span>
+  <span class="k">&lt;url</span><span class="k">&gt;</span>
+    <span class="k">&lt;loc</span><span class="k">&gt;</span>https://www.seoglint.com/schema-generator.html<span class="k">&lt;/loc</span><span class="k">&gt;</span>
+  <span class="k">&lt;/url</span><span class="k">&gt;</span>
+  <span class="k">&lt;url</span><span class="k">&gt;</span>
+    <span class="k">&lt;loc</span><span class="k">&gt;</span>https://www.seoglint.com/schema-markup-validator.html<span class="k">&lt;/loc</span><span class="k">&gt;</span>
+  <span class="k">&lt;/url</span><span class="k">&gt;</span>
+<span class="k">&lt;/urlset</span><span class="k">&gt;</span></code></pre></div>
+<p>This is an illustrative three-URL sitemap, not a replacement for SEOGlint's complete production sitemap.</p>
+<h3 id="how-to-submit-a-sitemap">How to submit a sitemap</h3>
+<ol>
+<li>Create an XML sitemap containing your intended canonical URLs.</li>
+<li>Publish the file at an accessible URL, commonly <code>/sitemap.xml</code>.</li>
+<li>Open Google Search Console.</li>
+<li>Select Sitemaps under the Indexing section.</li>
+<li>Enter the sitemap location and submit it.</li>
+<li>Monitor the processing status and investigate any reported errors.</li>
+</ol>
+<p>You can also use the <a href="/sitemap-checker.html">SEOGlint Sitemap Checker</a> when investigating sitemap-related problems.</p>
+<h3 id="seoglint-s-actual-sitemap-report">SEOGlint's actual sitemap report</h3>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Data table, scrollable"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Observed result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sitemap</td>
+<td>/sitemap.xml</td>
+</tr>
+<tr>
+<td>Submitted</td>
+<td>November 20, 2026</td>
+</tr>
+<tr>
+<td>Last read</td>
+<td>November 28, 2026</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>Discovered pages</td>
+<td>31</td>
+</tr>
+<tr>
+<td>Discovered videos</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<p>The separate Page Indexing report showed 30 indexed pages.</p>
+<p>This difference demonstrates why sitemap discovery counts and indexing counts should not be treated as interchangeable. These reports may update at different times and describe different sets of URLs.</p>
+<p>Successful sitemap processing does not guarantee indexing or rankings.</p>
+<figure><img src="/blog/img/gsc-sitemap-report.webp" srcset="/blog/img/gsc-sitemap-report-560.webp 560w, /blog/img/gsc-sitemap-report.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="Google Search Console Sitemaps report showing /sitemap.xml submitted 20 Nov 2026, last read 28 Nov 2026, status Success, with 31 discovered pages and 0 discovered videos" width="1000" height="459" loading="lazy" decoding="async"><figcaption>Search Console Sitemaps report for sitemap.xml: 31 discovered pages, status Success.</figcaption></figure>
+<p>Reference: <a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap" target="_blank" rel="noopener">Google's sitemap creation and submission guide</a>.</p>
+<h2 id="fix-6-request-indexing-after-resolving-actual-problems">Fix 6: Request Indexing After Resolving Actual Problems</h2>
+<p>If you have published an important new page or corrected an indexing issue, you can request that Google revisit the URL.</p>
+<p>Follow these steps:</p>
+<ol>
+<li>Open URL Inspection in Google Search Console.</li>
+<li>Enter the exact canonical URL.</li>
+<li>Review the existing result.</li>
+<li>Run a live test when investigating technical changes.</li>
+<li>Resolve unintended crawl or indexing restrictions.</li>
+<li>Select Request Indexing when appropriate.</li>
+<li>Monitor the result over time.</li>
+</ol>
+<p>Google does not guarantee a specific indexing deadline. Crawling may take days or weeks, and submitting the same URL repeatedly does not accelerate processing.</p>
+<p>For websites containing many new URLs, maintain an accurate sitemap and strong internal navigation instead of relying exclusively on individual indexing requests.</p>
+<p>See Google's official instructions for <a href="https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl" target="_blank" rel="noopener">requesting a recrawl</a>.</p>
+<h2 id="fix-7-investigate-rankings-when-your-website-is-already-indexed">Fix 7: Investigate Rankings When Your Website Is Already Indexed</h2>
+<p>This is where many website owners misdiagnose the problem.</p>
+<p>If your URL is indexed but does not appear for your target keywords, the issue may be search relevance or competitiveness rather than indexing.</p>
+<p>Open the Search Performance report in Google Search Console.</p>
+<p>Examine:</p>
+<p><strong>Impressions:</strong> Whether your pages are appearing in search results.</p>
+<p><strong>Clicks:</strong> Whether users are selecting those results.</p>
+<p><strong>Average CTR:</strong> How frequently impressions result in clicks.</p>
+<p><strong>Average position:</strong> The average reported search-result position across the relevant impressions.</p>
+<p>Review these metrics by page, query, country, and device rather than relying only on site-wide averages.</p>
+<h3 id="if-your-page-has-impressions-but-few-clicks">If your page has impressions but few clicks</h3>
+<p>Investigate its ranking position, search intent, page title, and how the result appears in the search results.</p>
+<p>A low CTR on a poorly positioned page does not necessarily indicate an ineffective title. Position and the types of searches generating impressions can significantly influence click behavior.</p>
+<h3 id="if-your-page-has-few-or-no-impressions">If your page has few or no impressions</h3>
+<p>Check whether:</p>
+<ul>
+<li>The page addresses a topic people search for.</li>
+<li>The content matches the intended search query.</li>
+<li>Relevant internal pages link to it.</li>
+<li>The page offers information that distinguishes it from existing results.</li>
+<li>The target queries are highly competitive.</li>
+<li>The selected reporting period is sufficiently informative.</li>
+</ul>
+<p>Instead of making unnecessary indexing requests, focus on improving the page's usefulness and relevance.</p>
+<h2 id="original-case-study-seoglint-s-indexing-and-search-visibility">Original Case Study: SEOGlint's Indexing and Search Visibility</h2>
+<p>On November 28, 2026, we reviewed SEOGlint's Search Console reports and performed a homepage scan using our own website auditing tool.</p>
+<h3 id="google-search-console-indexing-results">Google Search Console indexing results</h3>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Data table, scrollable"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Observed value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Indexed pages</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr>
+<td>Not indexed pages</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Sitemap-discovered pages</td>
+<td style="text-align: right;">31</td>
+</tr>
+</tbody>
+</table></div>
+<p>All 30 pages counted in the supplied Page Indexing report were reported as indexed.</p>
+<p>However, the sitemap contained 31 discovered URLs. We cannot conclude from these screenshots alone that every current website URL was indexed.</p>
+<figure><img src="/blog/img/gsc-page-indexing-report.webp" srcset="/blog/img/gsc-page-indexing-report-560.webp 560w, /blog/img/gsc-page-indexing-report.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="Google Search Console Page indexing summary showing 0 not indexed pages with no reasons and 30 indexed pages, with a bar chart rising to 30 near the end of November 2026" width="1000" height="447" loading="lazy" decoding="async"><figcaption>Search Console Page indexing summary: 30 indexed, 0 not indexed.</figcaption></figure>
+<figure><img src="/blog/img/gsc-indexed-pages-report.webp" srcset="/blog/img/gsc-indexed-pages-report-560.webp 560w, /blog/img/gsc-indexed-pages-report.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="Google Search Console Indexed pages detail showing 30 affected pages with the message that these pages can be served on Google" width="1000" height="556" loading="lazy" decoding="async"><figcaption>Search Console Indexed pages detail: 30 affected pages.</figcaption></figure>
+<h3 id="search-performance-results">Search performance results</h3>
+<p>The visible chart covered November 18–26, 2026.</p>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Data table, scrollable"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Observed value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total impressions</td>
+<td style="text-align: right;">940</td>
+</tr>
+<tr>
+<td>Total clicks</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td>Average CTR</td>
+<td style="text-align: right;">0.6%</td>
+</tr>
+<tr>
+<td>Average position</td>
+<td style="text-align: right;">74.7</td>
+</tr>
+</tbody>
+</table></div>
+<p>These numbers indicate that the website had begun appearing in Google Search but had limited click acquisition during the observed reporting period.</p>
+<figure><img src="/blog/img/gsc-search-performance.webp" srcset="/blog/img/gsc-search-performance-560.webp 560w, /blog/img/gsc-search-performance.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="Google Search Console Performance report for 18 to 26 November 2026 showing 6 total clicks, 940 total impressions, 0.6 percent average CTR and average position 74.7" width="1000" height="375" loading="lazy" decoding="async"><figcaption>Search Console Performance report, 18 to 26 November 2026: 6 clicks, 940 impressions, 0.6% CTR, average position 74.7.</figcaption></figure>
+<h3 id="seoglint-website-scanner-results">SEOGlint website scanner results</h3>
+<p>We also entered the SEOGlint website into the <a href="/">SEOGlint Website Scanner</a>.</p>
+<figure><img src="/blog/img/seoglint-scanner-input.webp" srcset="/blog/img/seoglint-scanner-input-560.webp 560w, /blog/img/seoglint-scanner-input.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Scanner with www.seoglint.com entered in the Enter URL field before running the scan" width="1000" height="330" loading="lazy" decoding="async"><figcaption>SEOGlint Scanner input used for the homepage scan.</figcaption></figure>
+<p>The displayed results were:</p>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Data table, scrollable"><table>
+<thead>
+<tr>
+<th>Audit category</th>
+<th style="text-align: right;">Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overall audit score</td>
+<td style="text-align: right;">98/100</td>
+</tr>
+<tr>
+<td>On-Page SEO</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Technical &amp; Schema</td>
+<td style="text-align: right;">83%</td>
+</tr>
+<tr>
+<td>GEO / AEO / AIO</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>SXO</td>
+<td style="text-align: right;">100%</td>
+</tr>
+</tbody>
+</table></div>
+<p>These scores reflect SEOGlint's own auditing criteria. They are not Google ranking scores or independently verified measures of AI search visibility.</p>
+<p>The detailed findings behind the Technical &amp; Schema score were not captured in the available evidence, so we cannot identify the specific checks responsible for that result.</p>
+<figure><img src="/blog/img/seoglint-scanner-results.webp" srcset="/blog/img/seoglint-scanner-results-560.webp 560w, /blog/img/seoglint-scanner-results.webp 1000w" sizes="(max-width: 800px) 100vw, 756px" alt="SEOGlint Scanner result showing an overall score of 98 out of 100, with On-Page SEO 100 percent, Technical and Schema 83 percent, GEO AEO AIO 100 percent and SXO 100 percent" width="1000" height="271" loading="lazy" decoding="async"><figcaption>SEOGlint Scanner results: 98/100 overall. These are SEOGlint audit scores, not Google ranking scores.</figcaption></figure>
+<h3 id="what-this-case-study-teaches-us">What this case study teaches us</h3>
+<p>A high website audit score and a positive indexing report do not automatically translate into high search rankings.</p>
+<p>Our observations demonstrate that a website may simultaneously have:</p>
+<ul>
+<li>Successfully indexed pages.</li>
+<li>A successfully processed sitemap.</li>
+<li>Strong scores under an automated audit tool's criteria.</li>
+<li>Search impressions.</li>
+<li>Relatively low organic clicks.</li>
+</ul>
+<p>These measurements describe different aspects of website performance.</p>
+<p>Technical SEO tools can help identify potential improvements, but they cannot guarantee how Google will rank content.</p>
+<p>For website owners in a similar situation, the next useful step is to investigate page-level search performance and improve content based on actual user needs.</p>
+<h3 id="research-methodology-and-limitations">Research methodology and limitations</h3>
+<p>This case study uses screenshots from SEOGlint's Google Search Console reports, a manual three-URL sitemap generation test, and a homepage scan performed with SEOGlint's own auditing tool.</p>
+<p>The observations were collected on November 28, 2026.</p>
+<p>This is a single-website observational study, not a controlled ranking experiment. It does not establish why Google assigned particular rankings, whether a specific optimization caused indexing, or how another website would perform.</p>
+<p>The sitemap generation demonstration was not submitted as a replacement production sitemap.</p>
+<p>The troubleshooting examples for non-indexed pages in this guide are based on Google's documentation. They were not indexing failures observed on SEOGlint during this review.</p>
+<section class="checklist-print" id="indexing-checklist"><h2 id="website-indexing-troubleshooting-checklist">Website Indexing Troubleshooting Checklist</h2><p class="print-only-title">SEOGlint Website Indexing Troubleshooting Checklist · seoglint.com</p><p>Use this checklist before making changes to your website. It is free to print or save as a PDF, with no registration.</p><ul class="cl"><li><label><input type="checkbox"> <span>Inspect the exact affected URL in Google Search Console.</span></label></li><li><label><input type="checkbox"> <span>Identify whether the problem involves discovery, crawling, indexing, or ranking.</span></label></li><li><label><input type="checkbox"> <span>Confirm that the intended page is publicly accessible.</span></label></li><li><label><input type="checkbox"> <span>Review robots.txt for unintended restrictions.</span></label></li><li><label><input type="checkbox"> <span>Check HTML and HTTP headers for noindex directives.</span></label></li><li><label><input type="checkbox"> <span>Inspect canonical URLs and redirects.</span></label></li><li><label><input type="checkbox"> <span>Confirm that the preferred URL is included in your sitemap.</span></label></li><li><label><input type="checkbox"> <span>Add relevant internal links where needed.</span></label></li><li><label><input type="checkbox"> <span>Check whether the main content renders correctly.</span></label></li><li><label><input type="checkbox"> <span>Review Search Console&#x27;s Manual Actions and Security Issues reports.</span></label></li><li><label><input type="checkbox"> <span>Assess the content against the user&#x27;s search intent.</span></label></li><li><label><input type="checkbox"> <span>Request indexing only when appropriate.</span></label></li><li><label><input type="checkbox"> <span>Record changes and monitor subsequent results.</span></label></li></ul><p class="cl-actions"><button type="button" id="print-cl" class="btn-print" hidden>Print or save checklist</button> <span class="cl-hint">You can also print from your browser menu. Ticks are not saved.</span></p></section>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<div class="faq"><details><summary>How do I check if my website is indexed by Google?</summary><p>Use Google Search Console's URL Inspection tool to check a specific URL on your verified website. A site search on Google can provide a quick indication, but it should not be treated as a comprehensive indexing test.</p></details><details><summary>Why is my website indexed but not showing up on Google?</summary><p>The page may rank too low for the query you are searching, or it may not be selected as a relevant result for that query. Review impressions, position, search intent, and page-level performance in Search Console.</p></details><details><summary>How long does Google take to index a new website?</summary><p>There is no universal indexing deadline. Crawling may take days or weeks, and some URLs may never be selected for indexing. Reliable accessibility, internal links, and an accurate sitemap can help discovery.</p></details><details><summary>Can I force Google to index my website?</summary><p>No. You can request indexing and improve the conditions that support discovery and crawling, but Google ultimately determines which URLs enter its index.</p></details><details><summary>Does submitting a sitemap improve Google rankings?</summary><p>A sitemap helps communicate URL information to search engines. Submission does not directly guarantee improved rankings or inclusion in Google's index.</p></details><details><summary>What is the best Google index checker?</summary><p>For websites you own, the URL Inspection tool in Google Search Console provides direct information about individual URLs. Third-party tools may provide useful technical checks, but their capabilities and data limitations should be understood.</p></details><details><summary>Does a 100% SEO score guarantee first-page rankings?</summary><p>No. Automated SEO scores measure selected checks according to a tool's methodology. Google uses its own ranking systems and evaluates results in relation to individual searches.</p></details><details><summary>Do Google indexing issues differ between countries?</summary><p>The fundamental principles of crawling and indexing apply internationally. Search rankings and visibility, however, can vary according to language, location, search intent, competition, and other contextual factors.</p></details></div>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>If your website is not showing up on Google, do not immediately assume that indexing is the problem.</p>
+<p>Start with evidence.</p>
+<p>Inspect the affected URL, investigate the reported status, and fix the specific issue. If the page is already indexed, shift your attention toward search relevance, content usefulness, and actual performance.</p>
+<p>SEOGlint's own observations show why this distinction matters: 30 reported indexed pages and a 98/100 internal audit score were accompanied by 940 impressions and just six search clicks.</p>
+<p>The goal is not simply to get pages into Google's index. It is to create pages that deserve to be found and are useful when people visit them.</p>
+<p>Explore <a href="/free-seo-tools.html">SEOGlint's free SEO tools</a> or follow our <a href="/seo-audit-checklist.html">SEO Audit Checklist</a> to investigate your website's technical foundations.</p>
+<h2 id="official-references">Official References</h2>
+<ul>
+<li><a href="https://developers.google.com/search/docs/fundamentals/how-search-works" target="_blank" rel="noopener">How Google Search Works</a></li>
+<li><a href="https://support.google.com/webmasters/answer/9012289?hl=en" target="_blank" rel="noopener">Google Search Console URL Inspection Tool</a></li>
+<li><a href="https://support.google.com/webmasters/answer/7440203?hl=en" target="_blank" rel="noopener">Page Indexing Report</a></li>
+<li><a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap" target="_blank" rel="noopener">Build and Submit a Sitemap</a></li>
+<li><a href="https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl" target="_blank" rel="noopener">Request Google to Recrawl a URL</a></li>
+<li><a href="https://support.google.com/webmasters/answer/7042828?hl=en" target="_blank" rel="noopener">Understanding Search Impressions, Position and Clicks</a></li>
+<li><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener">Creating Helpful, Reliable, People-First Content</a></li>
+</ul>
+<div class="keypoint authorbox"><p>Muhammad Ilyas is the creator of SEOGlint, a platform providing free SEO, structured data, and website optimization tools.</p></div>
+</article>
+<div class="related"><h4>Related guides and tools</h4><a href="/sitemap-checker.html">Sitemap Checker →</a><a href="/sitemap-generator.html">XML Sitemap Generator →</a><a href="/robots-txt-generator.html">Robots.txt Generator →</a><a href="/seo-audit-checklist.html">SEO Audit Checklist →</a></div>
+</main>
+<script type="application/json" id="tool-data">[
+{"label":"Page is indexed","meaning":"Google has indexed this URL. If it still does not appear for your searches, the issue is more likely ranking, relevance or competition than indexing.","check":["Open the Performance report and review impressions, clicks, CTR and average position for this page.","Review the results by query, country and device instead of only site-wide averages.","Compare the page with your target search intent and with pages that already rank.","Add relevant internal links and improve usefulness where the page is thin."],"note":"Indexed does not mean ranked, and requesting indexing again will not improve a ranking.","ref":["Google: Understanding impressions, position and clicks","https://support.google.com/webmasters/answer/7042828?hl=en"]},
+{"label":"Discovered – currently not indexed","meaning":"Google knows about the URL but has not crawled it yet.","check":["Confirm the URL is in a valid sitemap.","Add crawlable internal links from relevant pages.","Check that the website is reliable and responds without errors.","Look for unnecessary duplicate URL variations."],"note":"For recently published pages, allow Google time. Repeated indexing requests are not a substitute for fixing discovery or accessibility problems.","ref":["Google: Page indexing report","https://support.google.com/webmasters/answer/7440203?hl=en"]},
+{"label":"Crawled – currently not indexed","meaning":"Google retrieved the page but has not included it in its index at the time of reporting.","check":["Check that the main content renders correctly.","Look for other URLs with substantially similar information.","Review canonical signals for conflicts.","Ask whether the page gives users a distinct reason to visit it."],"note":"This status does not prove poor content quality. Search Console does not necessarily give the specific reason for an individual page.","ref":["Google: Page indexing report","https://support.google.com/webmasters/answer/7440203?hl=en"]},
+{"label":"Blocked by robots.txt","meaning":"A robots.txt rule is preventing Google from crawling the URL.","check":["Open yourdomain.com/robots.txt and look for Disallow rules that match this URL.","Check whether a rule was carried over from a development or staging website.","Decide whether the URL is meant to be public in search."],"note":"Do not remove intentional restrictions without understanding why they exist.","ref":["SEOGlint Robots.txt Generator","/robots-txt-generator.html"]},
+{"label":"Excluded by noindex tag","meaning":"The page tells search engines not to index it.","check":["Inspect the HTML source for a robots meta tag containing noindex.","Check the HTTP response headers for an X-Robots-Tag header containing noindex.","Remove unintended noindex directives from pages that should appear in search."],"note":"If the page is meant to stay out of search, this status is expected. For confidential content, use authentication instead.","ref":["Google: Block indexing with noindex","https://developers.google.com/search/docs/crawling-indexing/block-indexing"]},
+{"label":"Indexed, though blocked by robots.txt","meaning":"Google can index a URL it found through links even when robots.txt stops it from reading the page content.","check":["If you want the page indexed normally, allow appropriate crawl access.","If you want a public page excluded, use a suitable indexing exclusion method and let Google retrieve that directive.","Use authentication for confidential content."],"note":"Blocking crawling alone is not a reliable way to remove a page from Google.","ref":["Google: Block indexing with noindex","https://developers.google.com/search/docs/crawling-indexing/block-indexing"]},
+{"label":"Duplicate or alternate page","meaning":"Google treats this URL as a duplicate or alternate of another page.","check":["Compare the user-declared canonical with the Google-selected canonical.","Check redirects, internal links and sitemap entries for the preferred URL.","Review URL variations such as http and https, www and non-www, or tracking parameters."],"note":"Investigate why Google may prefer another URL before changing anything. This is often expected for variations.","ref":["Google: Consolidate duplicate URLs","https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"]},
+{"label":"Not found (404)","meaning":"Google requested the URL and the server reported that it does not exist.","check":["Decide whether the URL should exist.","If it should, restore the page or fix the link, sitemap entry or redirect that points to it.","If it was removed on purpose, a 404 is expected."],"note":"Not every excluded page is a problem. Removed content can be excluded as expected.","ref":["Google: Page indexing report","https://support.google.com/webmasters/answer/7440203?hl=en"]},
+{"label":"Server error (5xx)","meaning":"The server returned an error when Google tried to fetch the URL.","check":["Check hosting, application and server logs for errors around the crawl time.","Look for redirect loops, firewall blocks or authentication requirements.","Test the live URL in Search Console after fixing the problem."],"note":"A successful live test does not mean the page has been indexed or that Google will select it.","ref":["Google: Page indexing report","https://support.google.com/webmasters/answer/7440203?hl=en"]},
+{"label":"I have not inspected the URL yet","meaning":"Start with the exact page, because the result decides which troubleshooting path applies.","check":["Open Google Search Console and select your verified property.","Paste the exact page URL into the URL Inspection tool.","Read the indexing verdict and expand the Page indexing section.","Then come back and pick the status you see."],"note":"The site: search operator is a quick hint only. It is not a complete or definitive index checker.","ref":["Google: URL Inspection tool","https://support.google.com/webmasters/answer/9012289?hl=en"]}
+]
+</script>
+<script>
+(function(){
+var S=JSON.parse(document.getElementById('tool-data').textContent);
+var sel=document.getElementById('status-select'),out=document.getElementById('tool-out'),wrap=document.querySelector('.tool-js');
+S.forEach(function(s,i){var o=document.createElement('option');o.value=i;o.textContent=s.label;sel.appendChild(o)});
+function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+sel.addEventListener('change',function(){
+ if(sel.value===''){out.innerHTML='<p class="tool-empty">Select a status to see what to check next.</p>';return}
+ var s=S[+sel.value];
+ out.innerHTML='<h4>'+esc(s.label)+'</h4><p>'+esc(s.meaning)+'</p><p><strong>What to check:</strong></p><ul>'+s.check.map(function(c){return '<li>'+esc(c)+'</li>'}).join('')+'</ul><p class="tool-avoid"><strong>Keep in mind:</strong> '+esc(s.note)+'</p>'+(s.ref?'<p><a href="'+s.ref[1]+'" target="_blank" rel="noopener">'+esc(s.ref[0])+'</a></p>':'');
+});
+wrap.hidden=false;
+var pb=document.getElementById('print-cl');
+if(pb){pb.hidden=false;pb.addEventListener('click',function(){var src=document.getElementById('indexing-checklist'),root=document.createElement('div');root.id='print-root';var cl=src.cloneNode(true);var a=src.querySelectorAll('input'),b=cl.querySelectorAll('input');for(var i=0;i<a.length;i++){if(a[i].checked)b[i].setAttribute('checked','')}cl.removeAttribute('id');cl.querySelectorAll('[id]').forEach(function(e){e.removeAttribute('id')});var btn=cl.querySelector('.cl-actions');if(btn)btn.remove();root.appendChild(cl);document.body.appendChild(root);document.body.classList.add('print-cl');window.print();setTimeout(function(){document.body.classList.remove('print-cl');root.remove()},500)})}
+})();
+</script>
+
+<footer class="wrap" style="padding:32px 22px;text-align:center;font-size:13px;color:var(--ink-faint);border-top:1px solid var(--line);margin-top:48px"><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-bottom:12px"><a href="/" style="color:var(--ink-soft)">Home</a><a href="/free-seo-tools.html" style="color:var(--ink-soft)">Free SEO Tools</a><a href="/blog.html" style="color:var(--ink-soft)">Blog</a><a href="/about.html" style="color:var(--ink-soft)">About</a><a href="/contact.html" style="color:var(--ink-soft)">Contact</a><a href="/privacy.html" style="color:var(--ink-soft)">Privacy</a><a href="/terms.html" style="color:var(--ink-soft)">Terms</a></div><p style="margin:0">&copy; 2026 SEOGlint &mdash; Free SEO, GEO &amp; AEO Audit Tool.</p></footer>
+<script>
+(function(){var r=document.documentElement,b=document.getElementById('theme');try{var s=localStorage.getItem('sl');if(s)r.setAttribute('data-theme',s)}catch(e){}if(b)b.onclick=function(){var n=(r.getAttribute('data-theme')||'light')==='light'?'dark':'light';r.setAttribute('data-theme',n);try{localStorage.setItem('sl',n)}catch(e){}}})();
+</script>
+</body>
+</html>
