@@ -115,11 +115,12 @@ footer a{color:var(--ink-soft)}
 <main class="wrap">
   <div class="card">
     <label for="urls">Your URLs (one per line)</label>
-    <textarea id="urls" placeholder="https://yourdomain.com/
-https://yourdomain.com/about
+    <textarea id="urls" aria-describedby="urls-hint" placeholder="https://yourdomain.com/
+https://yourdomain.com/about | 2026-11-20
 https://yourdomain.com/blog/post">https://yourdomain.com/
-https://yourdomain.com/about
+https://yourdomain.com/about | 2026-11-20
 https://yourdomain.com/contact</textarea>
+    <p class="note" id="urls-hint">Optional: add the real last-modified date after a <code>|</code>, like <code>https://yourdomain.com/about | 2026-11-20</code> (format YYYY-MM-DD). Lines without a date get no <code>&lt;lastmod&gt;</code>, which is better than a guessed one.</p>
 
     <div class="grid2">
       <div><label for="freq">Default change frequency</label>
@@ -129,7 +130,9 @@ https://yourdomain.com/contact</textarea>
         <select id="prio"><option>0.8</option><option>1.0</option><option>0.6</option><option>0.5</option><option>0.4</option></select>
       </div>
     </div>
-    <label style="display:flex;align-items:center;gap:8px;font-weight:600"><input type="checkbox" id="today" checked style="width:auto;margin:0"> Add today's date as <code>&lt;lastmod&gt;</code></label>
+    <label style="display:flex;align-items:center;gap:8px;font-weight:600"><input type="checkbox" id="today" style="width:auto;margin:0"> Use today's date for URLs without a date</label>
+    <p class="note" style="margin:4px 0 0">Only tick this if those pages really changed today. Giving every URL the same date is not an accurate <code>&lt;lastmod&gt;</code>, and Google may learn to ignore it.</p>
+    <p class="note" id="warn" role="status" aria-live="polite" style="color:#B3261E" hidden></p>
 
     <div class="row" style="margin-top:8px">
       <button class="btn btn-y" id="gen" type="button" style="flex:1;min-width:180px;justify-content:center">Generate sitemap.xml</button>
@@ -158,7 +161,7 @@ https://yourdomain.com/contact</textarea>
     <h2>What goes in a sitemap entry</h2>
     <ul>
       <li><code>&lt;loc&gt;</code> — the full URL (required). Use the canonical, absolute URL with <code>https://</code>.</li>
-      <li><code>&lt;lastmod&gt;</code> — the date the page last changed (ISO format, e.g. 2026-10-07). Keep it honest; Google uses it as a hint.</li>
+      <li><code>&lt;lastmod&gt;</code> — the date the page last changed (ISO format, e.g. 2026-10-07). Only include it when you know the real date: a missing <code>&lt;lastmod&gt;</code> is better than a guessed one, and giving every URL today's date is not accurate. In this tool, add the date after a <code>|</code> on each line.</li>
       <li><code>&lt;changefreq&gt;</code> — how often the page changes (weekly, monthly…). A loose hint only.</li>
       <li><code>&lt;priority&gt;</code> — relative importance from 0.0 to 1.0. Your homepage is usually 1.0.</li>
     </ul>
@@ -209,12 +212,19 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 function generate(){
   const freq=$('#freq').value,prio=$('#prio').value,useDate=$('#today').checked;
   const d=new Date().toISOString().slice(0,10);
-  const urls=$('#urls').value.split('\n').map(s=>s.trim()).filter(Boolean)
-    .filter((u,i,a)=>a.indexOf(u)===i); // dedupe
+  const bad=[],seen=new Set(),urls=[];
+  $('#urls').value.split('\n').map(s=>s.trim()).filter(Boolean).forEach((line,i)=>{
+    const p=line.split('|'),u=p[0].trim();let dt=(p[1]||'').trim();
+    if(dt){const t=new Date(dt+'T00:00:00Z'),ok=/^\d{4}-\d{2}-\d{2}$/.test(dt)&&!isNaN(t)&&t.toISOString().slice(0,10)===dt;
+      if(!ok){bad.push(line);dt=''}else if(dt>d){bad.push(line+' (future date)');dt=''}}
+    if(!dt&&useDate)dt=d;
+    if(seen.has(u))return;seen.add(u);urls.push({u:u,dt:dt});
+  });
+  const w=$('#warn');if(bad.length){w.textContent='Ignored the date on '+bad.length+' line'+(bad.length===1?'':'s')+' (use YYYY-MM-DD, not in the future): '+bad.join('; ');w.hidden=false}else{w.hidden=true;w.textContent=''}
   let out='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-  urls.forEach(u=>{
-    out+='  <url>\n    <loc>'+esc(u)+'</loc>\n';
-    if(useDate)out+='    <lastmod>'+d+'</lastmod>\n';
+  urls.forEach(e=>{
+    out+='  <url>\n    <loc>'+esc(e.u)+'</loc>\n';
+    if(e.dt)out+='    <lastmod>'+e.dt+'</lastmod>\n';
     out+='    <changefreq>'+freq+'</changefreq>\n    <priority>'+prio+'</priority>\n  </url>\n';
   });
   out+='</urlset>\n';
